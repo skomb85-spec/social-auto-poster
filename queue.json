@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-10-25T22:00:00+09:00",
-  "note": "Approved ruri Threads posts migrated from Muse cron jobs. source_cron_id on each item names the original cron job. Results are recorded in Cloudflare KV (result:<item_id>).",
+  "updated_at": "2026-10-25T22:50:00+09:00",
+  "note": "Approved Threads posts migrated from Muse cron jobs (ruri 10 items, soseki 6 items incl. the 10/27 tree chain). source_cron_id on each item names the original cron job. Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
       "item_id": "ruri-20261026-am",
@@ -102,6 +102,66 @@
       "text": "カートに入れる前に確かめる3つ、決めました✍️\n①今の手持ちに、同じ役割のものがないか\n②塗る順番と量は合っているか\n③クーポン・ポイント・定期の合計額まで見たか\n1個でも「うーん」なら、今日は買わない。\n勢いで買って後悔するのは、もう卒業したいのよ😂",
       "media": [],
       "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261026-am",
+      "source_cron_id": "soseki-post-20261026-am",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-26T08:00:00+09:00",
+      "text": "月曜の朝、会社に着く前に一度ため息をつく。\n『こころ』の先生は、言えない過去を抱えたまま静かに消耗していった。毎週のため息も、身体からの小さな知らせかもしれない。\nため息の理由を、言葉にできますか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261026-pm",
+      "source_cron_id": "soseki-post-20261026-pm",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-26T20:00:00+09:00",
+      "text": "昇進した。給料も上がった。なのに、なぜか嬉しくない。\n『門』の宗助は、崖の上の家で静かに暮らしながら、ずっと何かを避け続けていた。収まった人ほど、違和感は言葉になりにくい。\nその違和感の正体を、プロフィールのリンク先の記事に書きました。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261027-am",
+      "source_cron_id": "soseki-post-20261027-am",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-27T08:00:00+09:00",
+      "text": "40代になって、転職サイトを開くのが怖くなった。\n『それから』の代助は、決断を先延ばしにしながら暮らしていた。怖いのはサイトそのものではなく、このまま何も決めない自分の方かもしれない。\n若い頃の「どこかあるだろう」と、今の「開けない」のあいだに、決断の先延ばしがある。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261027-pm",
+      "source_cron_id": "soseki-post-20261027-pm-tree",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-27T20:00:00+09:00",
+      "text": "「辞めたい」の中身は、人によって全然違う。\n『道草』の健三は、生活費や義理や過去に縛られ、どれが自分を止めているのか分からなくなっていた。給料か、人間関係か、体力か、仕事内容か。\nまずは、どれが一番重いかだけ分けてみる。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261027-pm-r1",
+      "source_cron_id": "soseki-post-20261027-pm-tree",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-27T20:00:00+09:00",
+      "text": "『道草』の健三の場合は、辞めたい理由が一つではなかった。\n絡まった糸を一本ずつほどくように、理由を分けると、辞めることと残ることのあいだに、もう少し選択肢が見えてくる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261027-pm"
+    },
+    {
+      "item_id": "soseki-20261027-pm-r2",
+      "source_cron_id": "soseki-post-20261027-pm-tree",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-27T20:00:00+09:00",
+      "text": "今日できるのは、大きな決断ではない。\n『道草』の健三のように絡まった理由をほどくなら、まず一番重い理由を一つだけ紙に書く。それが給料の問題なのか、人の問題なのかを確かめるだけで、辞めたいの形が少し変わる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261027-pm-r1"
     }
   ]
 }

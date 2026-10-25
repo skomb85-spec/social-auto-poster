@@ -1,29 +1,41 @@
-// social-auto-poster — Phase 1 (ruri Threads pilot)
+// social-auto-poster — Phase 1+ (ruri + soseki Threads)
 //
 // Runs on a Cloudflare Cron Trigger (every 30 min). Reads the approved
 // queue from this repo's queue.json (raw URL), posts due items to the
-// Threads API with the long-lived token stored in Workers KV, and
-// records per-item results back into KV. No secrets live in this file.
+// Threads API with each account's long-lived token stored in Workers KV,
+// and records per-item results back into KV. No secrets live in this file.
+//
+// Accounts (added soseki on 2026-10-25 at the user's request; soseki
+// Instagram stays out of scope):
+//   ruri   -> KV token:threads:ruri
+//   soseki -> KV token:threads:soseki
 //
 // KV binding: STATE (namespace "auto-poster")
-//   token:threads:ruri   -> long-lived Threads token (user-saved)
-//   result:<item_id>     -> per-item result JSON (double-post guard)
-//   state:last_run       -> summary of the most recent scheduled run
+//   token:threads:<account> -> long-lived Threads token (user-saved)
+//   result:<item_id>         -> per-item result JSON (double-post guard)
+//   state:last_run           -> summary of the most recent scheduled run
+//
+// Tree posts: an item with reply_to_item_id is posted as a reply to the
+// post recorded under result:<reply_to_item_id>. If the parent is not
+// posted yet, the item waits for a later run (no attempt is consumed).
 //
 // HTTP endpoints (read-only, for verification):
 //   /           -> service banner
 //   /__status   -> last scheduled run summary from KV
-//   /__dryrun   -> token whoami + queue read + due judgement, no posting
+//   /__dryrun   -> per-account token whoami + queue read + due judgement,
+//                  no posting
 
 const CONFIG = {
   queueUrl:
     "https://raw.githubusercontent.com/skomb85-spec/social-auto-poster/main/queue.json",
-  tokenKey: "token:threads:ruri",
-  account: "ruri",
-  platform: "threads",
   graph: "https://graph.threads.net/v1.0",
   maxAttempts: 3,
 };
+
+const ACCOUNTS = [
+  { account: "ruri", tokenKey: "token:threads:ruri", platform: "threads" },
+  { account: "soseki", tokenKey: "token:threads:soseki", platform: "threads" },
+];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -57,11 +69,10 @@ async function threadsPostForm(path, token, params) {
   });
 }
 
-async function postToThreads(me, token, text) {
-  const container = await threadsPostForm(`/${me.id}/threads`, token, {
-    media_type: "TEXT",
-    text,
-  });
+async function postToThreads(me, token, text, replyToId) {
+  const params = { media_type: "TEXT", text };
+  if (replyToId) params.reply_to_id = replyToId;
+  const container = await threadsPostForm(`/${me.id}/threads`, token, params);
   // Text containers are usually ready within seconds; poll briefly.
   let status = "IN_PROGRESS";
   for (let i = 0; i < 5 && status === "IN_PROGRESS"; i++) {
@@ -89,22 +100,20 @@ async function postToThreads(me, token, text) {
   return { postId: published.id, permalink };
 }
 
-async function run(env, { dry = false } = {}) {
-  const startedAt = new Date().toISOString();
+async function runAccount(env, cfg, queue, { dry = false } = {}) {
   const summary = {
-    at: startedAt,
-    dry,
     username: null,
     queue_items: 0,
     due: [],
     posted: [],
     skipped: [],
     errors: [],
+    next_item: null,
   };
 
-  const token = await env.STATE.get(CONFIG.tokenKey);
+  const token = await env.STATE.get(cfg.tokenKey);
   if (!token) {
-    summary.errors.push(`kv token missing: ${CONFIG.tokenKey}`);
+    summary.errors.push(`kv token missing: ${cfg.tokenKey}`);
     return summary;
   }
 
@@ -112,17 +121,8 @@ async function run(env, { dry = false } = {}) {
   const me = await threadsFetch("/me?fields=id,username", token);
   summary.username = me.username || null;
 
-  const qResp = await fetch(`${CONFIG.queueUrl}?t=${Date.now()}`, {
-    headers: { "User-Agent": "social-auto-poster" },
-    cf: { cacheTtl: 0, cacheEverything: false },
-  });
-  if (!qResp.ok) {
-    summary.errors.push(`queue fetch http ${qResp.status}`);
-    return summary;
-  }
-  const queue = await qResp.json();
   const items = (queue.items || []).filter(
-    (i) => i.account === CONFIG.account && i.platform === CONFIG.platform
+    (i) => i.account === cfg.account && i.platform === cfg.platform
   );
   summary.queue_items = items.length;
 
@@ -218,11 +218,43 @@ async function run(env, { dry = false } = {}) {
       continue;
     }
 
+    // Tree posts: resolve the parent post id from KV results. If the
+    // parent is not posted yet, wait for a later run without consuming
+    // an attempt.
+    let replyToId = null;
+    if (item.reply_to_item_id) {
+      const parentRaw = await env.STATE.get(`result:${item.reply_to_item_id}`);
+      const parent = parentRaw ? JSON.parse(parentRaw) : null;
+      if (parent && parent.status === "posted" && parent.post_id) {
+        replyToId = parent.post_id;
+      } else if (dry) {
+        // In dry runs the parent may be due in the same run; report the
+        // chain as resolvable when the parent is itself a queue item.
+        const parentItem = (queue.items || []).find(
+          (i) => i.item_id === item.reply_to_item_id
+        );
+        if (!parentItem) {
+          summary.skipped.push({
+            item_id: item.item_id,
+            why: "parent not posted yet",
+          });
+          continue;
+        }
+      } else {
+        summary.skipped.push({
+          item_id: item.item_id,
+          why: "parent not posted yet",
+        });
+        continue;
+      }
+    }
+
     summary.due.push({
       item_id: item.item_id,
       publish_at: item.publish_at,
       prev_status: prev ? prev.status : null,
       attempts: prev ? prev.attempts || 0 : 0,
+      reply_to_item_id: item.reply_to_item_id || null,
     });
     if (dry) continue;
 
@@ -237,7 +269,12 @@ async function run(env, { dry = false } = {}) {
       })
     );
     try {
-      const { postId, permalink } = await postToThreads(me, token, item.text);
+      const { postId, permalink } = await postToThreads(
+        me,
+        token,
+        item.text,
+        replyToId
+      );
       await env.STATE.put(
         key,
         JSON.stringify({
@@ -263,7 +300,7 @@ async function run(env, { dry = false } = {}) {
           })
         );
         summary.errors.push({ item_id: item.item_id, error: "rate_limited" });
-        break; // 429 stops the whole run
+        break; // 429 stops this account's run
       }
       const status =
         attempts >= CONFIG.maxAttempts ? "failed_final" : "failed";
@@ -281,6 +318,41 @@ async function run(env, { dry = false } = {}) {
         item_id: item.item_id,
         error: String((e && e.message) || e).slice(0, 200),
       });
+    }
+  }
+
+  return summary;
+}
+
+async function run(env, { dry = false } = {}) {
+  const startedAt = new Date().toISOString();
+  const summary = { at: startedAt, dry, accounts: {}, errors: [] };
+
+  const qResp = await fetch(`${CONFIG.queueUrl}?t=${Date.now()}`, {
+    headers: { "User-Agent": "social-auto-poster" },
+    cf: { cacheTtl: 0, cacheEverything: false },
+  });
+  if (!qResp.ok) {
+    summary.errors.push(`queue fetch http ${qResp.status}`);
+    return summary;
+  }
+  const queue = await qResp.json();
+
+  for (const cfg of ACCOUNTS) {
+    try {
+      summary.accounts[cfg.account] = await runAccount(env, cfg, queue, {
+        dry,
+      });
+    } catch (e) {
+      summary.accounts[cfg.account] = {
+        username: null,
+        queue_items: 0,
+        due: [],
+        posted: [],
+        skipped: [],
+        errors: [String((e && e.message) || e).slice(0, 300)],
+        next_item: null,
+      };
     }
   }
 
