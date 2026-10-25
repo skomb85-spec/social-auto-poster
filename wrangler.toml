@@ -1,0 +1,10 @@
+name = "social-auto-poster"
+main = "worker/worker.js"
+compatibility_date = "2024-11-01"
+
+[triggers]
+crons = ["*/30 * * * *"]
+
+[[kv_namespaces]]
+binding = "STATE"
+id = "b761cb19ee3846fdbe4becb6461c23fd"

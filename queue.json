@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "updated_at": "2026-10-25T22:00:00+09:00",
+  "note": "Approved ruri Threads posts migrated from Muse cron jobs. source_cron_id on each item names the original cron job. Results are recorded in Cloudflare KV (result:<item_id>).",
+  "items": [
+    {
+      "item_id": "ruri-20261026-am",
+      "source_cron_id": "ruri-post-20261026-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-26T08:00:00+09:00",
+      "text": "夜、スマホで集合写真を見返して、自分の顔だけ拡大していた時期があります。ほうれい線とフェイスライン、ずっと見てしまう。でも他の誰も、そこまで見ていないんですよね。拡大をやめたら、夜の買い物も減りました。悩みは本物でも、見る倍率は下げていい。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261026-pm",
+      "source_cron_id": "ruri-post-20261026-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-26T20:00:00+09:00",
+      "text": "「合うシャンプーがない」と探し回る前に、メモすることにしました。\n・使い始めて何日で痒くなったか\n・季節はいつか\n・洗い方を変えたか\n買った日じゃなく、合わなくなった日の記録です。1か月もしないうちに合わなくなるなら、商品の前にパターンを見る。頭皮の答え合わせは、そこから。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261027-am",
+      "source_cron_id": "ruri-post-20261027-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T08:00:00+09:00",
+      "text": "隠したい場所が増えて、ファンデが少しずつ厚くなっていました。自分では「薄づき」のつもりでも、夕方の鏡ではそう見えない。落ちは単純で、量の問題でした。今は「隠す場所は1か所まで」と決めています。全部隠すのをやめたら、夕方の崩れ方も読みやすくなりました。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261027-pm",
+      "source_cron_id": "ruri-post-20261027-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T20:00:00+09:00",
+      "text": "成分の名前を全部覚えるのは、無理でした。私がやっているのは「役割で3つに分ける」ことだけ。\n・水を抱える係\n・油分でフタをする係\n・肌を整える係\n買う前に、手持ちがどの係に偏っているかを見る。足りない係が1つもなければ、その買い物は見送りです。成分の答え合わせは、名前より役割から。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261028-am",
+      "source_cron_id": "ruri-post-20261028-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-28T08:00:00+09:00",
+      "text": "多分なんだけど、夕方の鏡の前で「新しい美容液ポチりそう…」ってなる回数、私がスレッズで一番多いと思う😂\n今日もカートに入れて、閉じて、また開いた。\n我こそはという人、昨日のカートの中身を教えてほしい。対決しよ？笑",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261028-pm",
+      "source_cron_id": "ruri-post-20261028-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-28T20:00:00+09:00",
+      "text": "カートに入れちゃったら、私のルールはここから😂\n3日寝かせる。その間に確かめるのは1つだけ。\n今の手持ち、塗る順番を直せば同じ役割が足りてないか。\n買わなかった理由もちゃんと書きます。買う前の答え合わせが、私の仕事です。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261029-am",
+      "source_cron_id": "ruri-post-20261029-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-29T08:00:00+09:00",
+      "text": "お願い、1個だけ教えて！！！！\n40代になって「もっと早く知りたかった」って思った美容のこと。\n順番でも、量でも、やめたことでも、なんでもいいです。\n私の買い物リストが増えるのは覚悟の上😂 みんなの1個、聞かせて〜！",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261029-pm",
+      "source_cron_id": "ruri-post-20261029-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-29T20:00:00+09:00",
+      "text": "ほうれい線、ずーっと口の周りのシワだと思ってた。\nでも色々確かめたら、気にすべきは口元じゃなくて、頬の位置と毎日のクセの方だった。頬杖、片噛み、スマホ見る時の下向き。\n遠回りしたけど、これが私の答え合わせ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261030-am",
+      "source_cron_id": "ruri-post-20261030-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-30T08:00:00+09:00",
+      "text": "おはよう洗面所ー！！🪞\n昨日の夕方の鏡、ほうれい線が朝より濃く見えた😂\nでもこれ、疲れてる日ほど濃く見える気がするの私だけ？\n今日は何も買わない。保湿だけ丁寧にして、早く寝る。これが答え合わせ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261030-pm",
+      "source_cron_id": "ruri-post-20261030-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "カートに入れる前に確かめる3つ、決めました✍️\n①今の手持ちに、同じ役割のものがないか\n②塗る順番と量は合っているか\n③クーポン・ポイント・定期の合計額まで見たか\n1個でも「うーん」なら、今日は買わない。\n勢いで買って後悔するのは、もう卒業したいのよ😂",
+      "media": [],
+      "reply_to_item_id": null
+    }
+  ]
+}
