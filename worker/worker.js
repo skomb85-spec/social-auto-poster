@@ -19,6 +19,14 @@
 // post recorded under result:<reply_to_item_id>. If the parent is not
 // posted yet, the item waits for a later run (no attempt is consumed).
 //
+// Conditional CTA replies: an item may carry
+//   condition: { min_views?: int, min_likes?: int }
+// Such an item (normally a reply scheduled ~1h after its parent) posts
+// only if the parent post's observed Threads metrics meet at least one
+// specified threshold (OR). Unmet -> result "skipped_condition" (final,
+// no retry). Metrics unreadable or unverifiable -> result
+// "skipped_condition_error" (final): a gated CTA is never posted blind.
+//
 // HTTP endpoints (read-only, for verification):
 //   /           -> service banner
 //   /__status   -> last scheduled run summary from KV
@@ -100,6 +108,35 @@ async function postToThreads(me, token, text, replyToId) {
   return { postId: published.id, permalink };
 }
 
+// Returns the effective gate {min_views?, min_likes?} or null when the
+// item carries no usable condition (legacy behaviour: always post).
+function effectiveCondition(condition) {
+  if (!condition || typeof condition !== "object") return null;
+  const out = {};
+  if (Number.isFinite(condition.min_views)) out.min_views = condition.min_views;
+  if (Number.isFinite(condition.min_likes)) out.min_likes = condition.min_likes;
+  return Object.keys(out).length ? out : null;
+}
+
+// Reads a post's observed metrics via the Insights endpoint. A metric
+// absent from the response stays null (unverifiable), never zero.
+async function getPostMetrics(token, postId) {
+  const data = await threadsFetch(
+    `/${postId}/insights?metric=views,likes`,
+    token
+  );
+  const out = { views: null, likes: null };
+  for (const m of (data && data.data) || []) {
+    const raw =
+      (m.values && m.values[0] && m.values[0].value) ??
+      (m.total_value && m.total_value.value);
+    if (typeof raw !== "number") continue;
+    if (m.name === "views") out.views = raw;
+    if (m.name === "likes") out.likes = raw;
+  }
+  return out;
+}
+
 async function runAccount(env, cfg, queue, { dry = false } = {}) {
   const summary = {
     username: null,
@@ -176,6 +213,17 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
       summary.skipped.push({ item_id: item.item_id, why: "rate_limited" });
       continue;
     }
+    if (prev && prev.status === "skipped_condition") {
+      summary.skipped.push({ item_id: item.item_id, why: "condition not met" });
+      continue;
+    }
+    if (prev && prev.status === "skipped_condition_error") {
+      summary.skipped.push({
+        item_id: item.item_id,
+        why: "condition check failed (permanent)",
+      });
+      continue;
+    }
     // Duplicate guard: a previous attempt may have published without its
     // result being recorded. Match by exact text before re-posting.
     if (prev && (prev.status === "posting" || prev.status === "failed")) {
@@ -222,6 +270,7 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
     // parent is not posted yet, wait for a later run without consuming
     // an attempt.
     let replyToId = null;
+    let parentPendingDry = false;
     if (item.reply_to_item_id) {
       const parentRaw = await env.STATE.get(`result:${item.reply_to_item_id}`);
       const parent = parentRaw ? JSON.parse(parentRaw) : null;
@@ -240,10 +289,125 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
           });
           continue;
         }
+        parentPendingDry = true;
       } else {
         summary.skipped.push({
           item_id: item.item_id,
           why: "parent not posted yet",
+        });
+        continue;
+      }
+    }
+
+    // Conditional CTA gate: when the item carries a condition, measure
+    // the parent post before posting. A skip here is final and consumes
+    // no posting attempt. In dry runs this is read-only diagnostics:
+    // unmet items are reported as skipped, nothing is written.
+    const cond = effectiveCondition(item.condition);
+    let observed = null;
+    if (cond && !parentPendingDry) {
+      if (!replyToId) {
+        if (!dry) {
+          await env.STATE.put(
+            key,
+            JSON.stringify({
+              status: "skipped_condition_error",
+              attempts: prev ? prev.attempts || 0 : 0,
+              condition: cond,
+              reason:
+                "condition set but no parent post to measure (reply_to_item_id missing or parent has no post_id)",
+              updated_at: new Date().toISOString(),
+              source_cron_id: item.source_cron_id || null,
+            })
+          );
+        }
+        summary.skipped.push({
+          item_id: item.item_id,
+          why: "condition: no parent post",
+        });
+        continue;
+      }
+      try {
+        observed = await getPostMetrics(token, replyToId);
+      } catch (e) {
+        if (e instanceof RateLimitError) {
+          if (dry) {
+            summary.errors.push({
+              item_id: item.item_id,
+              error: "rate_limited (metrics fetch)",
+            });
+            continue;
+          }
+          await env.STATE.put(
+            key,
+            JSON.stringify({
+              status: "rate_limited",
+              attempts: prev ? prev.attempts || 0 : 0,
+              updated_at: new Date().toISOString(),
+              source_cron_id: item.source_cron_id || null,
+              note: "429 during condition metrics fetch: aborted this run per standing rule",
+            })
+          );
+          summary.errors.push({ item_id: item.item_id, error: "rate_limited" });
+          break; // 429 stops this account's run
+        }
+        if (!dry) {
+          await env.STATE.put(
+            key,
+            JSON.stringify({
+              status: "skipped_condition_error",
+              attempts: prev ? prev.attempts || 0 : 0,
+              condition: cond,
+              reason: "metrics fetch failed",
+              error: String((e && e.message) || e).slice(0, 300),
+              updated_at: new Date().toISOString(),
+              source_cron_id: item.source_cron_id || null,
+            })
+          );
+        }
+        summary.skipped.push({
+          item_id: item.item_id,
+          why: "condition: metrics fetch failed",
+        });
+        continue;
+      }
+      const met =
+        (cond.min_views != null &&
+          observed.views != null &&
+          observed.views >= cond.min_views) ||
+        (cond.min_likes != null &&
+          observed.likes != null &&
+          observed.likes >= cond.min_likes);
+      if (!met) {
+        // A specified metric that came back null could not be verified;
+        // that is a check failure (permanent), not a clean "not met".
+        const unverifiable =
+          (cond.min_views != null && observed.views == null) ||
+          (cond.min_likes != null && observed.likes == null);
+        if (!dry) {
+          await env.STATE.put(
+            key,
+            JSON.stringify({
+              status: unverifiable
+                ? "skipped_condition_error"
+                : "skipped_condition",
+              attempts: prev ? prev.attempts || 0 : 0,
+              condition: cond,
+              metrics: observed,
+              ...(unverifiable
+                ? { reason: "specified metric unavailable in insights response" }
+                : {}),
+              updated_at: new Date().toISOString(),
+              source_cron_id: item.source_cron_id || null,
+            })
+          );
+        }
+        summary.skipped.push({
+          item_id: item.item_id,
+          why: unverifiable
+            ? "condition: metric unavailable"
+            : "condition not met",
+          metrics: observed,
         });
         continue;
       }
@@ -255,6 +419,7 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
       prev_status: prev ? prev.status : null,
       attempts: prev ? prev.attempts || 0 : 0,
       reply_to_item_id: item.reply_to_item_id || null,
+      ...(cond ? { condition: cond, metrics: observed } : {}),
     });
     if (dry) continue;
 
@@ -284,9 +449,14 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
           permalink,
           posted_at: new Date().toISOString(),
           source_cron_id: item.source_cron_id || null,
+          ...(cond ? { condition: cond, metrics: observed } : {}),
         })
       );
-      summary.posted.push({ item_id: item.item_id, permalink });
+      summary.posted.push({
+        item_id: item.item_id,
+        permalink,
+        ...(cond ? { metrics: observed } : {}),
+      });
     } catch (e) {
       if (e instanceof RateLimitError) {
         await env.STATE.put(
@@ -312,6 +482,7 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
           error: String((e && e.message) || e).slice(0, 300),
           updated_at: new Date().toISOString(),
           source_cron_id: item.source_cron_id || null,
+          ...(cond ? { condition: cond, metrics: observed } : {}),
         })
       );
       summary.errors.push({

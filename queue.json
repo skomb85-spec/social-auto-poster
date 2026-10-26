@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T12:39:51+09:00",
+  "updated_at": "2026-10-26T17:20:00+09:00",
   "note": "Approved Threads posts migrated from Muse cron jobs (ruri 10 items, soseki 6 items incl. the 10/27 tree chain). source_cron_id on each item names the original cron job. Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -162,6 +162,30 @@
       "text": "今日できるのは、大きな決断ではない。\n『道草』の健三のように絡まった理由をほどくなら、まず一番重い理由を一つだけ紙に書く。それが給料の問題なのか、人の問題なのかを確かめるだけで、辞めたいの形が少し変わる。",
       "media": [],
       "reply_to_item_id": "soseki-20261027-pm-r1"
+    },
+    {
+      "item_id": "ruri-20261026-orbis",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-26T19:00:00+09:00",
+      "text": "シミ対策って聞くと、真っ先に「美白美容液を足すこと」だと思ってた。\nでも待って。夕方の鏡で「増えた！？」って焦るシミ、朝の洗面所でもう一回見ると、そこまでじゃない日が多くない？\n私の場合、乾燥でくすんで見える分と、ファンデが毛穴に落ちて影になる分が、シミに化けてた。\nだから今は、美白を足す前に「朝の顔と夕方の顔を見比べる」が先。\n本物のシミへのケアは、それから決める。これが私の答え合わせ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261026-orbis-cta",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-26T20:00:00+09:00",
+      "text": "反応もらえたので置いておきますね。\nメインで書いた「朝と夕方で見比べる」の続きで、私が今、買う前の答え合わせリストに入れている美白ケアの候補がこちらです。\nオルビス アドバンスド ブライトニング セラム。\nまだ買っていません。成分と、続けられる条件かどうかをいま確かめているところです。判定したら、買う・買わないの理由までちゃんと書きます。\n気になる人は、買う前にまず成分と条件のチェックからどうぞ▼\n（PR）https://px.a8.net/svt/ejp?a8mat=4BEPPT+BB8WG2+1USQ+3YW8WI",
+      "media": [],
+      "reply_to_item_id": "ruri-20261026-orbis",
+      "condition": {
+        "min_views": 50,
+        "min_likes": 2
+      }
     }
   ]
 }
