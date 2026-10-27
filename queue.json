@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T21:52:24+09:00",
+  "updated_at": "2026-10-27T21:55:31+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -462,6 +462,61 @@
       "text": "ちょっと聞いて、最近知って固まった言葉。「ゴースト血管」って知ってた？\n40代を過ぎると、毛細血管が細くなって消えていくことがあるんだそうです。\nくすみも髪のパサつきも、「栄養が届いてない」が関係してるかもって話を見て、高い美容液を足し続けてた私は静かに反省…😂\nスーパーで買えるスパイスを上手に使ってる人が多いらしくて、私も答え合わせ中です。\nみんなはこの手の話、どこまで信じる派？",
       "media": [],
       "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-reply-20261027-1",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T21:57:00+09:00",
+      "text": "それ私もですー！夕方16時過ぎると急にモロモロし出すの、ほんと地味にショックですよね😂",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18668931052000128"
+    },
+    {
+      "item_id": "ruri-reply-20261027-2",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T22:07:00+09:00",
+      "text": "41歳、鼻の毛穴…わかりすぎます😂\n私も鏡に近づいてはため息、の側の人間です。\nちなみにいちばん気になるのって、黒ずみですか？開きですか？",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18016386557953051"
+    },
+    {
+      "item_id": "ruri-reply-20261027-3",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T22:22:00+09:00",
+      "text": "40代、参加させてください〜！私も「結局なに使えばいいの」でずっと迷子でした😂\n新しいのを買っては棚が増えて、満足したのかも分からないまま次を探す、を繰り返してた側です。",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18097958207657492"
+    },
+    {
+      "item_id": "ruri-reply-20261027-4",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T22:37:00+09:00",
+      "text": "めちゃくちゃ共感です〜！私もあれもこれも足して棚がパンパンだった時期があります😂\n今はもう、足すより先に順番だと思ってます。",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18003296219801507"
+    },
+    {
+      "item_id": "ruri-reply-20261027-5",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T22:52:00+09:00",
+      "text": "夕方の頭皮のベタつき、わかります〜！私も前はゴシゴシ洗う派でした😂\n洗いすぎ説、私も試してみたらしっくりきて。\n予洗いを長めにするようにしたら、夕方のもやもやが前よりマシな気がしてます。",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18022967204945893"
     }
   ]
 }
