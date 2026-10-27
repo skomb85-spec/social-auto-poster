@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T21:55:31+09:00",
+  "updated_at": "2026-10-27T21:56:34+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -517,6 +517,16 @@
       "media": [],
       "reply_to_item_id": null,
       "reply_to_post_id": "18022967204945893"
+    },
+    {
+      "item_id": "ruri-20261029-extra",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-29T17:00:00+09:00",
+      "text": "なんでこんなに太っちゃったのかな。\n生まれたとき、3.4キロしかなかったのに。\n40年かけて、順調に育ちすぎたみたいです😂",
+      "media": [],
+      "reply_to_item_id": null
     }
   ]
 }
