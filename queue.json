@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-26T22:28:00+09:00",
+  "updated_at": "2026-10-27T09:15:00+09:00",
   "note": "Approved Threads posts migrated from Muse cron jobs (ruri 10 items, soseki 6 items incl. the 10/27 tree chain). source_cron_id on each item names the original cron job. Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -245,6 +245,17 @@
       "publish_at": "2026-11-02T20:00:00+09:00",
       "text": "気になる美容液のページ、今日も開いちゃった😂\n「購入」ボタンの手前で、指が止まってます。\n私の判定はここから。現品をいきなり買う前に、「試せる形があるか」を先に確かめる。サンプルでも、トライアルでも、少量サイズでも。\n試せる形が無ければ、その場では買わない。それが今の私のルールです。\n今日の判定は、保留。合うか分からない物に、最初から現品は賭けすぎなのよ。",
       "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261027-reel-001",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-27T12:00:00+09:00",
+      "text": "朝は水だけ洗顔、してない？🌊\n私もずっと水だけ派でした。でも夕方のテカリが気になって、基本の洗い方に変えてみたよ🧴\nまずは手を洗う → ぬるま湯で予洗い → 泡でTゾーンから → タオルは押さえるだけ。\nみんなの朝洗顔、コメントで教えて〜！\n答え合わせの候補はプロフィールのリンクに置いてます。\n#40代美容 #洗顔 #スキンケアの順番 #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-005-v5.mp4",
       "reply_to_item_id": null
     }
   ]
