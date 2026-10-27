@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T09:15:00+09:00",
-  "note": "Approved Threads posts migrated from Muse cron jobs (ruri 10 items, soseki 6 items incl. the 10/27 tree chain). source_cron_id on each item names the original cron job. Results are recorded in Cloudflare KV (result:<item_id>).",
+  "updated_at": "2026-10-27T15:25:00+09:00",
+  "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
       "item_id": "ruri-20261026-am",
@@ -257,6 +257,86 @@
       "media": [],
       "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-005-v5.mp4",
       "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261028-am",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-28T08:00:00+09:00",
+      "text": "あと20年、と数えた朝がある。\n『三四郎』の主人公は、東京に出てきてからずっと、自分の居場所が決まらないまま日々を眺めていた。20年を年で数えると刑期みたいになるが、月曜の朝に直すと、まだ決め直せる回数に見えてくる。\nあなたは、あと何回、月曜の朝を迎えたいですか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261028-pm",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-28T20:00:00+09:00",
+      "text": "求人票の「未経験歓迎」と「経験者優遇」が、同じ画面に並んでいた。漱石はロンドン留学で神経をすり減らして帰国し、教壇に立ちながら書き始めた。\n条件に自分を合わせる前に、まず自分が何に疲れているのかを分ける方が先だ。その分け方を、プロフィールのリンク先の整理シートに置きました。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261029-am",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-29T08:00:00+09:00",
+      "text": "夢の中でまで、仕事をしていませんか。\n『夢十夜』は夢の話を十編集めた連作で、目覚めたあとも夢の感触だけが残ることがある。眠っているあいだも会社から離れられないのは、頑張り不足ではなく頭がまだ職場に置き去りなだけかもしれない。\n夢の中まで出勤しなくていい。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261029-pm",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-29T20:00:00+09:00",
+      "text": "会議で頷いた回数だけ、自分が薄くなっていく気がする。『吾輩は猫である』の猫は、人間の奇妙な習慣を一歩引いて眺めていた。\n頷くことが仕事になっている職場では、意見より空気の方が先に決まっている。頷きの多さは、適応力ではなく消耗の記録だ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261030-am",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-30T08:00:00+09:00",
+      "text": "朝食の席では笑っているのに、玄関を出た瞬間に顔が戻る。\n『行人』の二郎は、兄・一郎の心の内が分からず、自分の気持ちも言葉にできずに悩んでいた。家族の前で元気なふりをするのは、弱さではなく、壊れた姿を見せたくない優しさの裏返しでもある。\n玄関の内側の顔と、外側の顔。その差が、そのまま疲れの量だ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261030-pm",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "決めるか残るか、決められないのではない。近づきすぎて、全体が見えていないだけだ。\n漱石は『倫敦塔』で、ロンドン塔の石の重さを眺めながら、自分の悩みとは別の時間の流れを感じ取っていた。決断の前に必要なのは、もう一つの情報ではなく、少しの距離だ。\n全体が見えていないのだとしたら、決める前に何から眺め直しますか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261030-pm-r1",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "塔を眺める漱石の視線は、塔そのものより、塔が見てきた時間に向けられていた。\n今の職場も、目の前の締切だけで測ると重く見える。五年という単位で眺め直してみる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261030-pm"
+    },
+    {
+      "item_id": "soseki-20261030-pm-r2",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "決める前に、まず一枚だけ紙を用意する。\n「辞めたい理由」と「残りたい理由」を一行ずつ書く。どちらが多いかではなく、どちらを読んだときに胸が動くかを確かめるだけで、決められないの形が少し変わる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261030-pm-r1"
     }
   ]
 }
