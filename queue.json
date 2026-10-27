@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T15:25:00+09:00",
+  "updated_at": "2026-10-27T16:47:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -337,6 +337,61 @@
       "text": "決める前に、まず一枚だけ紙を用意する。\n「辞めたい理由」と「残りたい理由」を一行ずつ書く。どちらが多いかではなく、どちらを読んだときに胸が動くかを確かめるだけで、決められないの形が少し変わる。",
       "media": [],
       "reply_to_item_id": "soseki-20261030-pm-r1"
+    },
+    {
+      "item_id": "ruri-ig-20261028-reel-002",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-28T20:00:00+09:00",
+      "text": "毎日洗ってるのに頭皮がかゆい…それ、洗う順番かも🫧 基本は ブラッシング→ぬるま湯で予洗い→泡と指の腹→毛先からトリートメント🧴 みんなの洗い方、コメントで教えて〜！ #40代美容 #シャンプー #頭皮ケア #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-006-v3.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261029-reel-003",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-29T20:00:00+09:00",
+      "text": "忙しい朝、ファンデ直塗りしてない？☀️ 順番は スキンケア→日焼け止め→下地→ファンデーション が基本だよ🧴 みんなの朝の順番、コメントで教えて〜！ #40代美容 #日焼け止め #ベースメイク #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-007-v2.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261030-reel-004",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "美容液、いちばん最後に塗ってない？💧 私もずっと乳液のあとでした。でも基本は、化粧水の直後・乳液の前に挟むことだそうです🧴 乾いた肌に直塗りはやめて、少量を2回に分けるのが今の私の答え合わせ。私が迷った末に残したのは、オルビス アドバンスド ブライトニング セラム（美白美容液）(PR)。美白美容液を探している人は、プロフィールのリンクから見てみてね🔗 みんなの美容液の順番、コメントで教えて〜！ #40代美容 #美容液 #スキンケアの順番 #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-008-v2.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261031-reel-005",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-31T20:00:00+09:00",
+      "text": "シャンプー、朝派？夜派？🫧 私はずっと朝シャンでした。でも一日の汚れは、その日の夜に落とすのが基本だそうです🌙 ぬるま湯でゆっくり、泡は手のひらで作って、根元から乾かすのが今の私の答え合わせ。私が頭皮で迷った末に残したのは、haru kurokami スカルプシャンプー(PR)。頭皮ケアのシャンプーを探している人は、プロフィールのリンクから見てみてね🔗 みんなは朝派？夜派？コメントで教えて〜！ #40代美容 #シャンプー #頭皮ケア #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-009-v1.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261101-reel-006",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-01T20:00:00+09:00",
+      "text": "ヘアオイル、髪全体に塗ってない？✨ 私も根元からベタ塗りして、夕方には重たい髪でした。基本は、乾かす前に、濡れた髪の毛先と中間へ少量から💧 私が髪で迷った末に残したのは、エマ コカルネ ヘアオイル(PR)。ヘアオイルを探している人は、プロフィールのリンクから見てみてね🔗 みんなのオイルの量、コメントで教えて〜！ #40代美容 #ヘアオイル #ヘアケア #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-010-v2.mp4",
+      "reply_to_item_id": null
     }
   ]
 }
