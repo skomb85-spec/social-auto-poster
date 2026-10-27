@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T18:23:52+09:00",
+  "updated_at": "2026-10-27T21:52:24+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -450,6 +450,16 @@
       "platform": "threads",
       "publish_at": "2026-11-02T12:30:00+09:00",
       "text": "寝落ちするタイプです😂\n夜、最後までちゃんとケアできる人を心から尊敬します。\nだから私の美容は「夜に頑張らない前提」で組み立ててます。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261028-extra",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-28T17:00:00+09:00",
+      "text": "ちょっと聞いて、最近知って固まった言葉。「ゴースト血管」って知ってた？\n40代を過ぎると、毛細血管が細くなって消えていくことがあるんだそうです。\nくすみも髪のパサつきも、「栄養が届いてない」が関係してるかもって話を見て、高い美容液を足し続けてた私は静かに反省…😂\nスーパーで買えるスパイスを上手に使ってる人が多いらしくて、私も答え合わせ中です。\nみんなはこの手の話、どこまで信じる派？",
       "media": [],
       "reply_to_item_id": null
     }
