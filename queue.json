@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T16:47:00+09:00",
+  "updated_at": "2026-10-27T18:23:52+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -391,6 +391,66 @@
       "text": "ヘアオイル、髪全体に塗ってない？✨ 私も根元からベタ塗りして、夕方には重たい髪でした。基本は、乾かす前に、濡れた髪の毛先と中間へ少量から💧 私が髪で迷った末に残したのは、エマ コカルネ ヘアオイル(PR)。ヘアオイルを探している人は、プロフィールのリンクから見てみてね🔗 みんなのオイルの量、コメントで教えて〜！ #40代美容 #ヘアオイル #ヘアケア #NG美容 #美容の答え合わせ",
       "media": [],
       "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-010-v2.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261028-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-28T12:30:00+09:00",
+      "text": "化粧水、残り少なくなると急にドバドバ使い始めるの、私だけ？😂\n大事に使ってた前半の私、どこ行った。\n気持ちはもう次のボトルなのよね。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261029-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-29T12:30:00+09:00",
+      "text": "娘への「がんばったねプリン」、夜に私が食べちゃった😂\n買い物も同じで、理由はだいたい後付け。\n「ご褒美だから」は、私の中でいちばん当てにならない理由です。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261030-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-30T12:30:00+09:00",
+      "text": "昼のメイク直しで気づいたこと。\n愛用してた口紅が、なんだか浮いて見える😂\n色が合わなくなったんじゃなくて、唇の縦ジワに色が入り込むようになってた。\n口紅のせいにしてごめん、の気づき。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261031-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-31T12:30:00+09:00",
+      "text": "美容の仙人になりたいのに、セールの通知ひとつで一喜一憂してる私です😂\n土曜のお昼から、心が忙しい。\n買うかどうか決めるのは、通知じゃなくて私だったはず。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261101-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-01T12:30:00+09:00",
+      "text": "買い物のレジで、自分の手の甲を見て止まった😂\n顔のケアはあんなに考えるのに、手はハンドクリームすら気まぐれで。\n手って毎日いちばん働いてるのに、いちばん後回しだったな。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261102-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-02T12:30:00+09:00",
+      "text": "寝落ちするタイプです😂\n夜、最後までちゃんとケアできる人を心から尊敬します。\nだから私の美容は「夜に頑張らない前提」で組み立ててます。",
+      "media": [],
       "reply_to_item_id": null
     }
   ]
