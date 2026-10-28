@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-27T21:56:34+09:00",
+  "updated_at": "2026-10-28T20:08:45+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -68,7 +68,7 @@
       "source_cron_id": "ruri-post-20261029-am",
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-29T08:00:00+09:00",
+      "publish_at": "2026-10-31T20:00:00+09:00",
       "text": "お願い、1個だけ教えて！！！！\n40代になって「もっと早く知りたかった」って思った美容のこと。\n順番でも、量でも、やめたことでも、なんでもいいです。\n私の買い物リストが増えるのは覚悟の上😂 みんなの1個、聞かせて〜！",
       "media": [],
       "reply_to_item_id": null
@@ -78,7 +78,7 @@
       "source_cron_id": "ruri-post-20261029-pm",
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-29T20:00:00+09:00",
+      "publish_at": "2026-11-03T20:00:00+09:00",
       "text": "ほうれい線、ずーっと口の周りのシワだと思ってた。\nでも色々確かめたら、気にすべきは口元じゃなくて、頬の位置と毎日のクセの方だった。頬杖、片噛み、スマホ見る時の下向き。\n遠回りしたけど、これが私の答え合わせ。",
       "media": [],
       "reply_to_item_id": null
@@ -88,7 +88,7 @@
       "source_cron_id": "ruri-post-20261030-am",
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-30T08:00:00+09:00",
+      "publish_at": "2026-11-04T20:00:00+09:00",
       "text": "おはよう洗面所ー！！🪞\n昨日の夕方の鏡、ほうれい線が朝より濃く見えた😂\nでもこれ、疲れてる日ほど濃く見える気がするの私だけ？\n今日は何も買わない。保湿だけ丁寧にして、早く寝る。これが答え合わせ。",
       "media": [],
       "reply_to_item_id": null
@@ -98,7 +98,7 @@
       "source_cron_id": "ruri-post-20261030-pm",
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-30T20:00:00+09:00",
+      "publish_at": "2026-11-06T20:00:00+09:00",
       "text": "カートに入れる前に確かめる3つ、決めました✍️\n①今の手持ちに、同じ役割のものがないか\n②塗る順番と量は合っているか\n③クーポン・ポイント・定期の合計額まで見たか\n1個でも「うーん」なら、今日は買わない。\n勢いで買って後悔するのは、もう卒業したいのよ😂",
       "media": [],
       "reply_to_item_id": null
@@ -192,7 +192,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-31T08:00:00+09:00",
+      "publish_at": "2026-11-08T20:00:00+09:00",
       "text": "結局さ、40代の美容って、新しい物を「足す」前に「順番と量」を直すのが先だよね。\n何を塗るかより、どの順番で、どれだけ塗るか。ここがズレてたら、高い物を足しても活きない気がしてる😌",
       "media": [],
       "reply_to_item_id": null
@@ -202,7 +202,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-31T20:00:00+09:00",
+      "publish_at": "2026-11-09T20:00:00+09:00",
       "text": "美容って、顔のケアさえ頑張ればいいと思ってた。化粧水も美容液も、ぜーんぶ顔のため😂\nでもこの前、電車の窓に映った横顔を見たら、顔より先に目についたのが首で…。\n注力してたのは顔だけ。見落としてたのは首だったのよね。\n今日から、保湿の余りは顎の下で止めずに、首まで伸ばすことにします。",
       "media": [],
       "reply_to_item_id": null
@@ -212,7 +212,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-11-01T08:00:00+09:00",
+      "publish_at": "2026-11-10T20:00:00+09:00",
       "text": "朝、自分の支度は家族のあと。最後の最後です😂\nだから聞かせて！ バタバタの朝でも「これだけは外せない」って美容、1個だけ教えて！！\n順番の工夫でも、量のことでも、潔くやめたことでもOK。なんでもいいです。\n日曜の朝くらい、みんなの知恵でラクさせて〜🙏",
       "media": [],
       "reply_to_item_id": null
@@ -222,7 +222,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-11-01T20:00:00+09:00",
+      "publish_at": "2026-11-12T20:00:00+09:00",
       "text": "肌がゆらいでる日、私のルールは「足す」じゃなくて「減らす」です✍️\n減らすのは、この3つ。\n①出すアイテムの数（その日は洗顔と保湿だけ）\n②こする回数（触れるのは最小限に、そっと置く）\n③試す予定（新しい物は、調子が戻るまでおあずけ）\n増やさない・触らない・試さない。守りの日があってもいいよね。",
       "media": [],
       "reply_to_item_id": null
@@ -232,7 +232,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-11-02T08:00:00+09:00",
+      "publish_at": "2026-11-13T20:00:00+09:00",
       "text": "今朝、洗面所の棚を数えてしまった…。\n開封済みで使いかけの美容液、5本もあった😂 しかも全部「いい感じがする」で止まってるやつ。\n使いかけコレクションの多さなら、正直ちょっと誰にも負ける気がしないの。\n勝てる人いたら名乗り出てほしい。あなたの棚、今何本開いてますか？",
       "media": [],
       "reply_to_item_id": null
@@ -242,7 +242,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-11-02T20:00:00+09:00",
+      "publish_at": "2026-11-15T20:00:00+09:00",
       "text": "気になる美容液のページ、今日も開いちゃった😂\n「購入」ボタンの手前で、指が止まってます。\n私の判定はここから。現品をいきなり買う前に、「試せる形があるか」を先に確かめる。サンプルでも、トライアルでも、少量サイズでも。\n試せる形が無ければ、その場では買わない。それが今の私のルールです。\n今日の判定は、保留。合うか分からない物に、最初から現品は賭けすぎなのよ。",
       "media": [],
       "reply_to_item_id": null
@@ -408,7 +408,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-29T12:30:00+09:00",
+      "publish_at": "2026-11-01T20:00:00+09:00",
       "text": "娘への「がんばったねプリン」、夜に私が食べちゃった😂\n買い物も同じで、理由はだいたい後付け。\n「ご褒美だから」は、私の中でいちばん当てにならない理由です。",
       "media": [],
       "reply_to_item_id": null
@@ -418,7 +418,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-30T12:30:00+09:00",
+      "publish_at": "2026-11-05T20:00:00+09:00",
       "text": "昼のメイク直しで気づいたこと。\n愛用してた口紅が、なんだか浮いて見える😂\n色が合わなくなったんじゃなくて、唇の縦ジワに色が入り込むようになってた。\n口紅のせいにしてごめん、の気づき。",
       "media": [],
       "reply_to_item_id": null
@@ -428,7 +428,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-31T12:30:00+09:00",
+      "publish_at": "2026-11-07T20:00:00+09:00",
       "text": "美容の仙人になりたいのに、セールの通知ひとつで一喜一憂してる私です😂\n土曜のお昼から、心が忙しい。\n買うかどうか決めるのは、通知じゃなくて私だったはず。",
       "media": [],
       "reply_to_item_id": null
@@ -438,7 +438,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-11-01T12:30:00+09:00",
+      "publish_at": "2026-11-11T20:00:00+09:00",
       "text": "買い物のレジで、自分の手の甲を見て止まった😂\n顔のケアはあんなに考えるのに、手はハンドクリームすら気まぐれで。\n手って毎日いちばん働いてるのに、いちばん後回しだったな。",
       "media": [],
       "reply_to_item_id": null
@@ -448,7 +448,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-11-02T12:30:00+09:00",
+      "publish_at": "2026-11-14T20:00:00+09:00",
       "text": "寝落ちするタイプです😂\n夜、最後までちゃんとケアできる人を心から尊敬します。\nだから私の美容は「夜に頑張らない前提」で組み立ててます。",
       "media": [],
       "reply_to_item_id": null
@@ -523,7 +523,7 @@
       "source_cron_id": null,
       "account": "ruri",
       "platform": "threads",
-      "publish_at": "2026-10-29T17:00:00+09:00",
+      "publish_at": "2026-11-02T20:00:00+09:00",
       "text": "なんでこんなに太っちゃったのかな。\n生まれたとき、3.4キロしかなかったのに。\n40年かけて、順調に育ちすぎたみたいです😂",
       "media": [],
       "reply_to_item_id": null
