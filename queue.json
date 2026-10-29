@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-29T21:12:00+09:00",
+  "updated_at": "2026-10-29T21:35:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -546,7 +546,7 @@
       "publish_at": "2026-11-02T20:00:00+09:00",
       "text": "美白美容液、シミのとこだけ塗ってませんか。基本は顔全体にのばして、気になる部分に重ね塗り。私が残したオルビスの美白美容液（アドバンスド ブライトニング セラム）はプロフィールのリンクに置きました（PR）\n#40代美容 #美白美容液 #スキンケアの順番",
       "media": [],
-      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-011-v1.mp4",
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-011-v2.mp4",
       "reply_to_item_id": null
     }
   ]
