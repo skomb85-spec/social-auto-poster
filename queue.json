@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-29T20:04:00+09:00",
+  "updated_at": "2026-10-29T21:12:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -529,14 +529,25 @@
       "reply_to_item_id": null
     },
     {
-          "item_id": "hoshimi-20261029-pm",
-          "source_cron_id": null,
-          "account": "threads_hoshimi",
-          "platform": "threads",
-          "publish_at": "2026-10-29T21:00:00+09:00",
-          "text": "10年、ずっと「いて当たり前」の席でした。いなくなったら困るのに、いる間は誰にも見られなかった、ほしみです。\n\nいまは、生年月日から本命星を視てます。\n\n最近、がんばっているのに、いつも脇役のままみたいに感じる人、増えてませんか。\nだから、ここ作りました。\n\n生年月日だけ、コメントに置いていってください。生まれた年だけでも、本命星は出せます。\nあなたの本命星と、座りがちな席を、順番に返します。\n\n自分の席を知りたい人は、フォローしといて。",
-          "media": [],
-          "reply_to_item_id": null
+      "item_id": "hoshimi-20261029-pm",
+      "source_cron_id": null,
+      "account": "threads_hoshimi",
+      "platform": "threads",
+      "publish_at": "2026-10-29T21:00:00+09:00",
+      "text": "10年、ずっと「いて当たり前」の席でした。いなくなったら困るのに、いる間は誰にも見られなかった、ほしみです。\n\nいまは、生年月日から本命星を視てます。\n\n最近、がんばっているのに、いつも脇役のままみたいに感じる人、増えてませんか。\nだから、ここ作りました。\n\n生年月日だけ、コメントに置いていってください。生まれた年だけでも、本命星は出せます。\nあなたの本命星と、座りがちな席を、順番に返します。\n\n自分の席を知りたい人は、フォローしといて。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261102-reel-007",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-02T20:00:00+09:00",
+      "text": "美白美容液、シミのとこだけ塗ってませんか。基本は顔全体にのばして、気になる部分に重ね塗り。私が残したオルビスの美白美容液（アドバンスド ブライトニング セラム）はプロフィールのリンクに置きました（PR）\n#40代美容 #美白美容液 #スキンケアの順番",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-011-v1.mp4",
+      "reply_to_item_id": null
     }
   ]
 }
