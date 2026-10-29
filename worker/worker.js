@@ -77,6 +77,12 @@ const ACCOUNTS = [
     lane: "soseki",
   },
   {
+    account: "threads_hoshimi",
+    tokenKey: "token:threads:threads_hoshimi",
+    platform: "threads",
+    lane: "threads_hoshimi",
+  },
+  {
     account: "ruri",
     tokenKey: "token:instagram:ruri",
     idKey: "id:instagram:ruri",
