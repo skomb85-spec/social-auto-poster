@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-28T20:08:45+09:00",
+  "updated_at": "2026-10-29T20:04:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -527,6 +527,16 @@
       "text": "なんでこんなに太っちゃったのかな。\n生まれたとき、3.4キロしかなかったのに。\n40年かけて、順調に育ちすぎたみたいです😂",
       "media": [],
       "reply_to_item_id": null
+    },
+    {
+          "item_id": "hoshimi-20261029-pm",
+          "source_cron_id": null,
+          "account": "threads_hoshimi",
+          "platform": "threads",
+          "publish_at": "2026-10-29T21:00:00+09:00",
+          "text": "10年、ずっと「いて当たり前」の席でした。いなくなったら困るのに、いる間は誰にも見られなかった、ほしみです。\n\nいまは、生年月日から本命星を視てます。\n\n最近、がんばっているのに、いつも脇役のままみたいに感じる人、増えてませんか。\nだから、ここ作りました。\n\n生年月日だけ、コメントに置いていってください。生まれた年だけでも、本命星は出せます。\nあなたの本命星と、座りがちな席を、順番に返します。\n\n自分の席を知りたい人は、フォローしといて。",
+          "media": [],
+          "reply_to_item_id": null
     }
   ]
 }
