@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-30T09:30:00+09:00",
+  "updated_at": "2026-10-30T15:40:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -547,6 +547,86 @@
       "text": "美白美容液、シミのとこだけ塗ってませんか。基本は顔全体にのばして、気になる部分に重ね塗り。私が残したオルビスの美白美容液（アドバンスド ブライトニング セラム）はプロフィールのリンクに置きました（PR）\n#40代美容 #美白美容液 #スキンケアの順番",
       "media": [],
       "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-011-v2.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261031-am",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-31T08:00:00+09:00",
+      "text": "面談で「もう少し主体性を」と言われた。何をどう変えればいいのか、その場では聞けなかった。\n『坊っちゃん』の主人公は、理不尽な相手には真正面から食ってかかる。曖昧な言葉をそのまま持ち帰るより、言われた言葉の中身をその場で確かめる方が、後で自分を責めずに済む。言われた言葉を、その場で聞き返せていますか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261031-pm",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-31T20:00:00+09:00",
+      "text": "会議で、部長の案に無理があると分かっていながら頷いた。言い返せば、後輩たちの前で自分の立場が悪くなる気がした。\n『草枕』の冒頭に、こうある。「智に働けば角が立つ。情に棹させば流される。意地を通せば窮屈だ。とかくに人の世は住みにくい。」\n頷いて疲れるのは弱さではない。上にも下にも気を遣わされる、その位置の窮屈さだ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261101-am",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-01T08:00:00+09:00",
+      "text": "辞めると言い出す場面を想像しては、やめている。言い出せないのは、決心が足りないからだろうか。\n『野分』の道也は、富豪や権力者への無礼な態度がもとで、故郷の教職を追われた。言い出せない理由は、決心の弱さではなく、",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261101-am-r1",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-01T08:00:00+09:00",
+      "text": "言ったあと、暮らしがどう回るか分からない、その重さだった。道也は、思ったことを言った代償に職を失った。だから言い出す前に、まず言ったあとに何が起きるかを並べてみる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261101-am"
+    },
+    {
+      "item_id": "soseki-20261101-am-r2",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-01T08:00:00+09:00",
+      "text": "並べたら、紙に一行だけ書く。「誰に言いづらいか」が分かれば、言い出す相手と順番が見えてくる。\nその一行なら、決心が固まる前に書ける。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261101-am-r1"
+    },
+    {
+      "item_id": "soseki-20261101-pm",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-01T20:00:00+09:00",
+      "text": "「転職は35歳まで」って、36歳になった途端に何がダメになるんだろう。体力？記憶力？\n夏目漱石が教職を辞め、朝日新聞社に入ったのは40歳。\n人間の能力より、採用する側の物差しが古くなっていないか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261102-am",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-02T08:00:00+09:00",
+      "text": "「いい会社にいるのに、なぜ辞めたいの」と言われた。答えに詰まったのは、自分の言葉がまだなかったからだ。\n漱石は1914年の講演「私の個人主義」で、他人の物差しではなく自分の判断で生きる「自己本位」を説いた。世間の評価で測るのをやめれば、辞めたい理由は言い訳ではなく自分の言葉になる。\nまず、誰の物差しで測っているかだけ確かめてみる。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261102-pm",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-02T20:00:00+09:00",
+      "text": "流れてくる投稿で、わざわざ反感を買うような言い方をしている人がいた。見たくないのに、なぜか目が止まる。\n『明暗』の小林は、自分のことをこう言っている。「わざわざ人の厭がるような事を云ったりしたりするんです。そうでもしなければ……僕の存在を人に認めさせる事ができないんです。僕は無能です。」\nその「認めさせたい」が先に立つ形を知ってから、自分の言葉が尖る日が、ふと気になるようになった。",
+      "media": [],
       "reply_to_item_id": null
     }
   ]
