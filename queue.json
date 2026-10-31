@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-30T15:40:00+09:00",
+  "updated_at": "2026-10-31T13:14:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -626,6 +626,16 @@
       "platform": "threads",
       "publish_at": "2026-11-02T20:00:00+09:00",
       "text": "流れてくる投稿で、わざわざ反感を買うような言い方をしている人がいた。見たくないのに、なぜか目が止まる。\n『明暗』の小林は、自分のことをこう言っている。「わざわざ人の厭がるような事を云ったりしたりするんです。そうでもしなければ……僕の存在を人に認めさせる事ができないんです。僕は無能です。」\nその「認めさせたい」が先に立つ形を知ってから、自分の言葉が尖る日が、ふと気になるようになった。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "tomurai-20261031-pm",
+      "source_cron_id": null,
+      "account": "threads_tomurai",
+      "platform": "threads",
+      "publish_at": "2026-10-31T20:00:00+09:00",
+      "text": "『いないと困る』と言われて10年。昇給も、役職も、なしでした。\n先月、その脇役を弔いました。\n「がんばれば報われる」と言われて、その役を10年、延命してきました。\n生まれた年で視えるんです。その人が座らされた席と、本当の席の違いが。\nいまは、九星気学で本命星を視てます。\nだから、ここで弔いを始めました。\nひとりで脇役を演じ続けてる人は、生年月日をコメントに置いていってください。あなたの本命星と、本当の席を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、演じてきた役を下りる手伝いをします。\n役回りの延命、いたしません。\nでも、あなたの本当の席は、ちゃんと残してあります。",
       "media": [],
       "reply_to_item_id": null
     }
