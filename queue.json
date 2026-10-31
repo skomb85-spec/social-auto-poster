@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-31T13:14:00+09:00",
+  "updated_at": "2026-10-31T13:45:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -636,6 +636,76 @@
       "platform": "threads",
       "publish_at": "2026-10-31T20:00:00+09:00",
       "text": "『いないと困る』と言われて10年。昇給も、役職も、なしでした。\n先月、その脇役を弔いました。\n「がんばれば報われる」と言われて、その役を10年、延命してきました。\n生まれた年で視えるんです。その人が座らされた席と、本当の席の違いが。\nいまは、九星気学で本命星を視てます。\nだから、ここで弔いを始めました。\nひとりで脇役を演じ続けてる人は、生年月日をコメントに置いていってください。あなたの本命星と、本当の席を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、演じてきた役を下りる手伝いをします。\n役回りの延命、いたしません。\nでも、あなたの本当の席は、ちゃんと残してあります。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261103-am",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-03T08:00:00+09:00",
+      "text": "40代、転職するか残るか、もう2年決められません。\n紙に「辞めたい理由」と「残りたい理由」を書いても、どっちを読んでも胸が動かなくて。\n決められない自分が情けなくて、今日も求人を見て閉じました。\n『それから』の代助も、決めないまま先延ばしにして暮らしていた。あれ、他人事じゃなかった。\n同じところで止まってる人、いますか？",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261103-pm",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-03T20:00:00+09:00",
+      "text": "40代、仕事でミスして落ち込んでたら、年下の子が「大丈夫ですよ」って声をかけてくれた。\n大人になってまで何してるんだって、恥ずかしいやら嬉しいやら。\n『坊っちゃん』に出てくる清は、坊っちゃんが何をしても味方でいてくれた。ああいう一言に、人は続けてこられるんだと思う。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261104-am",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-04T08:00:00+09:00",
+      "text": "40代、飲み会の席で、自分の番になると何も出てこなくて固まりました。情けない。\n若い子たちがスラスラ近況を話す中で、言いたいことの半分も出てこなくて。\n『三四郎』の三四郎も、東京に出てきて、広い世界に圧倒されてばかりいた。\nみんなはこういう時、どうしてる？",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261104-pm",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-04T20:00:00+09:00",
+      "text": "40代、有給を取るって言うだけで、なぜか申し訳ない気持ちになる。今日も送信ボタンの前で、理由欄を3回書き直した。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261104-pm-self",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-04T21:00:00+09:00",
+      "text": "補足すると、休む理由を説明しなきゃいけない気がして、結局「私用のため」って短く書いて送った。みんなは有給の理由、どこまで書いてる？",
+      "media": [],
+      "reply_to_item_id": "soseki-20261104-pm"
+    },
+    {
+      "item_id": "soseki-20261105-am",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-05T08:00:00+09:00",
+      "text": "40代の転職、エージェントに相談するのって普通なの？\nまだ社内にいるのに、外の人に話すのは裏切りみたいで手が止まる。\n漱石が小説を書き始めたのも、友人の高浜虚子に勧められたからだった。大きな決断ほど、最初の一言は外から来たりする。\n外の人に話したことある？",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261105-pm",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-05T20:00:00+09:00",
+      "text": "フォロワー4人で、Threadsを続けています。\nなのに1本だけ、10,610回まで表示が伸びた投稿があります。\n伸びたのは綺麗にまとめた文章じゃなくて、「次を探す体力まで会社で使い切っている人がいる」という一行でした。\n数字、需要あれば全部出します。",
       "media": [],
       "reply_to_item_id": null
     }
