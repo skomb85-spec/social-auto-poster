@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-10-31T13:45:00+09:00",
+  "updated_at": "2026-10-31T18:00:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -707,6 +707,39 @@
       "publish_at": "2026-11-05T20:00:00+09:00",
       "text": "フォロワー4人で、Threadsを続けています。\nなのに1本だけ、10,610回まで表示が伸びた投稿があります。\n伸びたのは綺麗にまとめた文章じゃなくて、「次を探す体力まで会社で使い切っている人がいる」という一行でした。\n数字、需要あれば全部出します。",
       "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261103-reel-008",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-03T20:00:00+09:00",
+      "text": "シャンプー、頭皮に直塗りしてませんか。基本は、お湯だけで1分流して、泡立ててから指の腹で洗うこと。私が残したharuの黒髪スカルプはプロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-012-v1.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261104-reel-009",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-04T20:00:00+09:00",
+      "text": "ヘアオイル、乾いた髪にベタッと塗ってませんか。つけるのはタオルドライのあとの半乾き、毛先から。私が残したエマコカルネのヘアオイルはプロフィールのリンクに置きました（PR）\n#40代美容 #ヘアオイル #ヘアケア",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-013-v1.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261105-reel-010",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-05T20:00:00+09:00",
+      "text": "化粧水のあと、乾くまで待ってませんか。なじんだら間を空けずに美容液へ。私が残したオルビスの美白美容液（アドバンスド ブライトニング セラム）はプロフィールのリンクに置きました（PR）\n#40代美容 #美白美容液 #スキンケアの順番",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-014-v1.mp4",
       "reply_to_item_id": null
     }
   ]
