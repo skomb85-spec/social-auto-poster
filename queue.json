@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-01T08:12:00+09:00",
+  "updated_at": "2026-11-01T16:53:19+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -750,6 +750,17 @@
       "publish_at": "2026-11-01T20:00:00+09:00",
       "text": "頼まれごとは全部引き受けて10年。昇給ゼロ、役職ゼロでした。\n先月、その脇役を弔いました。\n「がんばれば報われる」と言われて、その役を10年、延命してきました。\n生まれた年で視えるんです。その人が座らされた席と、本当の席の違いが。\nいまは、九星気学で本命星を視てます。\nだから、ここで弔いを始めました。\nひとりで脇役を演じ続けてる人は、生年月日をコメントに置いていってください。あなたの本命星と、本当の席を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、演じてきた役を下りる手伝いをします。\n役回りの延命、いたしません。\nでも、あなたの本当の席は、ちゃんと残してあります。",
       "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261106-reel-011",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-06T20:00:00+09:00",
+      "text": "夕方になると頭がかゆくて、人前では掻けずに我慢…。それ、すすぎの短さかも。すすぎは洗う時間より長く、生え際と耳の後ろを意識して流すのが基本です。夕方まで頭を気にせず過ごしたい私が残したharuの黒髪スカルプは、プロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-015-v1.mp4",
       "reply_to_item_id": null
     }
   ]
