@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-03T18:38:21+09:00",
+  "updated_at": "2026-11-04T14:20:35+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -842,6 +842,14 @@
       "text": "求人票の条件欄を眺めていると、年齢も学歴も経験年数も、全部「うちになじめるか」の言い換えに見えてくる。\n『吾輩は猫である』の猫は、人間の奇妙な習慣を一歩引いて眺めていた。条件欄も会社の習慣の一つで、測っているのは能力ではなく、なじみやすさのほうだ。",
       "media": [],
       "reply_to_item_id": null
+    },
+    {
+      "item_id": "tomurai-20261104-pm",
+      "source_cron_id": null,
+      "account": "threads_tomurai",
+      "platform": "threads",
+      "publish_at": "2026-11-04T20:00:00+09:00",
+      "text": "10年、他人の船ばかり漕いできました。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。"
     }
   ]
 }
