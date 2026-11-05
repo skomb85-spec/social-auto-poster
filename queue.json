@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-05T09:26:21+09:00",
+  "updated_at": "2026-11-05T12:40:00+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -858,6 +858,36 @@
       "platform": "threads",
       "publish_at": "2026-11-05T20:00:00+09:00",
       "text": "10年、誰かの船を漕ぎ続けて、自分の星を見る暇がありませんでした。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261116-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-16T20:00:00+09:00",
+      "text": "今週末から、セールが一気に重なるよ〜😂\n先に保存しといて🤍\n☑︎11/20〜12/2　Qoo10メガ割\n☑︎11/20〜11/27　楽天ブラックフライデー\n☑︎11/27〜　Amazonブラックフライデー（先行セールあり）\n☑︎無印良品週間は11/3で終了（次は例年3月ごろ）\n私は全部は追わない派😊\n先に『買う候補』を決めておいて、セールが来たら答え合わせするの",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261117-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-17T20:00:00+09:00",
+      "text": "老けるのだけは、全力で避けたい〜😂\nお金をかける前に、タダでできることは全部やっときたい派です。\n『お金かけずにやってよかったこと』、1つだけ教えてください🥹\n洗い方でも、寝る前のひと手間でも、やめた習慣でも、なんでもOKです。\n私はまだレパートリーが少なくて😂 みんなの1個で増やしたいの、教えてもらえたら嬉しいな〜！",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261118-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-18T20:00:00+09:00",
+      "text": "歯ってさ、6歳くらいで生え替わったら一生モノなの、設計ミスだと思わない？😂\n40代になって着色とか黄ばみが気になり始めてるのに、この先もずっと同じ歯って…。\nお願いだから、30歳と60歳でもう一度ずつ、新品に取り替えてほしい〜！",
       "media": [],
       "reply_to_item_id": null
     }
