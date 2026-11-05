@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-05T12:40:00+09:00",
+  "updated_at": "2026-11-05T19:05:43+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -888,6 +888,86 @@
       "platform": "threads",
       "publish_at": "2026-11-18T20:00:00+09:00",
       "text": "歯ってさ、6歳くらいで生え替わったら一生モノなの、設計ミスだと思わない？😂\n40代になって着色とか黄ばみが気になり始めてるのに、この先もずっと同じ歯って…。\nお願いだから、30歳と60歳でもう一度ずつ、新品に取り替えてほしい〜！",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261109-am",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-09T08:00:00+09:00",
+      "text": "悪くない会社なのに、帰り道だけ重いのはなぜだろう。給料も人間関係も、文句を言うほどのことじゃないのに。\n『草枕』の主人公は、山へ行って人の営みを離れて眺めることを選んだ。近づきすぎると見えなくなるものは、少し離れると形が見えてくる。\n悪くないのに苦しいのは、どこが合っていないんだろう。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261109-pm",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-09T20:00:00+09:00",
+      "text": "退職を伝えた翌日から、職場の空気が少しだけ変わった。みんな普通に接してくれるのに、自分だけが「もう部外者だ」と感じてしまう。それでもあと数週間はここにいるし、",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261109-pm-r1",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-09T20:00:00+09:00",
+      "text": "その数週間がやけに長く感じるのは、もう辞めると決めた場所に、まだ体だけ置いているからだ。『こころ』の先生も、言えないことがあると、人との間にそっと距離を置いていた。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261109-pm"
+    },
+    {
+      "item_id": "soseki-20261109-pm-r2",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-09T20:00:00+09:00",
+      "text": "今日できるのは、気まずさを解消することではない。引き継ぎのメモを一行だけ書いて、「まだここにいる理由」を手元に置くことだ。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261109-pm-r1"
+    },
+    {
+      "item_id": "soseki-20261110-am",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-10T08:00:00+09:00",
+      "text": "「志望動機は？」と聞かれるたび、正直な答えは一つしかない。生活のためです。それを言えば落ちる気がして、立派な言葉を取り繕う。『それから』の代助は働かずに暮らせたけれど、こっちはそうはいかない。面接は、働く前のいちばん疲れる仕事かもしれない。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261110-pm",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-10T20:00:00+09:00",
+      "text": "辞めようと思っていたのに、上司が急に優しくなった。相談に乗ると言われて、辞めづらさだけが増えた。\n『門』の宗助も、決めたはずのことが決まらないまま、静かな日々を重ねていた。上司が急に優しくなったのは、あなたが惜しいからではない。辞められると困るからだ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261111-am",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-11T08:00:00+09:00",
+      "text": "「前の会社ではこうでした」と言いかけた瞬間、相手の顔が少しだけ固まったことはありませんか。新しい場所で、前の場所の話を持ち出すのは、思ったより勇気がいる。\n『三四郎』の三四郎も、東京に出てきて、自分のいた場所の話し方を探り直していた。見られていたのは、前の会社のやり方ではなく、こっちのやり方になじめるかどうかだった。\nプロフィールの整理シートで、「前の会社で身についたこと」と「ここで使えること」を書き分けてみる。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261111-pm",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-11T20:00:00+09:00",
+      "text": "会社は一人採用するのに平均120万円くらいかかる、という話を聞いた。採用した時点で赤字スタートで、戦力になるまで数年、その間も給料は出続ける。『坊っちゃん』を雇う側の目線で読み直すと、短期間で辞めていく厄介な新人にも見えてくる。辞める側の事情と、雇う側の計算。どっちも本当なのがややこしい。",
       "media": [],
       "reply_to_item_id": null
     }
