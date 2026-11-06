@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-11-05T19:05:43+09:00",
+ "updated_at": "2026-11-06T18:34:54+09:00",
  "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
  "items": [
   {
@@ -980,6 +980,16 @@
    "text": "夜、洗って乾かしたのに髪が広がる人へ。泡立ては手で擦らず、襟足から順に洗うのが基本です。私が残したharuの黒髪スカルプはプロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
    "media": [],
    "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-ttp-001-v9.mp4",
+   "reply_to_item_id": null
+  },
+  {
+   "item_id": "tomurai-20261106-pm",
+   "source_cron_id": null,
+   "account": "threads_tomurai",
+   "platform": "threads",
+   "publish_at": "2026-11-06T20:00:00+09:00",
+   "text": "10年漕いできたのに、自分の航路は一度も出航していませんでした。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。",
+   "media": [],
    "reply_to_item_id": null
   }
  ]
