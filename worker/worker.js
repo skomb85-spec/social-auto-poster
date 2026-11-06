@@ -22,6 +22,8 @@
 // KV binding: STATE (namespace "auto-poster")
 //   token:threads:<account> -> long-lived Threads token (user-saved)
 //   token:instagram:ruri     -> long-lived Instagram token (user-saved)
+//   token:notion             -> Notion integration token (user-saved);
+//                               read-only, used for the Notion queue DB
 //   id:instagram:ruri        -> Instagram user id for the ruri account
 //   media:<name>             -> media bytes served at /media/<name>
 //   result:<item_id>         -> per-item result JSON (double-post guard)
@@ -56,6 +58,15 @@
 const CONFIG = {
   queueUrl:
     "https://raw.githubusercontent.com/skomb85-spec/social-auto-poster/main/queue.json",
+  // Second queue source (added 2026-11-06 at the user's request, to end
+  // per-batch GitHub push approvals): a Notion database the user and
+  // Muse write rows into; the Worker reads it on every run and merges
+  // its items into the queue by item_id (queue.json wins on conflict).
+  // The Notion integration token lives in KV under token:notion
+  // (user-saved). Missing token or a Notion outage never blocks the
+  // queue.json flow; it is only reported in the run summary.
+  notionDataSourceId: "80496f34-f658-4440-b359-38950ac01319",
+  notionTokenKey: "token:notion",
   graph: "https://graph.threads.net/v1.0",
   igGraph: "https://graph.instagram.com/v21.0",
   maxAttempts: 3,
@@ -81,6 +92,24 @@ const ACCOUNTS = [
     tokenKey: "token:threads:threads_hoshimi",
     platform: "threads",
     lane: "threads_hoshimi",
+  },
+  {
+    account: "threads_tomurai",
+    tokenKey: "token:threads:threads_tomurai",
+    platform: "threads",
+    lane: "threads_tomurai",
+  },
+  {
+    account: "mu",
+    tokenKey: "token:threads:mu",
+    platform: "threads",
+    lane: "mu",
+  },
+  {
+    account: "kohaku",
+    tokenKey: "token:threads:kohaku",
+    platform: "threads",
+    lane: "kohaku",
   },
   {
     account: "ruri",
@@ -899,6 +928,130 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
   return summary;
 }
 
+// --- Notion queue source -------------------------------------------------
+// Rows of the "投稿キュー｜auto-poster" Notion database become queue
+// items. Columns: item_id (title), account (select), platform (select),
+// publish_at (date, with time), text (rich text), media_urls (rich text,
+// one URL per line; Instagram uses the first as video_url),
+// reply_to_item_id / reply_to_post_id (rich text, optional).
+// The "ruri_instagram" account option is normalized to account "ruri"
+// + platform "instagram". Invalid rows are skipped and reported in
+// summary.notion; they never abort the run.
+function notionPlainText(prop) {
+  if (!prop) return "";
+  const parts = prop.rich_text || prop.title || [];
+  return parts.map((p) => p.plain_text || "").join("");
+}
+
+async function fetchNotionItems(env, summary) {
+  // Token sources, in order: the NOTION_TOKEN Worker secret (user-set
+  // in the dashboard), then the KV token:notion fallback (user-saved).
+  const token =
+    env.NOTION_TOKEN || (await env.STATE.get(CONFIG.notionTokenKey));
+  if (!token) {
+    summary.notion = { status: "no_token", added: 0 };
+    return [];
+  }
+  const items = [];
+  const skipped = [];
+  let cursor = undefined;
+  try {
+    for (let page = 0; page < 5; page++) {
+      const resp = await fetch(
+        `https://api.notion.com/v1/data_sources/${CONFIG.notionDataSourceId}/query`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Notion-Version": "2025-09-03",
+            "Content-Type": "application/json",
+            "User-Agent": "social-auto-poster",
+          },
+          body: JSON.stringify({
+            page_size: 100,
+            ...(cursor ? { start_cursor: cursor } : {}),
+          }),
+        }
+      );
+      if (!resp.ok) {
+        summary.notion = {
+          status: "error",
+          added: 0,
+          error: `notion http ${resp.status}`,
+        };
+        return [];
+      }
+      const data = await resp.json();
+      for (const row of data.results || []) {
+        const props = row.properties || {};
+        const itemId = notionPlainText(props.item_id).trim();
+        let account =
+          (props.account && props.account.select && props.account.select.name) ||
+          "";
+        let platform =
+          (props.platform &&
+            props.platform.select &&
+            props.platform.select.name) ||
+          "";
+        if (account === "ruri_instagram") {
+          account = "ruri";
+          platform = "instagram";
+        }
+        const publishAt =
+          (props.publish_at &&
+            props.publish_at.date &&
+            props.publish_at.date.start) ||
+          "";
+        const text = notionPlainText(props.text);
+        const replyItem = notionPlainText(props.reply_to_item_id).trim();
+        const replyPost = notionPlainText(props.reply_to_post_id).trim();
+        const mediaUrls = notionPlainText(props.media_urls)
+          .split(/[\n,]+/)
+          .map((u) => u.trim())
+          .filter(Boolean);
+        if (
+          !itemId ||
+          !account ||
+          !platform ||
+          !publishAt ||
+          Number.isNaN(Date.parse(publishAt)) ||
+          !text.trim()
+        ) {
+          skipped.push(itemId || row.id || "unknown");
+          continue;
+        }
+        const item = {
+          item_id: itemId,
+          source_cron_id: null,
+          account,
+          platform,
+          publish_at: publishAt,
+          text,
+          media: [],
+          reply_to_item_id: replyItem || null,
+          source: "notion",
+        };
+        if (replyPost) item.reply_to_post_id = replyPost;
+        if (platform === "instagram" && mediaUrls[0]) {
+          item.video_url = mediaUrls[0];
+        }
+        items.push(item);
+      }
+      if (!data.has_more) break;
+      cursor = data.next_cursor;
+    }
+  } catch (e) {
+    summary.notion = {
+      status: "error",
+      added: 0,
+      error: String((e && e.message) || e).slice(0, 200),
+    };
+    return [];
+  }
+  summary.notion = { status: "ok", added: 0, skipped };
+  return items;
+}
+
 async function run(env, { dry = false } = {}) {
   const startedAt = new Date().toISOString();
   const summary = { at: startedAt, dry, accounts: {}, errors: [] };
@@ -912,6 +1065,27 @@ async function run(env, { dry = false } = {}) {
     return summary;
   }
   const queue = await qResp.json();
+
+  // Merge the Notion queue source: new item_ids are appended, existing
+  // queue.json items win on conflict, duplicates inside Notion collapse.
+  try {
+    const notionItems = await fetchNotionItems(env, summary);
+    const known = new Set((queue.items || []).map((i) => i.item_id));
+    let added = 0;
+    for (const item of notionItems) {
+      if (known.has(item.item_id)) continue;
+      known.add(item.item_id);
+      queue.items.push(item);
+      added++;
+    }
+    if (summary.notion) summary.notion.added = added;
+  } catch (e) {
+    summary.notion = {
+      status: "error",
+      added: 0,
+      error: String((e && e.message) || e).slice(0, 200),
+    };
+  }
 
   for (const cfg of ACCOUNTS) {
     const laneKey = cfg.lane || cfg.account;
@@ -976,7 +1150,12 @@ export default {
     }
     // Public media hosting for Instagram video_url: bytes live in KV
     // under media:<name>. Meta's fetcher requires a durable public URL.
-    if (url.pathname.startsWith("/media/") && request.method === "GET") {
+    // HEAD is served with the same headers as GET (no body): some
+    // fetchers (e.g. Buffer) probe with HEAD before downloading.
+    if (
+      url.pathname.startsWith("/media/") &&
+      (request.method === "GET" || request.method === "HEAD")
+    ) {
       const name = decodeURIComponent(url.pathname.slice("/media/".length));
       if (!name || name.includes("/") || name.includes("..")) {
         return Response.json({ error: "bad media name" }, { status: 400 });
@@ -993,9 +1172,10 @@ export default {
         ".png": "image/png",
       };
       const ext = name.slice(name.lastIndexOf(".")).toLowerCase();
-      return new Response(buf, {
+      return new Response(request.method === "HEAD" ? null : buf, {
         headers: {
           "Content-Type": types[ext] || "application/octet-stream",
+          "Content-Length": String(buf.byteLength),
           "Cache-Control": "public, max-age=3600",
         },
       });
