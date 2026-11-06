@@ -1,1029 +1,1006 @@
 {
- "version": 1,
- "updated_at": "2026-11-06T18:34:54+09:00",
- "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
- "items": [
-  {
-   "item_id": "ruri-20261026-am",
-   "source_cron_id": "ruri-post-20261026-am",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-26T08:00:00+09:00",
-   "text": "夜、スマホで集合写真を見返して、自分の顔だけ拡大していた時期があります。ほうれい線とフェイスライン、ずっと見てしまう。でも他の誰も、そこまで見ていないんですよね。拡大をやめたら、夜の買い物も減りました。悩みは本物でも、見る倍率は下げていい。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261026-pm",
-   "source_cron_id": "ruri-post-20261026-pm",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-26T20:00:00+09:00",
-   "text": "「また合うシャンプーがない…」って探し回るの、もう何本目！？😂\nその前に、私はメモすることにしました✍️ 確かめるのは3つだけ。\n①使い始めて何日で痒くなったか\n②季節はいつか\n③洗い方を変えたか\n買った日じゃなくて、合わなくなった日の記録です。1か月もしないうちに合わなくなるなら、商品の前にパターンを見る。頭皮の答え合わせは、そこから。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261027-am",
-   "source_cron_id": "ruri-post-20261027-am",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-27T08:00:00+09:00",
-   "text": "夕方の鏡が教えてくれました😂\n隠したい場所が増えて、ファンデが少しずつ厚くなっていた時期。自分では「薄づき」のつもりでも、夕方の鏡では全然そう見えないの。\nオチは単純で、量の問題でした。\n今は「隠す場所は1か所まで」と決めています。全部隠すのをやめたら、夕方の崩れ方も読みやすくなった気がします。これが私の答え合わせ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261027-pm",
-   "source_cron_id": "ruri-post-20261027-pm",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-27T20:00:00+09:00",
-   "text": "成分の名前、全部覚えようとして挫折した人です😂\nカタカナの羅列、もう頭に入らない…。\nでも待って、確かめるべきは名前じゃなかった。私がやっているのは「役割で3つに分ける」ことだけ。\n・水を抱える係\n・油分でフタをする係\n・肌を整える係\n買う前に、手持ちがどの係に偏っているかを見る。足りない係が1つもなければ、その買い物は見送り。成分の答え合わせは、名前より役割から。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261028-am",
-   "source_cron_id": "ruri-post-20261028-am",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-28T08:00:00+09:00",
-   "text": "多分なんだけど、夕方の鏡の前で「新しい美容液ポチりそう…」ってなる回数、私がスレッズで一番多いと思う😂\n今日もカートに入れて、閉じて、また開いた。\n我こそはという人、昨日のカートの中身を教えてほしい。対決しよ？笑",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261028-pm",
-   "source_cron_id": "ruri-post-20261028-pm",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-28T20:00:00+09:00",
-   "text": "カートに入れちゃったら、私のルールはここから😂\n3日寝かせる。その間に確かめるのは1つだけ。\n今の手持ち、塗る順番を直せば同じ役割が足りてないか。\n買わなかった理由もちゃんと書きます。買う前の答え合わせが、私の仕事です。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261029-am",
-   "source_cron_id": "ruri-post-20261029-am",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-31T20:00:00+09:00",
-   "text": "お願い、1個だけ教えて！！！！\n40代になって「もっと早く知りたかった」って思った美容のこと。\n順番でも、量でも、やめたことでも、なんでもいいです。\n私の買い物リストが増えるのは覚悟の上😂 みんなの1個、聞かせて〜！",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261029-pm",
-   "source_cron_id": "ruri-post-20261029-pm",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-03T20:00:00+09:00",
-   "text": "ほうれい線、ずーっと口の周りのシワだと思ってた。\nでも色々確かめたら、気にすべきは口元じゃなくて、頬の位置と毎日のクセの方だった。頬杖、片噛み、スマホ見る時の下向き。\n遠回りしたけど、これが私の答え合わせ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261030-am",
-   "source_cron_id": "ruri-post-20261030-am",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-04T20:00:00+09:00",
-   "text": "おはよう洗面所ー！！🪞\n昨日の夕方の鏡、ほうれい線が朝より濃く見えた😂\nでもこれ、疲れてる日ほど濃く見える気がするの私だけ？\n今日は何も買わない。保湿だけ丁寧にして、早く寝る。これが答え合わせ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261030-pm",
-   "source_cron_id": "ruri-post-20261030-pm",
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-06T20:00:00+09:00",
-   "text": "カートに入れる前に確かめる3つ、決めました✍️\n①今の手持ちに、同じ役割のものがないか\n②塗る順番と量は合っているか\n③クーポン・ポイント・定期の合計額まで見たか\n1個でも「うーん」なら、今日は買わない。\n勢いで買って後悔するのは、もう卒業したいのよ😂",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261026-am",
-   "source_cron_id": "soseki-post-20261026-am",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-26T08:00:00+09:00",
-   "text": "月曜の朝、会社に着く前に一度ため息をつく。\n『こころ』の先生は、言えない過去を抱えたまま静かに消耗していった。毎週のため息も、身体からの小さな知らせかもしれない。\nため息の理由を、言葉にできますか。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261026-pm",
-   "source_cron_id": "soseki-post-20261026-pm",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-26T20:00:00+09:00",
-   "text": "昇進した。給料も上がった。なのに、なぜか嬉しくない。\n『門』の宗助は、崖の上の家で静かに暮らしながら、ずっと何かを避け続けていた。収まった人ほど、違和感は言葉になりにくい。\nその違和感の正体を、プロフィールのリンク先の記事に書きました。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261027-am",
-   "source_cron_id": "soseki-post-20261027-am",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-27T08:00:00+09:00",
-   "text": "40代になって、転職サイトを開くのが怖くなった。\n『それから』の代助は、決断を先延ばしにしながら暮らしていた。怖いのはサイトそのものではなく、このまま何も決めない自分の方かもしれない。\n若い頃の「どこかあるだろう」と、今の「開けない」のあいだに、決断の先延ばしがある。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261027-pm",
-   "source_cron_id": "soseki-post-20261027-pm-tree",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-27T20:00:00+09:00",
-   "text": "「辞めたい」の中身は、人によって全然違う。\n『道草』の健三は、生活費や義理や過去に縛られ、どれが自分を止めているのか分からなくなっていた。給料か、人間関係か、体力か、仕事内容か。\nまずは、どれが一番重いかだけ分けてみる。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261027-pm-r1",
-   "source_cron_id": "soseki-post-20261027-pm-tree",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-27T20:00:00+09:00",
-   "text": "『道草』の健三の場合は、辞めたい理由が一つではなかった。\n絡まった糸を一本ずつほどくように、理由を分けると、辞めることと残ることのあいだに、もう少し選択肢が見えてくる。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261027-pm"
-  },
-  {
-   "item_id": "soseki-20261027-pm-r2",
-   "source_cron_id": "soseki-post-20261027-pm-tree",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-27T20:00:00+09:00",
-   "text": "今日できるのは、大きな決断ではない。\n『道草』の健三のように絡まった理由をほどくなら、まず一番重い理由を一つだけ紙に書く。それが給料の問題なのか、人の問題なのかを確かめるだけで、辞めたいの形が少し変わる。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261027-pm-r1"
-  },
-  {
-   "item_id": "ruri-20261026-orbis",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-26T19:00:00+09:00",
-   "text": "シミ対策って聞くと、真っ先に「美白美容液を足すこと」だと思ってた。\nでも待って。夕方の鏡で「増えた！？」って焦るシミ、朝の洗面所でもう一回見ると、そこまでじゃない日が多くない？\n私の場合、乾燥でくすんで見える分と、ファンデが毛穴に落ちて影になる分が、シミに化けてた。\nだから今は、美白を足す前に「朝の顔と夕方の顔を見比べる」が先。\n本物のシミへのケアは、それから決める。これが私の答え合わせ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261026-orbis-cta",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-26T20:00:00+09:00",
-   "text": "反応もらえたので置いておきますね。\nメインで書いた「朝と夕方で見比べる」の続きで、私が今いちばん気になっている美白ケアがこちらです。\nオルビス アドバンスド ブライトニング セラム。\n気になる人はこちらから見られます▼\n（PR）https://px.a8.net/svt/ejp?a8mat=4BEPPT+BB8WG2+1USQ+3YW8WI",
-   "media": [],
-   "reply_to_item_id": "ruri-20261026-orbis",
-   "condition": {
-    "min_views": 50,
-    "min_likes": 2
-   }
-  },
-  {
-   "item_id": "ruri-20261031-am",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-08T20:00:00+09:00",
-   "text": "結局さ、40代の美容って、新しい物を「足す」前に「順番と量」を直すのが先だよね。\n何を塗るかより、どの順番で、どれだけ塗るか。ここがズレてたら、高い物を足しても活きない気がしてる😌",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261031-pm",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-09T20:00:00+09:00",
-   "text": "美容って、顔のケアさえ頑張ればいいと思ってた。化粧水も美容液も、ぜーんぶ顔のため😂\nでもこの前、電車の窓に映った横顔を見たら、顔より先に目についたのが首で…。\n注力してたのは顔だけ。見落としてたのは首だったのよね。\n今日から、保湿の余りは顎の下で止めずに、首まで伸ばすことにします。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261101-am",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-10T20:00:00+09:00",
-   "text": "朝、自分の支度は家族のあと。最後の最後です😂\nだから聞かせて！ バタバタの朝でも「これだけは外せない」って美容、1個だけ教えて！！\n順番の工夫でも、量のことでも、潔くやめたことでもOK。なんでもいいです。\n日曜の朝くらい、みんなの知恵でラクさせて〜🙏",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261101-pm",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-12T20:00:00+09:00",
-   "text": "肌がゆらいでる日、私のルールは「足す」じゃなくて「減らす」です✍️\n減らすのは、この3つ。\n①出すアイテムの数（その日は洗顔と保湿だけ）\n②こする回数（触れるのは最小限に、そっと置く）\n③試す予定（新しい物は、調子が戻るまでおあずけ）\n増やさない・触らない・試さない。守りの日があってもいいよね。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261102-am",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-13T20:00:00+09:00",
-   "text": "今朝、洗面所の棚を数えてしまった…。\n開封済みで使いかけの美容液、5本もあった😂 しかも全部「いい感じがする」で止まってるやつ。\n使いかけコレクションの多さなら、正直ちょっと誰にも負ける気がしないの。\n勝てる人いたら名乗り出てほしい。あなたの棚、今何本開いてますか？",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261102-pm",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-15T20:00:00+09:00",
-   "text": "気になる美容液のページ、今日も開いちゃった😂\n「購入」ボタンの手前で、指が止まってます。\n私の判定はここから。現品をいきなり買う前に、「試せる形があるか」を先に確かめる。サンプルでも、トライアルでも、少量サイズでも。\n試せる形が無ければ、その場では買わない。それが今の私のルールです。\n今日の判定は、保留。合うか分からない物に、最初から現品は賭けすぎなのよ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261027-reel-001",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-10-27T12:00:00+09:00",
-   "text": "朝は水だけ洗顔、してない？🌊\n私もずっと水だけ派でした。でも夕方のテカリが気になって、基本の洗い方に変えてみたよ🧴\nまずは手を洗う → ぬるま湯で予洗い → 泡でTゾーンから → タオルは押さえるだけ。\nみんなの朝洗顔、コメントで教えて〜！\n答え合わせの候補はプロフィールのリンクに置いてます。\n#40代美容 #洗顔 #スキンケアの順番 #NG美容 #美容の答え合わせ",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-005-v5.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261028-am",
-   "source_cron_id": "soseki-batch-20261028-30",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-28T08:00:00+09:00",
-   "text": "あと20年、と数えた朝がある。\n『三四郎』の主人公は、東京に出てきてからずっと、自分の居場所が決まらないまま日々を眺めていた。20年を年で数えると刑期みたいになるが、月曜の朝に直すと、まだ決め直せる回数に見えてくる。\nあなたは、あと何回、月曜の朝を迎えたいですか。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261028-pm",
-   "source_cron_id": "soseki-batch-20261028-30",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-28T20:00:00+09:00",
-   "text": "求人票の「未経験歓迎」と「経験者優遇」が、同じ画面に並んでいた。漱石はロンドン留学で神経をすり減らして帰国し、教壇に立ちながら書き始めた。\n条件に自分を合わせる前に、まず自分が何に疲れているのかを分ける方が先だ。その分け方を、プロフィールのリンク先の整理シートに置きました。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261029-am",
-   "source_cron_id": "soseki-batch-20261028-30",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-29T08:00:00+09:00",
-   "text": "夢の中でまで、仕事をしていませんか。\n『夢十夜』は夢の話を十編集めた連作で、目覚めたあとも夢の感触だけが残ることがある。眠っているあいだも会社から離れられないのは、頑張り不足ではなく頭がまだ職場に置き去りなだけかもしれない。\n夢の中まで出勤しなくていい。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261029-pm",
-   "source_cron_id": "soseki-batch-20261028-30",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-29T20:00:00+09:00",
-   "text": "会議で頷いた回数だけ、自分が薄くなっていく気がする。『吾輩は猫である』の猫は、人間の奇妙な習慣を一歩引いて眺めていた。\n頷くことが仕事になっている職場では、意見より空気の方が先に決まっている。頷きの多さは、適応力ではなく消耗の記録だ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261030-am",
-   "source_cron_id": "soseki-batch-20261028-30",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-30T08:00:00+09:00",
-   "text": "朝食の席では笑っているのに、玄関を出た瞬間に顔が戻る。\n『行人』の二郎は、兄・一郎の心の内が分からず、自分の気持ちも言葉にできずに悩んでいた。家族の前で元気なふりをするのは、弱さではなく、壊れた姿を見せたくない優しさの裏返しでもある。\n玄関の内側の顔と、外側の顔。その差が、そのまま疲れの量だ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261030-pm",
-   "source_cron_id": "soseki-batch-20261028-30",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-30T20:00:00+09:00",
-   "text": "決めるか残るか、決められないのではない。近づきすぎて、全体が見えていないだけだ。\n漱石は『倫敦塔』で、ロンドン塔の石の重さを眺めながら、自分の悩みとは別の時間の流れを感じ取っていた。決断の前に必要なのは、もう一つの情報ではなく、少しの距離だ。\n全体が見えていないのだとしたら、決める前に何から眺め直しますか。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261030-pm-r1",
-   "source_cron_id": "soseki-batch-20261028-30",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-30T20:00:00+09:00",
-   "text": "塔を眺める漱石の視線は、塔そのものより、塔が見てきた時間に向けられていた。\n今の職場も、目の前の締切だけで測ると重く見える。五年という単位で眺め直してみる。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261030-pm"
-  },
-  {
-   "item_id": "soseki-20261030-pm-r2",
-   "source_cron_id": "soseki-batch-20261028-30",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-30T20:00:00+09:00",
-   "text": "決める前に、まず一枚だけ紙を用意する。\n「辞めたい理由」と「残りたい理由」を一行ずつ書く。どちらが多いかではなく、どちらを読んだときに胸が動くかを確かめるだけで、決められないの形が少し変わる。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261030-pm-r1"
-  },
-  {
-   "item_id": "ruri-ig-20261028-reel-002",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-10-28T20:00:00+09:00",
-   "text": "毎日洗ってるのに頭皮がかゆい…それ、洗う順番かも🫧 基本は ブラッシング→ぬるま湯で予洗い→泡と指の腹→毛先からトリートメント🧴 みんなの洗い方、コメントで教えて〜！ #40代美容 #シャンプー #頭皮ケア #NG美容 #美容の答え合わせ",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-006-v3.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261029-reel-003",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-10-29T20:00:00+09:00",
-   "text": "忙しい朝、ファンデ直塗りしてない？☀️ 順番は スキンケア→日焼け止め→下地→ファンデーション が基本だよ🧴 みんなの朝の順番、コメントで教えて〜！ #40代美容 #日焼け止め #ベースメイク #NG美容 #美容の答え合わせ",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-007-v2.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261030-reel-004",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-10-30T20:00:00+09:00",
-   "text": "美容液、いちばん最後に塗ってない？💧 私もずっと乳液のあとでした。でも基本は、化粧水の直後・乳液の前に挟むことだそうです🧴 乾いた肌に直塗りはやめて、少量を2回に分けるのが今の私の答え合わせ。私が迷った末に残したのは、オルビス アドバンスド ブライトニング セラム（美白美容液）(PR)。美白美容液を探している人は、プロフィールのリンクから見てみてね🔗 みんなの美容液の順番、コメントで教えて〜！ #40代美容 #美容液 #スキンケアの順番 #NG美容 #美容の答え合わせ",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-008-v2.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261031-reel-005",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-10-31T20:00:00+09:00",
-   "text": "シャンプー、朝派？夜派？🫧 私はずっと朝シャンでした。でも一日の汚れは、その日の夜に落とすのが基本だそうです🌙 ぬるま湯でゆっくり、泡は手のひらで作って、根元から乾かすのが今の私の答え合わせ。私が頭皮で迷った末に残したのは、haru kurokami スカルプシャンプー(PR)。頭皮ケアのシャンプーを探している人は、プロフィールのリンクから見てみてね🔗 みんなは朝派？夜派？コメントで教えて〜！ #40代美容 #シャンプー #頭皮ケア #NG美容 #美容の答え合わせ",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-009-v1.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261101-reel-006",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-01T20:00:00+09:00",
-   "text": "ヘアオイル、髪全体に塗ってない？✨ 私も根元からベタ塗りして、夕方には重たい髪でした。基本は、乾かす前に、濡れた髪の毛先と中間へ少量から💧 私が髪で迷った末に残したのは、エマ コカルネ ヘアオイル(PR)。ヘアオイルを探している人は、プロフィールのリンクから見てみてね🔗 みんなのオイルの量、コメントで教えて〜！ #40代美容 #ヘアオイル #ヘアケア #NG美容 #美容の答え合わせ",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-010-v2.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261028-mid",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-28T12:30:00+09:00",
-   "text": "化粧水、残り少なくなると急にドバドバ使い始めるの、私だけ？😂\n大事に使ってた前半の私、どこ行った。\n気持ちはもう次のボトルなのよね。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261029-mid",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-01T20:00:00+09:00",
-   "text": "娘への「がんばったねプリン」、夜に私が食べちゃった😂\n買い物も同じで、理由はだいたい後付け。\n「ご褒美だから」は、私の中でいちばん当てにならない理由です。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261030-mid",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-05T20:00:00+09:00",
-   "text": "昼のメイク直しで気づいたこと。\n愛用してた口紅が、なんだか浮いて見える😂\n色が合わなくなったんじゃなくて、唇の縦ジワに色が入り込むようになってた。\n口紅のせいにしてごめん、の気づき。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261031-mid",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-07T20:00:00+09:00",
-   "text": "美容の仙人になりたいのに、セールの通知ひとつで一喜一憂してる私です😂\n土曜のお昼から、心が忙しい。\n買うかどうか決めるのは、通知じゃなくて私だったはず。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261101-mid",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-11T20:00:00+09:00",
-   "text": "買い物のレジで、自分の手の甲を見て止まった😂\n顔のケアはあんなに考えるのに、手はハンドクリームすら気まぐれで。\n手って毎日いちばん働いてるのに、いちばん後回しだったな。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261102-mid",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-14T20:00:00+09:00",
-   "text": "寝落ちするタイプです😂\n夜、最後までちゃんとケアできる人を心から尊敬します。\nだから私の美容は「夜に頑張らない前提」で組み立ててます。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261028-extra",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-28T17:00:00+09:00",
-   "text": "ちょっと聞いて、最近知って固まった言葉。「ゴースト血管」って知ってた？\n40代を過ぎると、毛細血管が細くなって消えていくことがあるんだそうです。\nくすみも髪のパサつきも、「栄養が届いてない」が関係してるかもって話を見て、高い美容液を足し続けてた私は静かに反省…😂\nスーパーで買えるスパイスを上手に使ってる人が多いらしくて、私も答え合わせ中です。\nみんなはこの手の話、どこまで信じる派？",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-reply-20261027-1",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-27T21:57:00+09:00",
-   "text": "それ私もですー！夕方16時過ぎると急にモロモロし出すの、ほんと地味にショックですよね😂",
-   "media": [],
-   "reply_to_item_id": null,
-   "reply_to_post_id": "18668931052000128"
-  },
-  {
-   "item_id": "ruri-reply-20261027-2",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-27T22:07:00+09:00",
-   "text": "41歳、鼻の毛穴…わかりすぎます😂\n私も鏡に近づいてはため息、の側の人間です。\nちなみにいちばん気になるのって、黒ずみですか？開きですか？",
-   "media": [],
-   "reply_to_item_id": null,
-   "reply_to_post_id": "18016386557953051"
-  },
-  {
-   "item_id": "ruri-reply-20261027-3",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-27T22:22:00+09:00",
-   "text": "40代、参加させてください〜！私も「結局なに使えばいいの」でずっと迷子でした😂\n新しいのを買っては棚が増えて、満足したのかも分からないまま次を探す、を繰り返してた側です。",
-   "media": [],
-   "reply_to_item_id": null,
-   "reply_to_post_id": "18097958207657492"
-  },
-  {
-   "item_id": "ruri-reply-20261027-4",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-27T22:37:00+09:00",
-   "text": "めちゃくちゃ共感です〜！私もあれもこれも足して棚がパンパンだった時期があります😂\n今はもう、足すより先に順番だと思ってます。",
-   "media": [],
-   "reply_to_item_id": null,
-   "reply_to_post_id": "18003296219801507"
-  },
-  {
-   "item_id": "ruri-reply-20261027-5",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-10-27T22:52:00+09:00",
-   "text": "夕方の頭皮のベタつき、わかります〜！私も前はゴシゴシ洗う派でした😂\n洗いすぎ説、私も試してみたらしっくりきて。\n予洗いを長めにするようにしたら、夕方のもやもやが前よりマシな気がしてます。",
-   "media": [],
-   "reply_to_item_id": null,
-   "reply_to_post_id": "18022967204945893"
-  },
-  {
-   "item_id": "ruri-20261029-extra",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-02T20:00:00+09:00",
-   "text": "なんでこんなに太っちゃったのかな。\n生まれたとき、3.4キロしかなかったのに。\n40年かけて、順調に育ちすぎたみたいです😂",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "hoshimi-20261029-pm",
-   "source_cron_id": null,
-   "account": "threads_hoshimi",
-   "platform": "threads",
-   "publish_at": "2026-10-30T20:00:00+09:00",
-   "text": "10年、ずっと「いて当たり前」の席でした。いなくなったら困るのに、いる間は誰にも見られなかった、ほしみです。\n\nいまは、生年月日から本命星を視てます。\n\n最近、がんばっているのに、いつも脇役のままみたいに感じる人、増えてませんか。\nだから、ここ作りました。\n\n生年月日だけ、コメントに置いていってください。生まれた年だけでも、本命星は出せます。\nあなたの本命星と、座りがちな席を、順番に返します。\n\n自分の席を知りたい人は、フォローしといて。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261102-reel-007",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-02T20:00:00+09:00",
-   "text": "美白美容液、シミのとこだけ塗ってませんか。基本は顔全体にのばして、気になる部分に重ね塗り。私が残したオルビスの美白美容液（アドバンスド ブライトニング セラム）はプロフィールのリンクに置きました（PR）\n#40代美容 #美白美容液 #スキンケアの順番",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-011-v2.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261031-am",
-   "source_cron_id": "soseki-batch-20261031-1102",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-31T08:00:00+09:00",
-   "text": "面談で「もう少し主体性を」と言われた。何をどう変えればいいのか、その場では聞けなかった。\n『坊っちゃん』の主人公は、理不尽な相手には真正面から食ってかかる。曖昧な言葉をそのまま持ち帰るより、言われた言葉の中身をその場で確かめる方が、後で自分を責めずに済む。言われた言葉を、その場で聞き返せていますか。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261031-pm",
-   "source_cron_id": "soseki-batch-20261031-1102",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-10-31T20:00:00+09:00",
-   "text": "会議で、部長の案に無理があると分かっていながら頷いた。言い返せば、後輩たちの前で自分の立場が悪くなる気がした。\n『草枕』の冒頭に、こうある。「智に働けば角が立つ。情に棹させば流される。意地を通せば窮屈だ。とかくに人の世は住みにくい。」\n頷いて疲れるのは弱さではない。上にも下にも気を遣わされる、その位置の窮屈さだ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261101-am",
-   "source_cron_id": "soseki-batch-20261031-1102",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-01T08:00:00+09:00",
-   "text": "辞めると言い出す場面を想像しては、やめている。言い出せないのは、決心が足りないからだろうか。\n『野分』の道也は、富豪や権力者への無礼な態度がもとで、故郷の教職を追われた。言い出せない理由は、決心の弱さではなく、",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261101-am-r1",
-   "source_cron_id": "soseki-batch-20261031-1102",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-01T08:00:00+09:00",
-   "text": "言ったあと、暮らしがどう回るか分からない、その重さだった。道也は、思ったことを言った代償に職を失った。だから言い出す前に、まず言ったあとに何が起きるかを並べてみる。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261101-am"
-  },
-  {
-   "item_id": "soseki-20261101-am-r2",
-   "source_cron_id": "soseki-batch-20261031-1102",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-01T08:00:00+09:00",
-   "text": "並べたら、紙に一行だけ書く。「誰に言いづらいか」が分かれば、言い出す相手と順番が見えてくる。\nその一行なら、決心が固まる前に書ける。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261101-am-r1"
-  },
-  {
-   "item_id": "soseki-20261101-pm",
-   "source_cron_id": "soseki-batch-20261031-1102",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-01T20:00:00+09:00",
-   "text": "「転職は35歳まで」って、36歳になった途端に何がダメになるんだろう。体力？記憶力？\n夏目漱石が教職を辞め、朝日新聞社に入ったのは40歳。\n人間の能力より、採用する側の物差しが古くなっていないか。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261102-am",
-   "source_cron_id": "soseki-batch-20261031-1102",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-02T08:00:00+09:00",
-   "text": "「いい会社にいるのに、なぜ辞めたいの」と言われた。答えに詰まったのは、自分の言葉がまだなかったからだ。\n漱石は1914年の講演「私の個人主義」で、他人の物差しではなく自分の判断で生きる「自己本位」を説いた。世間の評価で測るのをやめれば、辞めたい理由は言い訳ではなく自分の言葉になる。\nまず、誰の物差しで測っているかだけ確かめてみる。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261102-pm",
-   "source_cron_id": "soseki-batch-20261031-1102",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-02T20:00:00+09:00",
-   "text": "流れてくる投稿で、わざわざ反感を買うような言い方をしている人がいた。見たくないのに、なぜか目が止まる。\n『明暗』の小林は、自分のことをこう言っている。「わざわざ人の厭がるような事を云ったりしたりするんです。そうでもしなければ……僕の存在を人に認めさせる事ができないんです。僕は無能です。」\nその「認めさせたい」が先に立つ形を知ってから、自分の言葉が尖る日が、ふと気になるようになった。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "tomurai-20261031-pm",
-   "source_cron_id": null,
-   "account": "threads_tomurai",
-   "platform": "threads",
-   "publish_at": "2026-10-31T20:00:00+09:00",
-   "text": "『いないと困る』と言われて10年。昇給も、役職も、なしでした。\n先月、その脇役を弔いました。\n「がんばれば報われる」と言われて、その役を10年、延命してきました。\n生まれた年で視えるんです。その人が座らされた席と、本当の席の違いが。\nいまは、九星気学で本命星を視てます。\nだから、ここで弔いを始めました。\nひとりで脇役を演じ続けてる人は、生年月日をコメントに置いていってください。あなたの本命星と、本当の席を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、演じてきた役を下りる手伝いをします。\n役回りの延命、いたしません。\nでも、あなたの本当の席は、ちゃんと残してあります。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261103-am",
-   "source_cron_id": "soseki-batch-20261103-1105-test",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-03T08:00:00+09:00",
-   "text": "40代、転職するか残るか、もう2年決められません。\n紙に「辞めたい理由」と「残りたい理由」を書いても、どっちを読んでも胸が動かなくて。\n決められない自分が情けなくて、今日も求人を見て閉じました。\n『それから』の代助も、決めないまま先延ばしにして暮らしていた。あれ、他人事じゃなかった。\n同じところで止まってる人、いますか？",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261103-pm",
-   "source_cron_id": "soseki-batch-20261103-1105-test",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-03T20:00:00+09:00",
-   "text": "40代、仕事でミスして落ち込んでたら、年下の子が「大丈夫ですよ」って声をかけてくれた。\n大人になってまで何してるんだって、恥ずかしいやら嬉しいやら。\n『坊っちゃん』に出てくる清は、坊っちゃんが何をしても味方でいてくれた。ああいう一言に、人は続けてこられるんだと思う。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261104-am",
-   "source_cron_id": "soseki-batch-20261103-1105-test",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-04T08:00:00+09:00",
-   "text": "40代、飲み会の席で、自分の番になると何も出てこなくて固まりました。情けない。\n若い子たちがスラスラ近況を話す中で、言いたいことの半分も出てこなくて。\n『三四郎』の三四郎も、東京に出てきて、広い世界に圧倒されてばかりいた。\nみんなはこういう時、どうしてる？",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261104-pm",
-   "source_cron_id": "soseki-batch-20261103-1105-test",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-04T20:00:00+09:00",
-   "text": "40代、有給を取るって言うだけで、なぜか申し訳ない気持ちになる。今日も送信ボタンの前で、理由欄を3回書き直した。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261104-pm-self",
-   "source_cron_id": "soseki-batch-20261103-1105-test",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-04T21:00:00+09:00",
-   "text": "補足すると、休む理由を説明しなきゃいけない気がして、結局「私用のため」って短く書いて送った。みんなは有給の理由、どこまで書いてる？",
-   "media": [],
-   "reply_to_item_id": "soseki-20261104-pm"
-  },
-  {
-   "item_id": "soseki-20261105-am",
-   "source_cron_id": "soseki-batch-20261103-1105-test",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-05T08:00:00+09:00",
-   "text": "40代の転職、エージェントに相談するのって普通なの？\nまだ社内にいるのに、外の人に話すのは裏切りみたいで手が止まる。\n漱石が小説を書き始めたのも、友人の高浜虚子に勧められたからだった。大きな決断ほど、最初の一言は外から来たりする。\n外の人に話したことある？",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261105-pm",
-   "source_cron_id": "soseki-batch-20261103-1105-test",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-05T20:00:00+09:00",
-   "text": "フォロワー4人で、Threadsを続けています。\nなのに1本だけ、10,610回まで表示が伸びた投稿があります。\n伸びたのは綺麗にまとめた文章じゃなくて、「次を探す体力まで会社で使い切っている人がいる」という一行でした。\n数字、需要あれば全部出します。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261103-reel-008",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-03T20:00:00+09:00",
-   "text": "シャンプー、頭皮に直塗りしてませんか。基本は、お湯だけで1分流して、泡立ててから指の腹で洗うこと。私が残したharuの黒髪スカルプはプロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-012-v1.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261104-reel-009",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-04T20:00:00+09:00",
-   "text": "ヘアオイル、乾いた髪にベタッと塗ってませんか。つけるのはタオルドライのあとの半乾き、毛先から。私が残したエマコカルネのヘアオイルはプロフィールのリンクに置きました（PR）\n#40代美容 #ヘアオイル #ヘアケア",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-013-v1.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261105-reel-010",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-05T20:00:00+09:00",
-   "text": "化粧水のあと、乾くまで待ってませんか。なじんだら間を空けずに美容液へ。私が残したオルビスの美白美容液（アドバンスド ブライトニング セラム）はプロフィールのリンクに置きました（PR）\n#40代美容 #美白美容液 #スキンケアの順番",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-014-v1.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "tomurai-20261101-pm",
-   "source_cron_id": null,
-   "account": "threads_tomurai",
-   "platform": "threads",
-   "publish_at": "2026-11-01T20:00:00+09:00",
-   "text": "頼まれごとは全部引き受けて10年。昇給ゼロ、役職ゼロでした。\n先月、その脇役を弔いました。\n「がんばれば報われる」と言われて、その役を10年、延命してきました。\n生まれた年で視えるんです。その人が座らされた席と、本当の席の違いが。\nいまは、九星気学で本命星を視てます。\nだから、ここで弔いを始めました。\nひとりで脇役を演じ続けてる人は、生年月日をコメントに置いていってください。あなたの本命星と、本当の席を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、演じてきた役を下りる手伝いをします。\n役回りの延命、いたしません。\nでも、あなたの本当の席は、ちゃんと残してあります。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261106-reel-011",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-06T20:00:00+09:00",
-   "text": "夕方になると頭がかゆくて、人前では掻けずに我慢…。それ、すすぎの短さかも。すすぎは洗う時間より長く、生え際と耳の後ろを意識して流すのが基本です。夕方まで頭を気にせず過ごしたい私が残したharuの黒髪スカルプは、プロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-015-v1.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261106-am",
-   "source_cron_id": "soseki-batch-20261106-1108",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-06T08:00:00+09:00",
-   "text": "「転職は3回まで」って、4回目になった途端に何が変わるんだろう。\n漱石は中学教師からロンドン留学、大学講師を経て、40歳で新聞社に入った。回数を重ねるたびに、畑を変えている。\n回数で見られたこと、ありますか。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261106-pm",
-   "source_cron_id": "soseki-batch-20261106-1108",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-06T20:00:00+09:00",
-   "text": "会議で、年下の上司に意見を言いかけたとき、相手の顔色より先に「気を遣わせていないか」が浮かんだ。\n『こころ』の先生も、言えないものを抱えたまま人との距離を測り続けていた。気を遣うことと、言わないことは、同じではないはずなのに。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261107-am",
-   "source_cron_id": "soseki-batch-20261106-1108",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-07T08:00:00+09:00",
-   "text": "資格も学歴も、自分の何を証明しているんだろう。紙の上では足りているはずなのに、面接の席では別の物差しで測られている気がする。\n漱石の講演「私の個人主義」は、他人の物差しで自分を測るのをやめる話だった。測られる側に立つと、物差しそのものが見えてくる。\n結局、測られていたのは能力より、肩書のほうだった。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261107-pm",
-   "source_cron_id": "soseki-batch-20261106-1108",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-07T20:00:00+09:00",
-   "text": "給料は増えないのに、副業は禁止。そう言われたら、残るのは「我慢するしかない」という一択だけに見えてくる。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261107-pm-r1",
-   "source_cron_id": "soseki-batch-20261106-1108",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-07T20:00:00+09:00",
-   "text": "『道草』の健三も、生活費や義理や過去に縛られて、動けない理由が一つではなかった。塞がれているのは、給料の額だけではない。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261107-pm"
-  },
-  {
-   "item_id": "soseki-20261107-pm-r2",
-   "source_cron_id": "soseki-batch-20261106-1108",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-07T20:00:00+09:00",
-   "text": "今日できるのは、大きな決断ではない。就業規則の副業の条項を一行だけ確かめて、塞がれ方が「禁止」か「条件付き」かを見分けることだ。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261107-pm-r1"
-  },
-  {
-   "item_id": "soseki-20261108-am",
-   "source_cron_id": "soseki-batch-20261106-1108",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-08T08:00:00+09:00",
-   "text": "「転職するなら年収アップが条件」って、年収が下がった転職は、全部失敗になるんだろうか。\n『それから』の代助は、安定を捨てて愛を選んだ。金と引き換えに何を手放すかまで含めれば、年収の物差しだけでは測れない。\n年収以外で、転職を決めた理由はありますか。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261108-pm",
-   "source_cron_id": "soseki-batch-20261106-1108",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-08T20:00:00+09:00",
-   "text": "求人票の条件欄を眺めていると、年齢も学歴も経験年数も、全部「うちになじめるか」の言い換えに見えてくる。\n『吾輩は猫である』の猫は、人間の奇妙な習慣を一歩引いて眺めていた。条件欄も会社の習慣の一つで、測っているのは能力ではなく、なじみやすさのほうだ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "tomurai-20261104-pm",
-   "source_cron_id": null,
-   "account": "threads_tomurai",
-   "platform": "threads",
-   "publish_at": "2026-11-04T20:00:00+09:00",
-   "text": "10年、他人の船ばかり漕いできました。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。"
-  },
-  {
-   "item_id": "tomurai-20261105-pm",
-   "source_cron_id": null,
-   "account": "threads_tomurai",
-   "platform": "threads",
-   "publish_at": "2026-11-05T20:00:00+09:00",
-   "text": "10年、誰かの船を漕ぎ続けて、自分の星を見る暇がありませんでした。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261116-pm",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-16T20:00:00+09:00",
-   "text": "今週末から、セールが一気に重なるよ〜😂\n先に保存しといて🤍\n☑︎11/20〜12/2　Qoo10メガ割\n☑︎11/20〜11/27　楽天ブラックフライデー\n☑︎11/27〜　Amazonブラックフライデー（先行セールあり）\n☑︎無印良品週間は11/3で終了（次は例年3月ごろ）\n私は全部は追わない派😊\n先に『買う候補』を決めておいて、セールが来たら答え合わせするの",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261117-pm",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-17T20:00:00+09:00",
-   "text": "老けるのだけは、全力で避けたい〜😂\nお金をかける前に、タダでできることは全部やっときたい派です。\n『お金かけずにやってよかったこと』、1つだけ教えてください🥹\n洗い方でも、寝る前のひと手間でも、やめた習慣でも、なんでもOKです。\n私はまだレパートリーが少なくて😂 みんなの1個で増やしたいの、教えてもらえたら嬉しいな〜！",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-20261118-pm",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "threads",
-   "publish_at": "2026-11-18T20:00:00+09:00",
-   "text": "歯ってさ、6歳くらいで生え替わったら一生モノなの、設計ミスだと思わない？😂\n40代になって着色とか黄ばみが気になり始めてるのに、この先もずっと同じ歯って…。\nお願いだから、30歳と60歳でもう一度ずつ、新品に取り替えてほしい〜！",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261109-am",
-   "source_cron_id": "soseki-batch-20261109-1111",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-09T08:00:00+09:00",
-   "text": "悪くない会社なのに、帰り道だけ重いのはなぜだろう。給料も人間関係も、文句を言うほどのことじゃないのに。\n『草枕』の主人公は、山へ行って人の営みを離れて眺めることを選んだ。近づきすぎると見えなくなるものは、少し離れると形が見えてくる。\n悪くないのに苦しいのは、どこが合っていないんだろう。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261109-pm",
-   "source_cron_id": "soseki-batch-20261109-1111",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-09T20:00:00+09:00",
-   "text": "退職を伝えた翌日から、職場の空気が少しだけ変わった。みんな普通に接してくれるのに、自分だけが「もう部外者だ」と感じてしまう。それでもあと数週間はここにいるし、",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261109-pm-r1",
-   "source_cron_id": "soseki-batch-20261109-1111",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-09T20:00:00+09:00",
-   "text": "その数週間がやけに長く感じるのは、もう辞めると決めた場所に、まだ体だけ置いているからだ。『こころ』の先生も、言えないことがあると、人との間にそっと距離を置いていた。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261109-pm"
-  },
-  {
-   "item_id": "soseki-20261109-pm-r2",
-   "source_cron_id": "soseki-batch-20261109-1111",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-09T20:00:00+09:00",
-   "text": "今日できるのは、気まずさを解消することではない。引き継ぎのメモを一行だけ書いて、「まだここにいる理由」を手元に置くことだ。",
-   "media": [],
-   "reply_to_item_id": "soseki-20261109-pm-r1"
-  },
-  {
-   "item_id": "soseki-20261110-am",
-   "source_cron_id": "soseki-batch-20261109-1111",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-10T08:00:00+09:00",
-   "text": "「志望動機は？」と聞かれるたび、正直な答えは一つしかない。生活のためです。それを言えば落ちる気がして、立派な言葉を取り繕う。『それから』の代助は働かずに暮らせたけれど、こっちはそうはいかない。面接は、働く前のいちばん疲れる仕事かもしれない。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261110-pm",
-   "source_cron_id": "soseki-batch-20261109-1111",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-10T20:00:00+09:00",
-   "text": "辞めようと思っていたのに、上司が急に優しくなった。相談に乗ると言われて、辞めづらさだけが増えた。\n『門』の宗助も、決めたはずのことが決まらないまま、静かな日々を重ねていた。上司が急に優しくなったのは、あなたが惜しいからではない。辞められると困るからだ。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261111-am",
-   "source_cron_id": "soseki-batch-20261109-1111",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-11T08:00:00+09:00",
-   "text": "「前の会社ではこうでした」と言いかけた瞬間、相手の顔が少しだけ固まったことはありませんか。新しい場所で、前の場所の話を持ち出すのは、思ったより勇気がいる。\n『三四郎』の三四郎も、東京に出てきて、自分のいた場所の話し方を探り直していた。見られていたのは、前の会社のやり方ではなく、こっちのやり方になじめるかどうかだった。\nプロフィールの整理シートで、「前の会社で身についたこと」と「ここで使えること」を書き分けてみる。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "soseki-20261111-pm",
-   "source_cron_id": "soseki-batch-20261109-1111",
-   "account": "soseki",
-   "platform": "threads",
-   "publish_at": "2026-11-11T20:00:00+09:00",
-   "text": "会社は一人採用するのに平均120万円くらいかかる、という話を聞いた。採用した時点で赤字スタートで、戦力になるまで数年、その間も給料は出続ける。『坊っちゃん』を雇う側の目線で読み直すと、短期間で辞めていく厄介な新人にも見えてくる。辞める側の事情と、雇う側の計算。どっちも本当なのがややこしい。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261108-reel-012",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-08T20:00:00+09:00",
-   "text": "夜、洗って乾かしたのに髪が広がる人へ。泡立ては手で擦らず、襟足から順に洗うのが基本です。私が残したharuの黒髪スカルプはプロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-ttp-001-v9.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "tomurai-20261106-pm",
-   "source_cron_id": null,
-   "account": "threads_tomurai",
-   "platform": "threads",
-   "publish_at": "2026-11-06T20:00:00+09:00",
-   "text": "10年漕いできたのに、自分の航路は一度も出航していませんでした。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。",
-   "media": [],
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261109-reel-013",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-09T20:00:00+09:00",
-   "text": "シャンプー、全然泡立たない人へ。予洗いをしっかりして、シャンプーは1プッシュだけ。私が残したharuの黒髪スカルプはプロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-ttp-002-v1.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261110-reel-014",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-10T20:00:00+09:00",
-   "text": "朝、毛先だけパサパサに広がる人へ。お風呂上がりはタオルで包んで押さえるだけ、こすらないのが先。私が残したEmma Cocarneのヘアオイルはプロフィールのリンクに置きました（PR）\n#40代美容 #ヘアオイル #ヘアケア",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-ttp-003-v1.mp4",
-   "reply_to_item_id": null
-  },
-  {
-   "item_id": "ruri-ig-20261111-reel-015",
-   "source_cron_id": null,
-   "account": "ruri",
-   "platform": "instagram",
-   "publish_at": "2026-11-11T20:00:00+09:00",
-   "text": "頬のシミをじっと見ちゃう人へ。美容液は手のひら全体に伸ばして、顔を包んで3秒じんわり。私が残したオルビスの美白美容液はプロフィールのリンクに置きました（PR）\n#40代美容 #美白ケア #スキンケア",
-   "media": [],
-   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-ttp-004-v1.mp4",
-   "reply_to_item_id": null
-  }
- ]
+  "version": 1,
+  "updated_at": "2026-11-06T21:52:00+09:00",
+  "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
+  "items": [
+    {
+      "item_id": "ruri-20261026-am",
+      "source_cron_id": "ruri-post-20261026-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-26T08:00:00+09:00",
+      "text": "夜、スマホで集合写真を見返して、自分の顔だけ拡大していた時期があります。ほうれい線とフェイスライン、ずっと見てしまう。でも他の誰も、そこまで見ていないんですよね。拡大をやめたら、夜の買い物も減りました。悩みは本物でも、見る倍率は下げていい。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261026-pm",
+      "source_cron_id": "ruri-post-20261026-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-26T20:00:00+09:00",
+      "text": "「また合うシャンプーがない…」って探し回るの、もう何本目！？😂\nその前に、私はメモすることにしました✍️ 確かめるのは3つだけ。\n①使い始めて何日で痒くなったか\n②季節はいつか\n③洗い方を変えたか\n買った日じゃなくて、合わなくなった日の記録です。1か月もしないうちに合わなくなるなら、商品の前にパターンを見る。頭皮の答え合わせは、そこから。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261027-am",
+      "source_cron_id": "ruri-post-20261027-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T08:00:00+09:00",
+      "text": "夕方の鏡が教えてくれました😂\n隠したい場所が増えて、ファンデが少しずつ厚くなっていた時期。自分では「薄づき」のつもりでも、夕方の鏡では全然そう見えないの。\nオチは単純で、量の問題でした。\n今は「隠す場所は1か所まで」と決めています。全部隠すのをやめたら、夕方の崩れ方も読みやすくなった気がします。これが私の答え合わせ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261027-pm",
+      "source_cron_id": "ruri-post-20261027-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T20:00:00+09:00",
+      "text": "成分の名前、全部覚えようとして挫折した人です😂\nカタカナの羅列、もう頭に入らない…。\nでも待って、確かめるべきは名前じゃなかった。私がやっているのは「役割で3つに分ける」ことだけ。\n・水を抱える係\n・油分でフタをする係\n・肌を整える係\n買う前に、手持ちがどの係に偏っているかを見る。足りない係が1つもなければ、その買い物は見送り。成分の答え合わせは、名前より役割から。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261028-am",
+      "source_cron_id": "ruri-post-20261028-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-28T08:00:00+09:00",
+      "text": "多分なんだけど、夕方の鏡の前で「新しい美容液ポチりそう…」ってなる回数、私がスレッズで一番多いと思う😂\n今日もカートに入れて、閉じて、また開いた。\n我こそはという人、昨日のカートの中身を教えてほしい。対決しよ？笑",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261028-pm",
+      "source_cron_id": "ruri-post-20261028-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-28T20:00:00+09:00",
+      "text": "カートに入れちゃったら、私のルールはここから😂\n3日寝かせる。その間に確かめるのは1つだけ。\n今の手持ち、塗る順番を直せば同じ役割が足りてないか。\n買わなかった理由もちゃんと書きます。買う前の答え合わせが、私の仕事です。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261029-am",
+      "source_cron_id": "ruri-post-20261029-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-31T20:00:00+09:00",
+      "text": "お願い、1個だけ教えて！！！！\n40代になって「もっと早く知りたかった」って思った美容のこと。\n順番でも、量でも、やめたことでも、なんでもいいです。\n私の買い物リストが増えるのは覚悟の上😂 みんなの1個、聞かせて〜！",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261029-pm",
+      "source_cron_id": "ruri-post-20261029-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-03T20:00:00+09:00",
+      "text": "ほうれい線、ずーっと口の周りのシワだと思ってた。\nでも色々確かめたら、気にすべきは口元じゃなくて、頬の位置と毎日のクセの方だった。頬杖、片噛み、スマホ見る時の下向き。\n遠回りしたけど、これが私の答え合わせ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261030-am",
+      "source_cron_id": "ruri-post-20261030-am",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-04T20:00:00+09:00",
+      "text": "おはよう洗面所ー！！🪞\n昨日の夕方の鏡、ほうれい線が朝より濃く見えた😂\nでもこれ、疲れてる日ほど濃く見える気がするの私だけ？\n今日は何も買わない。保湿だけ丁寧にして、早く寝る。これが答え合わせ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261030-pm",
+      "source_cron_id": "ruri-post-20261030-pm",
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-06T20:00:00+09:00",
+      "text": "カートに入れる前に確かめる3つ、決めました✍️\n①今の手持ちに、同じ役割のものがないか\n②塗る順番と量は合っているか\n③クーポン・ポイント・定期の合計額まで見たか\n1個でも「うーん」なら、今日は買わない。\n勢いで買って後悔するのは、もう卒業したいのよ😂",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261026-am",
+      "source_cron_id": "soseki-post-20261026-am",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-26T08:00:00+09:00",
+      "text": "月曜の朝、会社に着く前に一度ため息をつく。\n『こころ』の先生は、言えない過去を抱えたまま静かに消耗していった。毎週のため息も、身体からの小さな知らせかもしれない。\nため息の理由を、言葉にできますか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261026-pm",
+      "source_cron_id": "soseki-post-20261026-pm",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-26T20:00:00+09:00",
+      "text": "昇進した。給料も上がった。なのに、なぜか嬉しくない。\n『門』の宗助は、崖の上の家で静かに暮らしながら、ずっと何かを避け続けていた。収まった人ほど、違和感は言葉になりにくい。\nその違和感の正体を、プロフィールのリンク先の記事に書きました。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261027-am",
+      "source_cron_id": "soseki-post-20261027-am",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-27T08:00:00+09:00",
+      "text": "40代になって、転職サイトを開くのが怖くなった。\n『それから』の代助は、決断を先延ばしにしながら暮らしていた。怖いのはサイトそのものではなく、このまま何も決めない自分の方かもしれない。\n若い頃の「どこかあるだろう」と、今の「開けない」のあいだに、決断の先延ばしがある。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261027-pm",
+      "source_cron_id": "soseki-post-20261027-pm-tree",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-27T20:00:00+09:00",
+      "text": "「辞めたい」の中身は、人によって全然違う。\n『道草』の健三は、生活費や義理や過去に縛られ、どれが自分を止めているのか分からなくなっていた。給料か、人間関係か、体力か、仕事内容か。\nまずは、どれが一番重いかだけ分けてみる。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261027-pm-r1",
+      "source_cron_id": "soseki-post-20261027-pm-tree",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-27T20:00:00+09:00",
+      "text": "『道草』の健三の場合は、辞めたい理由が一つではなかった。\n絡まった糸を一本ずつほどくように、理由を分けると、辞めることと残ることのあいだに、もう少し選択肢が見えてくる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261027-pm"
+    },
+    {
+      "item_id": "soseki-20261027-pm-r2",
+      "source_cron_id": "soseki-post-20261027-pm-tree",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-27T20:00:00+09:00",
+      "text": "今日できるのは、大きな決断ではない。\n『道草』の健三のように絡まった理由をほどくなら、まず一番重い理由を一つだけ紙に書く。それが給料の問題なのか、人の問題なのかを確かめるだけで、辞めたいの形が少し変わる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261027-pm-r1"
+    },
+    {
+      "item_id": "ruri-20261026-orbis",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-26T19:00:00+09:00",
+      "text": "シミ対策って聞くと、真っ先に「美白美容液を足すこと」だと思ってた。\nでも待って。夕方の鏡で「増えた！？」って焦るシミ、朝の洗面所でもう一回見ると、そこまでじゃない日が多くない？\n私の場合、乾燥でくすんで見える分と、ファンデが毛穴に落ちて影になる分が、シミに化けてた。\nだから今は、美白を足す前に「朝の顔と夕方の顔を見比べる」が先。\n本物のシミへのケアは、それから決める。これが私の答え合わせ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261026-orbis-cta",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-26T20:00:00+09:00",
+      "text": "反応もらえたので置いておきますね。\nメインで書いた「朝と夕方で見比べる」の続きで、私が今いちばん気になっている美白ケアがこちらです。\nオルビス アドバンスド ブライトニング セラム。\n気になる人はこちらから見られます▼\n（PR）https://px.a8.net/svt/ejp?a8mat=4BEPPT+BB8WG2+1USQ+3YW8WI",
+      "media": [],
+      "reply_to_item_id": "ruri-20261026-orbis",
+      "condition": {
+        "min_views": 50,
+        "min_likes": 2
+      }
+    },
+    {
+      "item_id": "ruri-20261031-am",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-08T20:00:00+09:00",
+      "text": "結局さ、40代の美容って、新しい物を「足す」前に「順番と量」を直すのが先だよね。\n何を塗るかより、どの順番で、どれだけ塗るか。ここがズレてたら、高い物を足しても活きない気がしてる😌",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261031-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-09T20:00:00+09:00",
+      "text": "美容って、顔のケアさえ頑張ればいいと思ってた。化粧水も美容液も、ぜーんぶ顔のため😂\nでもこの前、電車の窓に映った横顔を見たら、顔より先に目についたのが首で…。\n注力してたのは顔だけ。見落としてたのは首だったのよね。\n今日から、保湿の余りは顎の下で止めずに、首まで伸ばすことにします。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261101-am",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-10T20:00:00+09:00",
+      "text": "朝、自分の支度は家族のあと。最後の最後です😂\nだから聞かせて！ バタバタの朝でも「これだけは外せない」って美容、1個だけ教えて！！\n順番の工夫でも、量のことでも、潔くやめたことでもOK。なんでもいいです。\n日曜の朝くらい、みんなの知恵でラクさせて〜🙏",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261101-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-12T20:00:00+09:00",
+      "text": "肌がゆらいでる日、私のルールは「足す」じゃなくて「減らす」です✍️\n減らすのは、この3つ。\n①出すアイテムの数（その日は洗顔と保湿だけ）\n②こする回数（触れるのは最小限に、そっと置く）\n③試す予定（新しい物は、調子が戻るまでおあずけ）\n増やさない・触らない・試さない。守りの日があってもいいよね。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261102-am",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-13T20:00:00+09:00",
+      "text": "今朝、洗面所の棚を数えてしまった…。\n開封済みで使いかけの美容液、5本もあった😂 しかも全部「いい感じがする」で止まってるやつ。\n使いかけコレクションの多さなら、正直ちょっと誰にも負ける気がしないの。\n勝てる人いたら名乗り出てほしい。あなたの棚、今何本開いてますか？",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261102-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-15T20:00:00+09:00",
+      "text": "気になる美容液のページ、今日も開いちゃった😂\n「購入」ボタンの手前で、指が止まってます。\n私の判定はここから。現品をいきなり買う前に、「試せる形があるか」を先に確かめる。サンプルでも、トライアルでも、少量サイズでも。\n試せる形が無ければ、その場では買わない。それが今の私のルールです。\n今日の判定は、保留。合うか分からない物に、最初から現品は賭けすぎなのよ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261027-reel-001",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-27T12:00:00+09:00",
+      "text": "朝は水だけ洗顔、してない？🌊\n私もずっと水だけ派でした。でも夕方のテカリが気になって、基本の洗い方に変えてみたよ🧴\nまずは手を洗う → ぬるま湯で予洗い → 泡でTゾーンから → タオルは押さえるだけ。\nみんなの朝洗顔、コメントで教えて〜！\n答え合わせの候補はプロフィールのリンクに置いてます。\n#40代美容 #洗顔 #スキンケアの順番 #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-005-v5.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261028-am",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-28T08:00:00+09:00",
+      "text": "あと20年、と数えた朝がある。\n『三四郎』の主人公は、東京に出てきてからずっと、自分の居場所が決まらないまま日々を眺めていた。20年を年で数えると刑期みたいになるが、月曜の朝に直すと、まだ決め直せる回数に見えてくる。\nあなたは、あと何回、月曜の朝を迎えたいですか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261028-pm",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-28T20:00:00+09:00",
+      "text": "求人票の「未経験歓迎」と「経験者優遇」が、同じ画面に並んでいた。漱石はロンドン留学で神経をすり減らして帰国し、教壇に立ちながら書き始めた。\n条件に自分を合わせる前に、まず自分が何に疲れているのかを分ける方が先だ。その分け方を、プロフィールのリンク先の整理シートに置きました。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261029-am",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-29T08:00:00+09:00",
+      "text": "夢の中でまで、仕事をしていませんか。\n『夢十夜』は夢の話を十編集めた連作で、目覚めたあとも夢の感触だけが残ることがある。眠っているあいだも会社から離れられないのは、頑張り不足ではなく頭がまだ職場に置き去りなだけかもしれない。\n夢の中まで出勤しなくていい。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261029-pm",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-29T20:00:00+09:00",
+      "text": "会議で頷いた回数だけ、自分が薄くなっていく気がする。『吾輩は猫である』の猫は、人間の奇妙な習慣を一歩引いて眺めていた。\n頷くことが仕事になっている職場では、意見より空気の方が先に決まっている。頷きの多さは、適応力ではなく消耗の記録だ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261030-am",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-30T08:00:00+09:00",
+      "text": "朝食の席では笑っているのに、玄関を出た瞬間に顔が戻る。\n『行人』の二郎は、兄・一郎の心の内が分からず、自分の気持ちも言葉にできずに悩んでいた。家族の前で元気なふりをするのは、弱さではなく、壊れた姿を見せたくない優しさの裏返しでもある。\n玄関の内側の顔と、外側の顔。その差が、そのまま疲れの量だ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261030-pm",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "決めるか残るか、決められないのではない。近づきすぎて、全体が見えていないだけだ。\n漱石は『倫敦塔』で、ロンドン塔の石の重さを眺めながら、自分の悩みとは別の時間の流れを感じ取っていた。決断の前に必要なのは、もう一つの情報ではなく、少しの距離だ。\n全体が見えていないのだとしたら、決める前に何から眺め直しますか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261030-pm-r1",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "塔を眺める漱石の視線は、塔そのものより、塔が見てきた時間に向けられていた。\n今の職場も、目の前の締切だけで測ると重く見える。五年という単位で眺め直してみる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261030-pm"
+    },
+    {
+      "item_id": "soseki-20261030-pm-r2",
+      "source_cron_id": "soseki-batch-20261028-30",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "決める前に、まず一枚だけ紙を用意する。\n「辞めたい理由」と「残りたい理由」を一行ずつ書く。どちらが多いかではなく、どちらを読んだときに胸が動くかを確かめるだけで、決められないの形が少し変わる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261030-pm-r1"
+    },
+    {
+      "item_id": "ruri-ig-20261028-reel-002",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-28T20:00:00+09:00",
+      "text": "毎日洗ってるのに頭皮がかゆい…それ、洗う順番かも🫧 基本は ブラッシング→ぬるま湯で予洗い→泡と指の腹→毛先からトリートメント🧴 みんなの洗い方、コメントで教えて〜！ #40代美容 #シャンプー #頭皮ケア #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-006-v3.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261029-reel-003",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-29T20:00:00+09:00",
+      "text": "忙しい朝、ファンデ直塗りしてない？☀️ 順番は スキンケア→日焼け止め→下地→ファンデーション が基本だよ🧴 みんなの朝の順番、コメントで教えて〜！ #40代美容 #日焼け止め #ベースメイク #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-007-v2.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261030-reel-004",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "美容液、いちばん最後に塗ってない？💧 私もずっと乳液のあとでした。でも基本は、化粧水の直後・乳液の前に挟むことだそうです🧴 乾いた肌に直塗りはやめて、少量を2回に分けるのが今の私の答え合わせ。私が迷った末に残したのは、オルビス アドバンスド ブライトニング セラム（美白美容液）(PR)。美白美容液を探している人は、プロフィールのリンクから見てみてね🔗 みんなの美容液の順番、コメントで教えて〜！ #40代美容 #美容液 #スキンケアの順番 #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-008-v2.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261031-reel-005",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-10-31T20:00:00+09:00",
+      "text": "シャンプー、朝派？夜派？🫧 私はずっと朝シャンでした。でも一日の汚れは、その日の夜に落とすのが基本だそうです🌙 ぬるま湯でゆっくり、泡は手のひらで作って、根元から乾かすのが今の私の答え合わせ。私が頭皮で迷った末に残したのは、haru kurokami スカルプシャンプー(PR)。頭皮ケアのシャンプーを探している人は、プロフィールのリンクから見てみてね🔗 みんなは朝派？夜派？コメントで教えて〜！ #40代美容 #シャンプー #頭皮ケア #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-009-v1.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261101-reel-006",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-01T20:00:00+09:00",
+      "text": "ヘアオイル、髪全体に塗ってない？✨ 私も根元からベタ塗りして、夕方には重たい髪でした。基本は、乾かす前に、濡れた髪の毛先と中間へ少量から💧 私が髪で迷った末に残したのは、エマ コカルネ ヘアオイル(PR)。ヘアオイルを探している人は、プロフィールのリンクから見てみてね🔗 みんなのオイルの量、コメントで教えて〜！ #40代美容 #ヘアオイル #ヘアケア #NG美容 #美容の答え合わせ",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-010-v2.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261028-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-28T12:30:00+09:00",
+      "text": "化粧水、残り少なくなると急にドバドバ使い始めるの、私だけ？😂\n大事に使ってた前半の私、どこ行った。\n気持ちはもう次のボトルなのよね。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261029-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-01T20:00:00+09:00",
+      "text": "娘への「がんばったねプリン」、夜に私が食べちゃった😂\n買い物も同じで、理由はだいたい後付け。\n「ご褒美だから」は、私の中でいちばん当てにならない理由です。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261030-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-05T20:00:00+09:00",
+      "text": "昼のメイク直しで気づいたこと。\n愛用してた口紅が、なんだか浮いて見える😂\n色が合わなくなったんじゃなくて、唇の縦ジワに色が入り込むようになってた。\n口紅のせいにしてごめん、の気づき。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261031-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-07T20:00:00+09:00",
+      "text": "美容の仙人になりたいのに、セールの通知ひとつで一喜一憂してる私です😂\n土曜のお昼から、心が忙しい。\n買うかどうか決めるのは、通知じゃなくて私だったはず。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261101-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-11T20:00:00+09:00",
+      "text": "買い物のレジで、自分の手の甲を見て止まった😂\n顔のケアはあんなに考えるのに、手はハンドクリームすら気まぐれで。\n手って毎日いちばん働いてるのに、いちばん後回しだったな。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261102-mid",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-14T20:00:00+09:00",
+      "text": "寝落ちするタイプです😂\n夜、最後までちゃんとケアできる人を心から尊敬します。\nだから私の美容は「夜に頑張らない前提」で組み立ててます。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261028-extra",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-28T17:00:00+09:00",
+      "text": "ちょっと聞いて、最近知って固まった言葉。「ゴースト血管」って知ってた？\n40代を過ぎると、毛細血管が細くなって消えていくことがあるんだそうです。\nくすみも髪のパサつきも、「栄養が届いてない」が関係してるかもって話を見て、高い美容液を足し続けてた私は静かに反省…😂\nスーパーで買えるスパイスを上手に使ってる人が多いらしくて、私も答え合わせ中です。\nみんなはこの手の話、どこまで信じる派？",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-reply-20261027-1",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T21:57:00+09:00",
+      "text": "それ私もですー！夕方16時過ぎると急にモロモロし出すの、ほんと地味にショックですよね😂",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18668931052000128"
+    },
+    {
+      "item_id": "ruri-reply-20261027-2",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T22:07:00+09:00",
+      "text": "41歳、鼻の毛穴…わかりすぎます😂\n私も鏡に近づいてはため息、の側の人間です。\nちなみにいちばん気になるのって、黒ずみですか？開きですか？",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18016386557953051"
+    },
+    {
+      "item_id": "ruri-reply-20261027-3",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T22:22:00+09:00",
+      "text": "40代、参加させてください〜！私も「結局なに使えばいいの」でずっと迷子でした😂\n新しいのを買っては棚が増えて、満足したのかも分からないまま次を探す、を繰り返してた側です。",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18097958207657492"
+    },
+    {
+      "item_id": "ruri-reply-20261027-4",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T22:37:00+09:00",
+      "text": "めちゃくちゃ共感です〜！私もあれもこれも足して棚がパンパンだった時期があります😂\n今はもう、足すより先に順番だと思ってます。",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18003296219801507"
+    },
+    {
+      "item_id": "ruri-reply-20261027-5",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-10-27T22:52:00+09:00",
+      "text": "夕方の頭皮のベタつき、わかります〜！私も前はゴシゴシ洗う派でした😂\n洗いすぎ説、私も試してみたらしっくりきて。\n予洗いを長めにするようにしたら、夕方のもやもやが前よりマシな気がしてます。",
+      "media": [],
+      "reply_to_item_id": null,
+      "reply_to_post_id": "18022967204945893"
+    },
+    {
+      "item_id": "ruri-20261029-extra",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-02T20:00:00+09:00",
+      "text": "なんでこんなに太っちゃったのかな。\n生まれたとき、3.4キロしかなかったのに。\n40年かけて、順調に育ちすぎたみたいです😂",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "hoshimi-20261029-pm",
+      "source_cron_id": null,
+      "account": "threads_hoshimi",
+      "platform": "threads",
+      "publish_at": "2026-10-30T20:00:00+09:00",
+      "text": "10年、ずっと「いて当たり前」の席でした。いなくなったら困るのに、いる間は誰にも見られなかった、ほしみです。\n\nいまは、生年月日から本命星を視てます。\n\n最近、がんばっているのに、いつも脇役のままみたいに感じる人、増えてませんか。\nだから、ここ作りました。\n\n生年月日だけ、コメントに置いていってください。生まれた年だけでも、本命星は出せます。\nあなたの本命星と、座りがちな席を、順番に返します。\n\n自分の席を知りたい人は、フォローしといて。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261102-reel-007",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-02T20:00:00+09:00",
+      "text": "美白美容液、シミのとこだけ塗ってませんか。基本は顔全体にのばして、気になる部分に重ね塗り。私が残したオルビスの美白美容液（アドバンスド ブライトニング セラム）はプロフィールのリンクに置きました（PR）\n#40代美容 #美白美容液 #スキンケアの順番",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-011-v2.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261031-am",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-31T08:00:00+09:00",
+      "text": "面談で「もう少し主体性を」と言われた。何をどう変えればいいのか、その場では聞けなかった。\n『坊っちゃん』の主人公は、理不尽な相手には真正面から食ってかかる。曖昧な言葉をそのまま持ち帰るより、言われた言葉の中身をその場で確かめる方が、後で自分を責めずに済む。言われた言葉を、その場で聞き返せていますか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261031-pm",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-10-31T20:00:00+09:00",
+      "text": "会議で、部長の案に無理があると分かっていながら頷いた。言い返せば、後輩たちの前で自分の立場が悪くなる気がした。\n『草枕』の冒頭に、こうある。「智に働けば角が立つ。情に棹させば流される。意地を通せば窮屈だ。とかくに人の世は住みにくい。」\n頷いて疲れるのは弱さではない。上にも下にも気を遣わされる、その位置の窮屈さだ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261101-am",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-01T08:00:00+09:00",
+      "text": "辞めると言い出す場面を想像しては、やめている。言い出せないのは、決心が足りないからだろうか。\n『野分』の道也は、富豪や権力者への無礼な態度がもとで、故郷の教職を追われた。言い出せない理由は、決心の弱さではなく、",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261101-am-r1",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-01T08:00:00+09:00",
+      "text": "言ったあと、暮らしがどう回るか分からない、その重さだった。道也は、思ったことを言った代償に職を失った。だから言い出す前に、まず言ったあとに何が起きるかを並べてみる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261101-am"
+    },
+    {
+      "item_id": "soseki-20261101-am-r2",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-01T08:00:00+09:00",
+      "text": "並べたら、紙に一行だけ書く。「誰に言いづらいか」が分かれば、言い出す相手と順番が見えてくる。\nその一行なら、決心が固まる前に書ける。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261101-am-r1"
+    },
+    {
+      "item_id": "soseki-20261101-pm",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-01T20:00:00+09:00",
+      "text": "「転職は35歳まで」って、36歳になった途端に何がダメになるんだろう。体力？記憶力？\n夏目漱石が教職を辞め、朝日新聞社に入ったのは40歳。\n人間の能力より、採用する側の物差しが古くなっていないか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261102-am",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-02T08:00:00+09:00",
+      "text": "「いい会社にいるのに、なぜ辞めたいの」と言われた。答えに詰まったのは、自分の言葉がまだなかったからだ。\n漱石は1914年の講演「私の個人主義」で、他人の物差しではなく自分の判断で生きる「自己本位」を説いた。世間の評価で測るのをやめれば、辞めたい理由は言い訳ではなく自分の言葉になる。\nまず、誰の物差しで測っているかだけ確かめてみる。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261102-pm",
+      "source_cron_id": "soseki-batch-20261031-1102",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-02T20:00:00+09:00",
+      "text": "流れてくる投稿で、わざわざ反感を買うような言い方をしている人がいた。見たくないのに、なぜか目が止まる。\n『明暗』の小林は、自分のことをこう言っている。「わざわざ人の厭がるような事を云ったりしたりするんです。そうでもしなければ……僕の存在を人に認めさせる事ができないんです。僕は無能です。」\nその「認めさせたい」が先に立つ形を知ってから、自分の言葉が尖る日が、ふと気になるようになった。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "tomurai-20261031-pm",
+      "source_cron_id": null,
+      "account": "threads_tomurai",
+      "platform": "threads",
+      "publish_at": "2026-10-31T20:00:00+09:00",
+      "text": "『いないと困る』と言われて10年。昇給も、役職も、なしでした。\n先月、その脇役を弔いました。\n「がんばれば報われる」と言われて、その役を10年、延命してきました。\n生まれた年で視えるんです。その人が座らされた席と、本当の席の違いが。\nいまは、九星気学で本命星を視てます。\nだから、ここで弔いを始めました。\nひとりで脇役を演じ続けてる人は、生年月日をコメントに置いていってください。あなたの本命星と、本当の席を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、演じてきた役を下りる手伝いをします。\n役回りの延命、いたしません。\nでも、あなたの本当の席は、ちゃんと残してあります。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261103-am",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-03T08:00:00+09:00",
+      "text": "40代、転職するか残るか、もう2年決められません。\n紙に「辞めたい理由」と「残りたい理由」を書いても、どっちを読んでも胸が動かなくて。\n決められない自分が情けなくて、今日も求人を見て閉じました。\n『それから』の代助も、決めないまま先延ばしにして暮らしていた。あれ、他人事じゃなかった。\n同じところで止まってる人、いますか？",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261103-pm",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-03T20:00:00+09:00",
+      "text": "40代、仕事でミスして落ち込んでたら、年下の子が「大丈夫ですよ」って声をかけてくれた。\n大人になってまで何してるんだって、恥ずかしいやら嬉しいやら。\n『坊っちゃん』に出てくる清は、坊っちゃんが何をしても味方でいてくれた。ああいう一言に、人は続けてこられるんだと思う。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261104-am",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-04T08:00:00+09:00",
+      "text": "40代、飲み会の席で、自分の番になると何も出てこなくて固まりました。情けない。\n若い子たちがスラスラ近況を話す中で、言いたいことの半分も出てこなくて。\n『三四郎』の三四郎も、東京に出てきて、広い世界に圧倒されてばかりいた。\nみんなはこういう時、どうしてる？",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261104-pm",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-04T20:00:00+09:00",
+      "text": "40代、有給を取るって言うだけで、なぜか申し訳ない気持ちになる。今日も送信ボタンの前で、理由欄を3回書き直した。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261104-pm-self",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-04T21:00:00+09:00",
+      "text": "補足すると、休む理由を説明しなきゃいけない気がして、結局「私用のため」って短く書いて送った。みんなは有給の理由、どこまで書いてる？",
+      "media": [],
+      "reply_to_item_id": "soseki-20261104-pm"
+    },
+    {
+      "item_id": "soseki-20261105-am",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-05T08:00:00+09:00",
+      "text": "40代の転職、エージェントに相談するのって普通なの？\nまだ社内にいるのに、外の人に話すのは裏切りみたいで手が止まる。\n漱石が小説を書き始めたのも、友人の高浜虚子に勧められたからだった。大きな決断ほど、最初の一言は外から来たりする。\n外の人に話したことある？",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261105-pm",
+      "source_cron_id": "soseki-batch-20261103-1105-test",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-05T20:00:00+09:00",
+      "text": "フォロワー4人で、Threadsを続けています。\nなのに1本だけ、10,610回まで表示が伸びた投稿があります。\n伸びたのは綺麗にまとめた文章じゃなくて、「次を探す体力まで会社で使い切っている人がいる」という一行でした。\n数字、需要あれば全部出します。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261103-reel-008",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-03T20:00:00+09:00",
+      "text": "シャンプー、頭皮に直塗りしてませんか。基本は、お湯だけで1分流して、泡立ててから指の腹で洗うこと。私が残したharuの黒髪スカルプはプロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-012-v1.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261104-reel-009",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-04T20:00:00+09:00",
+      "text": "ヘアオイル、乾いた髪にベタッと塗ってませんか。つけるのはタオルドライのあとの半乾き、毛先から。私が残したエマコカルネのヘアオイルはプロフィールのリンクに置きました（PR）\n#40代美容 #ヘアオイル #ヘアケア",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-013-v1.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261105-reel-010",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-05T20:00:00+09:00",
+      "text": "化粧水のあと、乾くまで待ってませんか。なじんだら間を空けずに美容液へ。私が残したオルビスの美白美容液（アドバンスド ブライトニング セラム）はプロフィールのリンクに置きました（PR）\n#40代美容 #美白美容液 #スキンケアの順番",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-014-v1.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "tomurai-20261101-pm",
+      "source_cron_id": null,
+      "account": "threads_tomurai",
+      "platform": "threads",
+      "publish_at": "2026-11-01T20:00:00+09:00",
+      "text": "頼まれごとは全部引き受けて10年。昇給ゼロ、役職ゼロでした。\n先月、その脇役を弔いました。\n「がんばれば報われる」と言われて、その役を10年、延命してきました。\n生まれた年で視えるんです。その人が座らされた席と、本当の席の違いが。\nいまは、九星気学で本命星を視てます。\nだから、ここで弔いを始めました。\nひとりで脇役を演じ続けてる人は、生年月日をコメントに置いていってください。あなたの本命星と、本当の席を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、演じてきた役を下りる手伝いをします。\n役回りの延命、いたしません。\nでも、あなたの本当の席は、ちゃんと残してあります。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261106-reel-011",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-06T20:00:00+09:00",
+      "text": "夕方になると頭がかゆくて、人前では掻けずに我慢…。それ、すすぎの短さかも。すすぎは洗う時間より長く、生え際と耳の後ろを意識して流すのが基本です。夕方まで頭を気にせず過ごしたい私が残したharuの黒髪スカルプは、プロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-015-v1.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261106-am",
+      "source_cron_id": "soseki-batch-20261106-1108",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-06T08:00:00+09:00",
+      "text": "「転職は3回まで」って、4回目になった途端に何が変わるんだろう。\n漱石は中学教師からロンドン留学、大学講師を経て、40歳で新聞社に入った。回数を重ねるたびに、畑を変えている。\n回数で見られたこと、ありますか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261106-pm",
+      "source_cron_id": "soseki-batch-20261106-1108",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-06T20:00:00+09:00",
+      "text": "会議で、年下の上司に意見を言いかけたとき、相手の顔色より先に「気を遣わせていないか」が浮かんだ。\n『こころ』の先生も、言えないものを抱えたまま人との距離を測り続けていた。気を遣うことと、言わないことは、同じではないはずなのに。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261107-am",
+      "source_cron_id": "soseki-batch-20261106-1108",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-07T08:00:00+09:00",
+      "text": "資格も学歴も、自分の何を証明しているんだろう。紙の上では足りているはずなのに、面接の席では別の物差しで測られている気がする。\n漱石の講演「私の個人主義」は、他人の物差しで自分を測るのをやめる話だった。測られる側に立つと、物差しそのものが見えてくる。\n結局、測られていたのは能力より、肩書のほうだった。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261107-pm",
+      "source_cron_id": "soseki-batch-20261106-1108",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-07T20:00:00+09:00",
+      "text": "給料は増えないのに、副業は禁止。そう言われたら、残るのは「我慢するしかない」という一択だけに見えてくる。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261107-pm-r1",
+      "source_cron_id": "soseki-batch-20261106-1108",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-07T20:00:00+09:00",
+      "text": "『道草』の健三も、生活費や義理や過去に縛られて、動けない理由が一つではなかった。塞がれているのは、給料の額だけではない。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261107-pm"
+    },
+    {
+      "item_id": "soseki-20261107-pm-r2",
+      "source_cron_id": "soseki-batch-20261106-1108",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-07T20:00:00+09:00",
+      "text": "今日できるのは、大きな決断ではない。就業規則の副業の条項を一行だけ確かめて、塞がれ方が「禁止」か「条件付き」かを見分けることだ。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261107-pm-r1"
+    },
+    {
+      "item_id": "soseki-20261108-am",
+      "source_cron_id": "soseki-batch-20261106-1108",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-08T08:00:00+09:00",
+      "text": "「転職するなら年収アップが条件」って、年収が下がった転職は、全部失敗になるんだろうか。\n『それから』の代助は、安定を捨てて愛を選んだ。金と引き換えに何を手放すかまで含めれば、年収の物差しだけでは測れない。\n年収以外で、転職を決めた理由はありますか。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261108-pm",
+      "source_cron_id": "soseki-batch-20261106-1108",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-08T20:00:00+09:00",
+      "text": "求人票の条件欄を眺めていると、年齢も学歴も経験年数も、全部「うちになじめるか」の言い換えに見えてくる。\n『吾輩は猫である』の猫は、人間の奇妙な習慣を一歩引いて眺めていた。条件欄も会社の習慣の一つで、測っているのは能力ではなく、なじみやすさのほうだ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "tomurai-20261104-pm",
+      "source_cron_id": null,
+      "account": "threads_tomurai",
+      "platform": "threads",
+      "publish_at": "2026-11-04T20:00:00+09:00",
+      "text": "10年、他人の船ばかり漕いできました。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。"
+    },
+    {
+      "item_id": "tomurai-20261105-pm",
+      "source_cron_id": null,
+      "account": "threads_tomurai",
+      "platform": "threads",
+      "publish_at": "2026-11-05T20:00:00+09:00",
+      "text": "10年、誰かの船を漕ぎ続けて、自分の星を見る暇がありませんでした。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261116-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-16T20:00:00+09:00",
+      "text": "今週末から、セールが一気に重なるよ〜😂\n先に保存しといて🤍\n☑︎11/20〜12/2　Qoo10メガ割\n☑︎11/20〜11/27　楽天ブラックフライデー\n☑︎11/27〜　Amazonブラックフライデー（先行セールあり）\n☑︎無印良品週間は11/3で終了（次は例年3月ごろ）\n私は全部は追わない派😊\n先に『買う候補』を決めておいて、セールが来たら答え合わせするの",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261117-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-17T20:00:00+09:00",
+      "text": "老けるのだけは、全力で避けたい〜😂\nお金をかける前に、タダでできることは全部やっときたい派です。\n『お金かけずにやってよかったこと』、1つだけ教えてください🥹\n洗い方でも、寝る前のひと手間でも、やめた習慣でも、なんでもOKです。\n私はまだレパートリーが少なくて😂 みんなの1個で増やしたいの、教えてもらえたら嬉しいな〜！",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261118-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-18T20:00:00+09:00",
+      "text": "歯ってさ、6歳くらいで生え替わったら一生モノなの、設計ミスだと思わない？😂\n40代になって着色とか黄ばみが気になり始めてるのに、この先もずっと同じ歯って…。\nお願いだから、30歳と60歳でもう一度ずつ、新品に取り替えてほしい〜！",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261109-am",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-09T08:00:00+09:00",
+      "text": "悪くない会社なのに、帰り道だけ重いのはなぜだろう。給料も人間関係も、文句を言うほどのことじゃないのに。\n『草枕』の主人公は、山へ行って人の営みを離れて眺めることを選んだ。近づきすぎると見えなくなるものは、少し離れると形が見えてくる。\n悪くないのに苦しいのは、どこが合っていないんだろう。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261109-pm",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-09T20:00:00+09:00",
+      "text": "退職を伝えた翌日から、職場の空気が少しだけ変わった。みんな普通に接してくれるのに、自分だけが「もう部外者だ」と感じてしまう。それでもあと数週間はここにいるし、",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261109-pm-r1",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-09T20:00:00+09:00",
+      "text": "その数週間がやけに長く感じるのは、もう辞めると決めた場所に、まだ体だけ置いているからだ。『こころ』の先生も、言えないことがあると、人との間にそっと距離を置いていた。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261109-pm"
+    },
+    {
+      "item_id": "soseki-20261109-pm-r2",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-09T20:00:00+09:00",
+      "text": "今日できるのは、気まずさを解消することではない。引き継ぎのメモを一行だけ書いて、「まだここにいる理由」を手元に置くことだ。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261109-pm-r1"
+    },
+    {
+      "item_id": "soseki-20261110-am",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-10T08:00:00+09:00",
+      "text": "「志望動機は？」と聞かれるたび、正直な答えは一つしかない。生活のためです。それを言えば落ちる気がして、立派な言葉を取り繕う。『それから』の代助は働かずに暮らせたけれど、こっちはそうはいかない。面接は、働く前のいちばん疲れる仕事かもしれない。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261110-pm",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-10T20:00:00+09:00",
+      "text": "辞めようと思っていたのに、上司が急に優しくなった。相談に乗ると言われて、辞めづらさだけが増えた。\n『門』の宗助も、決めたはずのことが決まらないまま、静かな日々を重ねていた。上司が急に優しくなったのは、あなたが惜しいからではない。辞められると困るからだ。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261111-am",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-11T08:00:00+09:00",
+      "text": "「前の会社ではこうでした」と言いかけた瞬間、相手の顔が少しだけ固まったことはありませんか。新しい場所で、前の場所の話を持ち出すのは、思ったより勇気がいる。\n『三四郎』の三四郎も、東京に出てきて、自分のいた場所の話し方を探り直していた。見られていたのは、前の会社のやり方ではなく、こっちのやり方になじめるかどうかだった。\nプロフィールの整理シートで、「前の会社で身についたこと」と「ここで使えること」を書き分けてみる。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261111-pm",
+      "source_cron_id": "soseki-batch-20261109-1111",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-11T20:00:00+09:00",
+      "text": "会社は一人採用するのに平均120万円くらいかかる、という話を聞いた。採用した時点で赤字スタートで、戦力になるまで数年、その間も給料は出続ける。『坊っちゃん』を雇う側の目線で読み直すと、短期間で辞めていく厄介な新人にも見えてくる。辞める側の事情と、雇う側の計算。どっちも本当なのがややこしい。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-ig-20261108-reel-012",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "instagram",
+      "publish_at": "2026-11-08T20:00:00+09:00",
+      "text": "夜、洗って乾かしたのに髪が広がる人へ。泡立ては手で擦らず、襟足から順に洗うのが基本です。私が残したharuの黒髪スカルプはプロフィールのリンクに置きました（PR）\n#40代美容 #シャンプー #頭皮ケア",
+      "media": [],
+      "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-ttp-001-v9.mp4",
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "tomurai-20261106-pm",
+      "source_cron_id": null,
+      "account": "threads_tomurai",
+      "platform": "threads",
+      "publish_at": "2026-11-06T20:00:00+09:00",
+      "text": "10年漕いできたのに、自分の航路は一度も出航していませんでした。\n『いないと困る』と言われても、行き先はいつも誰かの都合で、昇給も、役職も、なしでした。\n漕ぐのをやめた日、初めて自分の星を見ました。\nいまは、九星気学で本命星を視てます。生年月日から、その人の星図と、星の巡りが視えるんです。\n最近、がんばっているのに、自分の人生が進んでいない気がする人、増えてませんか。\nだから、ここで星図を読み始めました。\nひとりで他人の航路を走らされている人は、生年月日をコメントに置いていってください。あなたの本命星と、本来の航路を、順番に返します。\n疲れてしまった人は、フォローしておいてください。これからの投稿で、自分の星の見方を少しずつ書いていきます。\n他人の航路の延命、いたしません。\nでも、あなたの星は、ちゃんと出ています。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "ruri-20261119-pm",
+      "source_cron_id": null,
+      "account": "ruri",
+      "platform": "threads",
+      "publish_at": "2026-11-19T20:00:00+09:00",
+      "text": "夕方、鏡見たら別人だった…\n\n朝の肌、どこいった？\n\n粉っぽくならずに、毛穴だけふんわり消してくれる\nフェイスパウダー、結局どれが1番ですか？\n\n40代の愛用品、1個だけ教えてください。",
+      "media": [],
+      "reply_to_item_id": null
+    }
+  ]
 }
