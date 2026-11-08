@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updated_at": "2026-11-06T21:52:00+09:00",
+  "updated_at": "2026-11-08T15:30:59+09:00",
   "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
   "items": [
     {
@@ -1001,6 +1001,106 @@
       "text": "夕方、鏡見たら別人だった…\n\n朝の肌、どこいった？\n\n粉っぽくならずに、毛穴だけふんわり消してくれる\nフェイスパウダー、結局どれが1番ですか？\n\n40代の愛用品、1個だけ教えてください。",
       "media": [],
       "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261112-am",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-12T08:00:00+09:00",
+      "text": "「\"石の上にも三年\"って、三年たったら何が変わるんだろう。待つあいだに、ほんとうに何が育つんだろう。」",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261112-am-r1",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-12T08:00:00+09:00",
+      "text": "石の上で三年待たなかった人もいる。漱石は40歳で大学を辞め、新聞社に入った。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261112-am"
+    },
+    {
+      "item_id": "soseki-20261112-am-r2",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-12T08:00:00+09:00",
+      "text": "「石の上で育ったもの」と「石の上で失ったもの」を、紙に書き分けてみる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261112-am-r1"
+    },
+    {
+      "item_id": "soseki-20261112-pm",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-12T21:00:00+09:00",
+      "text": "明日、面接がある。準備はしたはずなのに、眠る前に浮かぶのは『うまく話せなかったら』ばかりだ。\n『草枕』の画工は、山道を登りながら、人とのあいだに少し余白を取っていた。面接の前夜は、練習した言葉を置いて、明日の自分を少し遠くから見てみる。案外、そのままでいいのかもしれない。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261113-am",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-13T08:00:00+09:00",
+      "text": "『甘えだ』『辞めたい』と思うたびに、自分にそう言い聞かせてしまう。\n『こころ』の先生も、言えなかったことを手紙に残した。声に出せなかった気持ちは、なかったことにはならない。\n『甘えだ』という言葉は、いつから自分の言葉になったんだろう。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261113-pm",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-13T21:00:00+09:00",
+      "text": "43歳で安定した仕事を辞めた人の言葉が、頭に残っている。『挑戦せずに同じ毎日を続けて、後悔する人生の方が怖かった』『門』の宗助も、過去の出来事を抱えたまま、静かに暮らしていた。後悔は、辞めた先にも、辞めなかった先にもある。もう遅いを言い訳にしない。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261114-am",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-14T08:00:00+09:00",
+      "text": "給料日、通帳の残高を見て、ため息をつく。辞めたい気持ちと、生活費の計算が、同じ机の上に並んでいる。\n『道草』の健三は、養父からの金の無心に悩まされ続けた。生活の重さは、給料の額だけでは測れない。\n『会社はATMと割り切り、ぼちぼちやってます』そんな言葉を、コメント欄で見かけた。割り切ることと、諦めることは、どこが違うんだろう。",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261114-pm",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-14T21:00:00+09:00",
+      "text": "「\"転職は逃げだ\"って、逃げた先に何があるんだろう。逃げずにいたら、何が残るんだろう。」",
+      "media": [],
+      "reply_to_item_id": null
+    },
+    {
+      "item_id": "soseki-20261114-pm-r1",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-14T21:00:00+09:00",
+      "text": "『それから』の代助は、父の仕送りで暮らしながら、三千代との結婚を選んだ。逃げたのではなく、選び直したようにも見える。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261114-pm"
+    },
+    {
+      "item_id": "soseki-20261114-pm-r2",
+      "source_cron_id": "soseki-batch-20261112-1114",
+      "account": "soseki",
+      "platform": "threads",
+      "publish_at": "2026-11-14T21:00:00+09:00",
+      "text": "『逃げだ』と言ったのは、誰だっただろう。自分の声か、誰かの声か、確かめてみる。",
+      "media": [],
+      "reply_to_item_id": "soseki-20261114-pm-r1"
     }
   ]
 }
