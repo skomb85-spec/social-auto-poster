@@ -1,6 +1,6 @@
 {
  "version": 1,
- "updated_at": "2026-11-09T13:16:26+09:00",
+ "updated_at": "2026-11-09T13:54:16+09:00",
  "note": "Approved posts for the Cloudflare auto-poster. Maintained by merging per-account batches into the current queue (never regenerate from scratch). Results are recorded in Cloudflare KV (result:<item_id>).",
  "items": [
   {
@@ -1155,6 +1155,17 @@
    "text": "朝、鏡を見たら前髪だけベタベタに固まってた人へ。オイルは前髪を分けておいて最後に手の残りだけで触れるのが、私の答え合わせです。私が残したエマ・コカルネのヘアオイルはプロフィールのリンクに置きました（PR）\n#40代美容 #ヘアオイル #毛先ケア",
    "media": [],
    "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-ttp-006-v3.mp4",
+   "reply_to_item_id": null
+  },
+  {
+   "item_id": "ruri-ig-20261114-reel-018",
+   "source_cron_id": null,
+   "account": "ruri",
+   "platform": "instagram",
+   "publish_at": "2026-11-14T20:00:00+09:00",
+   "text": "夕方、トイレの鏡でファンデのよれに気づいた人へ。朝、美容液がなじむ前に次を重ねていないか、私の見直しポイントです。私が残したオルビスの美白美容液はプロフィールのリンクに置きました（PR）\n#40代美容 #美白ケア #化粧崩れ",
+   "media": [],
+   "video_url": "https://social-auto-poster.soseki-life.workers.dev/media/short-ttp-007-v1.mp4",
    "reply_to_item_id": null
   }
  ]
