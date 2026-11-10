@@ -22,8 +22,6 @@
 // KV binding: STATE (namespace "auto-poster")
 //   token:threads:<account> -> long-lived Threads token (user-saved)
 //   token:instagram:ruri     -> long-lived Instagram token (user-saved)
-//   token:notion             -> Notion integration token (user-saved);
-//                               read-only, used for the Notion queue DB
 //   id:instagram:ruri        -> Instagram user id for the ruri account
 //   media:<name>             -> media bytes served at /media/<name>
 //   result:<item_id>         -> per-item result JSON (double-post guard)
@@ -54,19 +52,19 @@
 //   /__status   -> last scheduled run summary from KV
 //   /__dryrun   -> per-account token whoami + queue read + due judgement,
 //                  no posting
+//
+// Notion queue source (added 2026-11-06): when the NOTION_TOKEN secret
+// is set, rows with status "queued" in the Notion database
+// CONFIG.notionDbId are fetched on every run and merged into the queue
+// (GitHub items win on item_id collisions). Outcomes of Notion-sourced
+// items are written back to their rows (status -> posted/failed, plus
+// result_url when a permalink is known). Without the secret the Notion
+// source is disabled and behaviour is exactly the GitHub-only flow.
 
 const CONFIG = {
   queueUrl:
     "https://raw.githubusercontent.com/skomb85-spec/social-auto-poster/main/queue.json",
-  // Second queue source (added 2026-11-06 at the user's request, to end
-  // per-batch GitHub push approvals): a Notion database the user and
-  // Muse write rows into; the Worker reads it on every run and merges
-  // its items into the queue by item_id (queue.json wins on conflict).
-  // The Notion integration token lives in KV under token:notion
-  // (user-saved). Missing token or a Notion outage never blocks the
-  // queue.json flow; it is only reported in the run summary.
-  notionDataSourceId: "80496f34-f658-4440-b359-38950ac01319",
-  notionTokenKey: "token:notion",
+  notionDbId: "eb149a9566fb4debb473cfd5f0170372",
   graph: "https://graph.threads.net/v1.0",
   igGraph: "https://graph.instagram.com/v21.0",
   maxAttempts: 3,
@@ -100,6 +98,18 @@ const ACCOUNTS = [
     lane: "threads_tomurai",
   },
   {
+    account: "threads_makanai",
+    tokenKey: "token:threads:threads_makanai",
+    platform: "threads",
+    lane: "threads_makanai",
+  },
+  {
+    account: "threads_tenki",
+    tokenKey: "token:threads:threads_tenki",
+    platform: "threads",
+    lane: "threads_tenki",
+  },
+  {
     account: "mu",
     tokenKey: "token:threads:mu",
     platform: "threads",
@@ -117,6 +127,12 @@ const ACCOUNTS = [
     idKey: "id:instagram:ruri",
     platform: "instagram",
     lane: "ruri_instagram",
+  },
+  {
+    account: "japancostlab",
+    tokenKey: "token:threads:japancostlab",
+    platform: "threads",
+    lane: "japancostlab",
   },
 ];
 
@@ -276,6 +292,178 @@ async function getPostMetrics(token, postId) {
   return out;
 }
 
+// ---- Notion queue source -------------------------------------------------
+
+function notionRichText(prop) {
+  if (!prop || !Array.isArray(prop.rich_text)) return "";
+  return prop.rich_text.map((t) => t.plain_text || "").join("");
+}
+
+// Converts one Notion database page into a queue item. Rows that lack
+// item_id, account or publish_at cannot be scheduled safely, so they
+// are skipped and reported through `errors` instead. The Instagram
+// lane (lane name "ruri_instagram") selects queue items by account
+// "ruri" + platform "instagram", so a row addressed by that lane name
+// is normalized to the values the lane filter matches. The row's
+// video_url column maps to item.video_url, which the Reels flow
+// requires (item.text is the caption).
+function notionPageToItem(page, errors) {
+  const p = page.properties || {};
+  const itemId = ((p.item_id && p.item_id.title) || [])
+    .map((t) => t.plain_text || "")
+    .join("")
+    .trim();
+  const rawAccount =
+    p.account && p.account.select ? p.account.select.name : null;
+  const rawPlatform =
+    p.platform && p.platform.select ? p.platform.select.name : null;
+  const publishAt =
+    p.publish_at && p.publish_at.date ? p.publish_at.date.start : null;
+  if (!itemId || !rawAccount || !publishAt) {
+    const missing = [
+      !itemId ? "item_id" : null,
+      !rawAccount ? "account" : null,
+      !publishAt ? "publish_at" : null,
+    ]
+      .filter(Boolean)
+      .join(", ");
+    errors.push(`notion row ${page.id}: skipped, missing ${missing}`);
+    return null;
+  }
+  let account = rawAccount;
+  let platform = rawPlatform;
+  if (rawAccount === "ruri_instagram") {
+    account = "ruri";
+    platform = "instagram";
+  }
+  const mediaRaw = notionRichText(p.media);
+  const media = mediaRaw
+    ? mediaRaw
+        .split(/[\n,]/)
+        .map((s) => s.trim())
+        .filter(Boolean)
+    : [];
+  const replyToPostId = notionRichText(p.reply_to_post_id).trim();
+  const replyToItemId = notionRichText(p.reply_to_item_id).trim();
+  const videoUrl = notionRichText(p.video_url).trim();
+  return {
+    item_id: itemId,
+    source_cron_id: null,
+    account,
+    platform,
+    publish_at: publishAt,
+    text: notionRichText(p.text),
+    media,
+    video_url: videoUrl || null,
+    reply_to_item_id: replyToItemId || null,
+    reply_to_post_id: replyToPostId || null,
+    source: "notion",
+    notion_page_id: page.id,
+  };
+}
+
+// The Notion token comes from the NOTION_TOKEN secret when present, and
+// otherwise from the KV key "token:notion" (dashboard-saved). The KV path
+// keeps the Notion source alive across API-driven version deploys, which
+// cannot carry secret_text values.
+async function resolveNotionToken(env) {
+  if (env.NOTION_TOKEN) return env.NOTION_TOKEN;
+  try {
+    return (await env.STATE.get("token:notion")) || null;
+  } catch {
+    return null;
+  }
+}
+
+// Fetches every "queued" row of the Notion queue database. Returns
+// { enabled, items, errors }; row-level problems land in errors, while
+// transport/API failures throw so the caller can isolate them from the
+// GitHub queue flow. Without a Notion token the source is disabled
+// and this is a no-op.
+async function fetchNotionQueue(env) {
+  const token = await resolveNotionToken(env);
+  const out = { enabled: !!token, items: [], errors: [] };
+  if (!token) return out;
+  let cursor;
+  do {
+    const resp = await fetch(
+      `https://api.notion.com/v1/databases/${CONFIG.notionDbId}/query`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Notion-Version": "2022-06-28",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          filter: { property: "status", select: { equals: "queued" } },
+          page_size: 100,
+          ...(cursor ? { start_cursor: cursor } : {}),
+        }),
+      }
+    );
+    if (!resp.ok) {
+      const detail = await resp.text().catch(() => "");
+      throw new Error(
+        `notion query http ${resp.status}: ${detail.slice(0, 200)}`
+      );
+    }
+    const data = await resp.json();
+    for (const page of data.results || []) {
+      const item = notionPageToItem(page, out.errors);
+      if (item) out.items.push(item);
+    }
+    cursor = data.has_more ? data.next_cursor : undefined;
+  } while (cursor);
+  return out;
+}
+
+// Mirrors a finished Notion-sourced item's outcome back to its row:
+// status select -> "posted" / "failed", plus result_url when the post
+// permalink is a URL. Best-effort by design: failures are logged into
+// the lane summary and never fail the run (the KV result remains the
+// double-post guard of record).
+async function notionWriteBack(env, summary, item, status, permalink) {
+  if (!item || item.source !== "notion" || !item.notion_page_id) return;
+  const token = await resolveNotionToken(env);
+  if (!token) return;
+  const properties = { status: { select: { name: status } } };
+  if (
+    status === "posted" &&
+    typeof permalink === "string" &&
+    permalink.startsWith("http")
+  ) {
+    properties.result_url = { url: permalink };
+  }
+  try {
+    const resp = await fetch(
+      `https://api.notion.com/v1/pages/${item.notion_page_id}`,
+      {
+        method: "PATCH",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Notion-Version": "2022-06-28",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ properties }),
+      }
+    );
+    if (!resp.ok) {
+      const detail = await resp.text().catch(() => "");
+      throw new Error(
+        `notion patch http ${resp.status}: ${detail.slice(0, 200)}`
+      );
+    }
+  } catch (e) {
+    summary.errors.push({
+      item_id: item.item_id,
+      error: `notion write-back failed: ${String(
+        (e && e.message) || e
+      ).slice(0, 200)}`,
+    });
+  }
+}
+
 async function runAccount(env, cfg, queue, { dry = false } = {}) {
   const summary = {
     username: null,
@@ -388,6 +576,13 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
               ...extMeta,
             })
           );
+          await notionWriteBack(
+            env,
+            summary,
+            item,
+            "posted",
+            dup.permalink || null
+          );
         }
         summary.posted.push({
           item_id: item.item_id,
@@ -407,6 +602,7 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
             updated_at: new Date().toISOString(),
           })
         );
+        await notionWriteBack(env, summary, item, "failed", null);
       }
       summary.skipped.push({ item_id: item.item_id, why: "attempts exhausted" });
       continue;
@@ -601,6 +797,7 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
           ...(cond ? { condition: cond, metrics: observed } : {}),
         })
       );
+      await notionWriteBack(env, summary, item, "posted", permalink);
       summary.posted.push({
         item_id: item.item_id,
         permalink,
@@ -637,6 +834,9 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
           ...(cond ? { condition: cond, metrics: observed } : {}),
         })
       );
+      if (status === "failed_final") {
+        await notionWriteBack(env, summary, item, "failed", null);
+      }
       summary.errors.push({
         item_id: item.item_id,
         error: String((e && e.message) || e).slice(0, 200),
@@ -750,6 +950,13 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
               source_cron_id: item.source_cron_id || null,
             })
           );
+          await notionWriteBack(
+            env,
+            summary,
+            item,
+            "posted",
+            dup.permalink || null
+          );
         }
         summary.posted.push({
           item_id: item.item_id,
@@ -799,6 +1006,7 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
             source_cron_id: item.source_cron_id || null,
           })
         );
+        await notionWriteBack(env, summary, item, "posted", permalink);
         summary.posted.push({ item_id: item.item_id, permalink });
         continue;
       }
@@ -814,6 +1022,7 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
             source_cron_id: item.source_cron_id || null,
           })
         );
+        await notionWriteBack(env, summary, item, "failed", null);
         summary.errors.push({
           item_id: item.item_id,
           error: "missing video_url",
@@ -829,6 +1038,7 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
             updated_at: new Date().toISOString(),
           })
         );
+        await notionWriteBack(env, summary, item, "failed", null);
         summary.skipped.push({
           item_id: item.item_id,
           why: "attempts exhausted",
@@ -887,6 +1097,7 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
           source_cron_id: item.source_cron_id || null,
         })
       );
+      await notionWriteBack(env, summary, item, "posted", permalink);
       summary.posted.push({ item_id: item.item_id, permalink });
     } catch (e) {
       if (e instanceof RateLimitError) {
@@ -918,6 +1129,9 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
           source_cron_id: item.source_cron_id || null,
         })
       );
+      if (status === "failed_final") {
+        await notionWriteBack(env, summary, item, "failed", null);
+      }
       summary.errors.push({
         item_id: item.item_id,
         error: String((e && e.message) || e).slice(0, 200),
@@ -928,133 +1142,15 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
   return summary;
 }
 
-// --- Notion queue source -------------------------------------------------
-// Rows of the "投稿キュー｜auto-poster" Notion database become queue
-// items. Columns: item_id (title), account (select), platform (select),
-// publish_at (date, with time), text (rich text), media_urls (rich text,
-// one URL per line; Instagram uses the first as video_url),
-// reply_to_item_id / reply_to_post_id (rich text, optional).
-// The "ruri_instagram" account option is normalized to account "ruri"
-// + platform "instagram". Invalid rows are skipped and reported in
-// summary.notion; they never abort the run.
-function notionPlainText(prop) {
-  if (!prop) return "";
-  const parts = prop.rich_text || prop.title || [];
-  return parts.map((p) => p.plain_text || "").join("");
-}
-
-async function fetchNotionItems(env, summary) {
-  // Token sources, in order: the NOTION_TOKEN Worker secret (user-set
-  // in the dashboard), then the KV token:notion fallback (user-saved).
-  const token =
-    env.NOTION_TOKEN || (await env.STATE.get(CONFIG.notionTokenKey));
-  if (!token) {
-    summary.notion = { status: "no_token", added: 0 };
-    return [];
-  }
-  const items = [];
-  const skipped = [];
-  let cursor = undefined;
-  try {
-    for (let page = 0; page < 5; page++) {
-      const resp = await fetch(
-        `https://api.notion.com/v1/data_sources/${CONFIG.notionDataSourceId}/query`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Notion-Version": "2025-09-03",
-            "Content-Type": "application/json",
-            "User-Agent": "social-auto-poster",
-          },
-          body: JSON.stringify({
-            page_size: 100,
-            ...(cursor ? { start_cursor: cursor } : {}),
-          }),
-        }
-      );
-      if (!resp.ok) {
-        summary.notion = {
-          status: "error",
-          added: 0,
-          error: `notion http ${resp.status}`,
-        };
-        return [];
-      }
-      const data = await resp.json();
-      for (const row of data.results || []) {
-        const props = row.properties || {};
-        const itemId = notionPlainText(props.item_id).trim();
-        let account =
-          (props.account && props.account.select && props.account.select.name) ||
-          "";
-        let platform =
-          (props.platform &&
-            props.platform.select &&
-            props.platform.select.name) ||
-          "";
-        if (account === "ruri_instagram") {
-          account = "ruri";
-          platform = "instagram";
-        }
-        const publishAt =
-          (props.publish_at &&
-            props.publish_at.date &&
-            props.publish_at.date.start) ||
-          "";
-        const text = notionPlainText(props.text);
-        const replyItem = notionPlainText(props.reply_to_item_id).trim();
-        const replyPost = notionPlainText(props.reply_to_post_id).trim();
-        const mediaUrls = notionPlainText(props.media_urls)
-          .split(/[\n,]+/)
-          .map((u) => u.trim())
-          .filter(Boolean);
-        if (
-          !itemId ||
-          !account ||
-          !platform ||
-          !publishAt ||
-          Number.isNaN(Date.parse(publishAt)) ||
-          !text.trim()
-        ) {
-          skipped.push(itemId || row.id || "unknown");
-          continue;
-        }
-        const item = {
-          item_id: itemId,
-          source_cron_id: null,
-          account,
-          platform,
-          publish_at: publishAt,
-          text,
-          media: [],
-          reply_to_item_id: replyItem || null,
-          source: "notion",
-        };
-        if (replyPost) item.reply_to_post_id = replyPost;
-        if (platform === "instagram" && mediaUrls[0]) {
-          item.video_url = mediaUrls[0];
-        }
-        items.push(item);
-      }
-      if (!data.has_more) break;
-      cursor = data.next_cursor;
-    }
-  } catch (e) {
-    summary.notion = {
-      status: "error",
-      added: 0,
-      error: String((e && e.message) || e).slice(0, 200),
-    };
-    return [];
-  }
-  summary.notion = { status: "ok", added: 0, skipped };
-  return items;
-}
-
 async function run(env, { dry = false } = {}) {
   const startedAt = new Date().toISOString();
-  const summary = { at: startedAt, dry, accounts: {}, errors: [] };
+  const summary = {
+    at: startedAt,
+    dry,
+    accounts: {},
+    errors: [],
+    notion: { enabled: !!env.NOTION_TOKEN, fetched: 0, errors: [] },
+  };
 
   const qResp = await fetch(`${CONFIG.queueUrl}?t=${Date.now()}`, {
     headers: { "User-Agent": "social-auto-poster" },
@@ -1065,26 +1161,26 @@ async function run(env, { dry = false } = {}) {
     return summary;
   }
   const queue = await qResp.json();
+  if (!Array.isArray(queue.items)) queue.items = [];
 
-  // Merge the Notion queue source: new item_ids are appended, existing
-  // queue.json items win on conflict, duplicates inside Notion collapse.
+  // Merge the Notion queue source. A Notion outage must never break
+  // GitHub queue processing, so failures only land in summary.notion.
+  // GitHub items win on item_id collisions.
   try {
-    const notionItems = await fetchNotionItems(env, summary);
-    const known = new Set((queue.items || []).map((i) => i.item_id));
-    let added = 0;
-    for (const item of notionItems) {
-      if (known.has(item.item_id)) continue;
-      known.add(item.item_id);
+    const notion = await fetchNotionQueue(env);
+    summary.notion.enabled = notion.enabled;
+    summary.notion.fetched = notion.items.length;
+    summary.notion.errors.push(...notion.errors);
+    const knownIds = new Set(queue.items.map((i) => i.item_id));
+    for (const item of notion.items) {
+      if (knownIds.has(item.item_id)) continue;
       queue.items.push(item);
-      added++;
+      knownIds.add(item.item_id);
     }
-    if (summary.notion) summary.notion.added = added;
   } catch (e) {
-    summary.notion = {
-      status: "error",
-      added: 0,
-      error: String((e && e.message) || e).slice(0, 200),
-    };
+    summary.notion.errors.push(
+      String((e && e.message) || e).slice(0, 300)
+    );
   }
 
   for (const cfg of ACCOUNTS) {
@@ -1150,12 +1246,7 @@ export default {
     }
     // Public media hosting for Instagram video_url: bytes live in KV
     // under media:<name>. Meta's fetcher requires a durable public URL.
-    // HEAD is served with the same headers as GET (no body): some
-    // fetchers (e.g. Buffer) probe with HEAD before downloading.
-    if (
-      url.pathname.startsWith("/media/") &&
-      (request.method === "GET" || request.method === "HEAD")
-    ) {
+    if (url.pathname.startsWith("/media/") && request.method === "GET") {
       const name = decodeURIComponent(url.pathname.slice("/media/".length));
       if (!name || name.includes("/") || name.includes("..")) {
         return Response.json({ error: "bad media name" }, { status: 400 });
@@ -1172,10 +1263,9 @@ export default {
         ".png": "image/png",
       };
       const ext = name.slice(name.lastIndexOf(".")).toLowerCase();
-      return new Response(request.method === "HEAD" ? null : buf, {
+      return new Response(buf, {
         headers: {
           "Content-Type": types[ext] || "application/octet-stream",
-          "Content-Length": String(buf.byteLength),
           "Cache-Control": "public, max-age=3600",
         },
       });
