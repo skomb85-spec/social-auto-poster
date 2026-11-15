@@ -679,15 +679,18 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
       }
     }
 
-    // soseki tree delay (user request 2026-11-14): for the soseki
-    // account, tree replies are held until one hour after the ROOT post
-    // of the chain was posted. The root is found by walking
-    // reply_to_item_id through the merged queue; its posting time is
-    // result:<root>.posted_at. Waiting consumes no attempt. Dry runs
-    // skip this gate (read-only diagnostics).
+    // One-hour live delay: soseki trees and ruri affiliate CTA replies.
+    // Ruri applies only to explicitly named affiliate CTA items; other
+    // ruri replies remain unaffected. The clock starts at the ROOT post's
+    // actual KV posted_at, not merely its scheduled publish_at.
+    // Waiting consumes no attempt; dry runs bypass this gate.
+    const ruriAffiliateCta =
+      item.account === "ruri" &&
+      typeof item.item_id === "string" &&
+      /^ruri-aff-\\d{8}-[a-z0-9-]+-cta$/.test(item.item_id);
     if (
       !dry &&
-      item.account === "soseki" &&
+      (item.account === "soseki" || ruriAffiliateCta) &&
       item.reply_to_item_id &&
       !extReplyId
     ) {
@@ -714,13 +717,22 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
           root && root.status === "posted"
             ? Date.parse(root.posted_at || root.updated_at || "")
             : NaN;
+        if (ruriAffiliateCta && !Number.isFinite(rootPostedAt)) {
+          summary.skipped.push({
+            item_id: item.item_id,
+            why: "affiliate CTA waiting: parent posted_at unavailable",
+          });
+          continue;
+        }
         if (
           Number.isFinite(rootPostedAt) &&
           Date.now() < rootPostedAt + 60 * 60 * 1000
         ) {
           summary.skipped.push({
             item_id: item.item_id,
-            why: "tree delay: root posted less than 1h ago",
+            why: ruriAffiliateCta
+              ? "affiliate CTA delay: parent posted less than 1h ago"
+              : "tree delay: root posted less than 1h ago",
           });
           continue;
         }
