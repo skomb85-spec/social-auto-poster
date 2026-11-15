@@ -687,7 +687,7 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
     const ruriAffiliateCta =
       item.account === "ruri" &&
       typeof item.item_id === "string" &&
-      /^ruri-aff-\\d{8}-[a-z0-9-]+-cta$/.test(item.item_id);
+      /^ruri-aff-\d{8}-[a-z0-9-]+-cta$/.test(item.item_id);
     if (
       !dry &&
       (item.account === "soseki" || ruriAffiliateCta) &&
