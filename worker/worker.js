@@ -31,6 +31,12 @@
 // post recorded under result:<reply_to_item_id>. If the parent is not
 // posted yet, the item waits for a later run (no attempt is consumed).
 //
+// soseki tree delay (2026-11-14, user request): for account "soseki",
+// tree replies are additionally held until 1 hour after the ROOT post
+// of the chain was posted, so the whole tree lands as one block about
+// an hour after the parent instead of immediately. Other accounts are
+// unaffected.
+//
 // External comment replies: an item with reply_to_post_id (a Threads
 // post/comment id NOT produced by this queue — e.g. another person's
 // comment on one of our posts) is posted as a reply to that id directly.
@@ -46,6 +52,26 @@
 // specified threshold (OR). Unmet -> result "skipped_condition" (final,
 // no retry). Metrics unreadable or unverifiable -> result
 // "skipped_condition_error" (final): a gated CTA is never posted blind.
+//
+// Comment auto-reply lane (added 2026-11-15 at the user's request,
+// replacing the agent-run comment-check crons): on every run, for the
+// soseki and ruri Threads accounts only (hoshimi stays discovery-only
+// and is never replied to), the Worker scans our own posts from the
+// last 3 hours (ruri solicitation posts: 24 hours) for comments by
+// other people and replies from the pre-approved pattern sets
+// (soseki reply-knowledge types 1-5; ruri interaction types A-E).
+// Rotation: never the same type or the same opening as the account's
+// previous reply. Hold categories (recorded, never replied):
+// criticism/anti, health/medical/mental consultations, deep personal
+// circumstances, promo/sales — keyword heuristics, biased to hold.
+// Max 3 replies per account per run. A permission error stops that
+// account's reply attempts and is recorded as 要対応：権限エラー until
+// the KV token is replaced (detected via a token fingerprint).
+// State lives in KV:
+//   comment-state:<account>  -> seen comment ids, rotation, perm flag
+//   reply:<account>:<comment_id> -> per-reply record (the results log)
+// Per-run outcomes are summarised under summary.comments, which lands
+// in state:last_run like every other lane.
 //
 // HTTP endpoints (read-only, for verification):
 //   /           -> service banner
@@ -108,6 +134,18 @@ const ACCOUNTS = [
     tokenKey: "token:threads:threads_tenki",
     platform: "threads",
     lane: "threads_tenki",
+  },
+  {
+    account: "threads_self",
+    tokenKey: "token:threads:threads_tenki",
+    platform: "threads",
+    lane: "threads_self",
+  },
+  {
+    account: "threads_batsuko",
+    tokenKey: "token:threads:threads_hoshimi",
+    platform: "threads",
+    lane: "threads_batsuko",
   },
   {
     account: "mu",
@@ -641,6 +679,54 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
       }
     }
 
+    // soseki tree delay (user request 2026-11-14): for the soseki
+    // account, tree replies are held until one hour after the ROOT post
+    // of the chain was posted. The root is found by walking
+    // reply_to_item_id through the merged queue; its posting time is
+    // result:<root>.posted_at. Waiting consumes no attempt. Dry runs
+    // skip this gate (read-only diagnostics).
+    if (
+      !dry &&
+      item.account === "soseki" &&
+      item.reply_to_item_id &&
+      !extReplyId
+    ) {
+      let rootId = null;
+      const seenIds = new Set([item.item_id]);
+      let cursor = item;
+      while (cursor && cursor.reply_to_item_id) {
+        const pid = cursor.reply_to_item_id;
+        if (seenIds.has(pid)) break;
+        seenIds.add(pid);
+        const parentItem = (queue.items || []).find(
+          (i) => i.item_id === pid
+        );
+        if (!parentItem || !parentItem.reply_to_item_id) {
+          rootId = pid;
+          break;
+        }
+        cursor = parentItem;
+      }
+      if (rootId) {
+        const rootRaw = await env.STATE.get(`result:${rootId}`);
+        const root = rootRaw ? JSON.parse(rootRaw) : null;
+        const rootPostedAt =
+          root && root.status === "posted"
+            ? Date.parse(root.posted_at || root.updated_at || "")
+            : NaN;
+        if (
+          Number.isFinite(rootPostedAt) &&
+          Date.now() < rootPostedAt + 60 * 60 * 1000
+        ) {
+          summary.skipped.push({
+            item_id: item.item_id,
+            why: "tree delay: root posted less than 1h ago",
+          });
+          continue;
+        }
+      }
+    }
+
     // Conditional CTA gate: when the item carries a condition, measure
     // the parent post before posting. A skip here is final and consumes
     // no posting attempt. In dry runs this is read-only diagnostics:
@@ -1142,6 +1228,592 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
   return summary;
 }
 
+// ---- Comment auto-reply lane (soseki + ruri, added 2026-11-15) ----------
+//
+// Design notes:
+// - Discovery mirrors discover_comments.py: /me/threads -> per post
+//   /{post_id}/replies, own-username replies filtered out.
+// - Replies are posted with the same container flow as queue items
+//   (postToThreads with reply_to_id = the comment id).
+// - Reply texts are template instantiations of the pre-approved
+//   pattern sets. Soseki: reply-knowledge.md types 1-5 (quiet voice,
+//   no emoji, no links). Ruri: research-knowledge section 6b types
+//   A-E (empathy first, know-how type E at most 1 in the last 5).
+// - When in doubt a comment is held, not answered.
+
+const COMMENT_LANE = {
+  accounts: [
+    { account: "soseki", tokenKey: "token:threads:soseki" },
+    { account: "ruri", tokenKey: "token:threads:ruri" },
+  ],
+  windowMs: 3 * 60 * 60 * 1000,
+  ruriSolicitWindowMs: 24 * 60 * 60 * 1000,
+  maxRepliesPerRun: 3,
+  maxCandidatesPerRun: 20,
+  postsLimit: 25,
+  stateKeepMs: 4 * 24 * 60 * 60 * 1000,
+};
+
+// Hold = record only, never reply. Keyword heuristics; the bias is to
+// hold whenever a category might apply.
+const HOLD_PATTERNS = [
+  { reason: "promo", re: /https?:\/\/|www\./i },
+  {
+    reason: "promo",
+    re: /稼げ|副業で|月収\s*\d|アフィ|LINE\s*(を)?\s*追加|プロフ(見|から|に)|フォロー(して|お願い)|DM\s*(ください|して|下さい)/,
+  },
+  {
+    reason: "criticism",
+    re: /詐欺|ステマ|嘘つき|うそつき|宣伝乙|最悪|ふざけ/,
+  },
+  {
+    reason: "health",
+    re: /うつ病|鬱|死にたい|消えたい|自殺|自傷|通院|診断(され|を受け|結果)|副作用|カウンセリング|適応障害|パニック障害|不眠症|睡眠薬|精神科|心療内科|薬を飲|病院に行/,
+  },
+  {
+    reason: "deep_personal",
+    re: /借金|離婚|死別|亡くな|虐待|家庭内暴力|リストラされた|解雇された/,
+  },
+];
+
+const SOSEKI_HOLD_EXTRA = [
+  { reason: "health", re: /眠れなくて困|寝つけない日|不眠で悩|眠剤/ },
+];
+
+function classifyHold(text, account) {
+  for (const p of HOLD_PATTERNS) if (p.re.test(text)) return p.reason;
+  if (account === "soseki") {
+    for (const p of SOSEKI_HOLD_EXTRA) if (p.re.test(text)) return p.reason;
+  }
+  return null;
+}
+
+// Ruri solicitation posts (募集型) stay in scope for 24h instead of 3h.
+function isSolicitPost(text) {
+  return /教えて|聞かせて|募集|ありますか|何使っ|おすすめ|みんなは|どうしてる|知りたい|一言だけ|吐き出して/.test(
+    text || ""
+  );
+}
+
+// Picks one quotable clause out of a comment (the pattern sets ask for
+// the commenter's own words to be picked up). Returns null when no
+// clause is usable; templates have no-echo fallbacks.
+function extractEcho(text) {
+  if (!text) return null;
+  const clauses = String(text)
+    .split(/[。．！!？?\n、,]/)
+    .map((s) =>
+      s
+        .trim()
+        .replace(/^(私も|私の|自分も|うちも|ほんと|本当に|本当|それ|でも|やっぱり)/, "")
+        .replace(/(かなぁ|かな|かも|よね|だよね|なぁ)$/, "")
+        .trim()
+    )
+    .filter((s) => s.length >= 4);
+  let best = null;
+  for (const c of clauses) {
+    if (c.length <= 22 && (!best || c.length > best.length)) best = c;
+  }
+  if (!best && clauses.length) {
+    const first = clauses[0];
+    if (first.length >= 4) best = first.slice(0, 20);
+  }
+  return best;
+}
+
+function hashStr(s) {
+  let h = 0;
+  const str = String(s || "");
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+  return h;
+}
+
+// A permission failure (dead/revoked token, missing scope) is told
+// apart from ordinary API errors by its message shape. Ordinary errors
+// only fail the single comment; permission errors stop the account.
+function isPermissionError(e) {
+  const m = String((e && e.message) || e || "");
+  return /permission|oauth|access token|invalidated|code 190/i.test(m);
+}
+
+// Soseki templates per reply-knowledge type. Voice: quiet, no emoji,
+// no hashtags, no links, 1-3 sentences.
+const SOSEKI_TEMPLATES = {
+  1: [
+    (e) =>
+      e
+        ? `わかります。${e}という感覚、言葉にしてもらえた気がします。`
+        : `わかります。その感覚、言葉にするのは難しいですよね。`,
+    (e) =>
+      e
+        ? `同じでした。${e}——その途中でもやもやする感じ、よく覚えています。`
+        : `同じでした。割り切れないまま日々が過ぎていく感じ、よく覚えています。`,
+    (e) =>
+      e
+        ? `うなずきながら読みました。${e}というところ、特に引っかかりました。`
+        : `うなずきながら読みました。静かに効いてくる話ですよね。`,
+    (e) =>
+      e
+        ? `それ、静かに効いてきますよね。${e}の部分、私も引っかかりました。`
+        : `それ、静かに効いてきますよね。日々のことだけに、なおさらです。`,
+  ],
+  2: [
+    (e) =>
+      e
+        ? `「${e}」のところ、具体的でよく伝わりました。そういう場面があったんですね。`
+        : `具体的な場面が目に浮かびました。書いてくださってありがとうございます。`,
+    (e) =>
+      e
+        ? `「${e}」——その一言に、それまでの積み重ねが出ている気がします。`
+        : `その一言に、それまでの積み重ねが出ている気がします。`,
+    () =>
+      `読んでいて、その場面が目に浮かびました。経験を言葉にしてくださって、ありがとうございます。`,
+  ],
+  3: [
+    () =>
+      `難しいところですよね。答えは一つではないと思いますが、考えるきっかけになりました。`,
+    () =>
+      `いい問いだと思います。はっきりとは言えませんが、そこを考えるところから始まる気がします。`,
+    (e) =>
+      e
+        ? `そこは、私も断定できません。ただ、${e}と感じるところに、ヒントがあるのかもしれません。`
+        : `そこは、私も断定できません。だからこそ、考え続ける価値がある気がします。`,
+  ],
+  4: [
+    () => `ありがとうございます。そう言ってもらえると、書いてよかったと思います。`,
+    () => `読んでくださってありがとうございます。`,
+    () => `ありがとうございます。その言葉が励みになります。`,
+  ],
+  5: [
+    () =>
+      `甘えではないと思います。頑張りすぎて消耗している状態に近いのではないでしょうか。`,
+    () =>
+      `それを甘えと呼ぶのは、少し違う気がします。限界まで我慢した結果の消耗、と見る方が近いと思います。`,
+    () =>
+      `甘えではなく、休む余裕をなくしている状態だと思います。自分を責める材料にしなくて大丈夫です。`,
+  ],
+};
+
+// Ruri templates per interaction type (A empathy-only / B empathy+own
+// story / C empathy+question / D empathy+view / E know-how). Voice:
+// cheerful, everyday words; no product names, links or effect claims.
+const RURI_TEMPLATES = {
+  A: [
+    (e) =>
+      e
+        ? `ほんとそれ〜！${e}って、ぐっと印象変わるよね✨`
+        : `ほんとそれ〜！教えてくれてありがとう✨`,
+    (e) =>
+      e
+        ? `わかる〜！${e}、ほんと大事だよね😊`
+        : `わかる〜！ほんと大事なところだよね😊`,
+    (e) =>
+      e
+        ? `うんうん、${e}って実感ある〜！`
+        : `うんうん、実感ある〜！教えてくれてありがとう😊`,
+  ],
+  B: [
+    (e) =>
+      e
+        ? `わかる〜！私も${e}って感じることあるよ😊 つい後回しにしちゃうんだよね…`
+        : `わかる〜！私もつい後回しにしちゃうんだよね…😊 気づいたときが始めどきだと思うなぁ`,
+    () =>
+      `ほんとそれ〜！私も朝バタバタしてると後回しになりがちで…😅 でも大事だよね`,
+    (e) =>
+      e
+        ? `うんうん、私も同じだよ〜。${e}って、気づいたときが始めどきだと思うなぁ😊`
+        : `うんうん、私も同じだよ〜。気づいたときが始めどきだと思うなぁ😊`,
+  ],
+  C: [
+    (e) =>
+      e
+        ? `わかる〜！${e}だよね😊 ちなみに、なにかきっかけがあったの？`
+        : `わかる〜！ちなみに、なにかきっかけがあったの？😊`,
+    () => `ほんとそれ〜！気になるよね😊 みんなはどうしてるんだろう？`,
+    (e) =>
+      e
+        ? `うんうん、${e}だよね😊 きっかけって何だったの？`
+        : `うんうん、きっかけって何だったの？😊`,
+  ],
+  D: [
+    (e) =>
+      e
+        ? `わかる〜。${e}って、結局は順番と量なんだと思うなぁ😊`
+        : `わかる〜。結局は順番と量なんだと思うなぁ😊`,
+    () => `うんうん、高いものより、続けられる順番だと思う〜😊`,
+  ],
+  E: [
+    () =>
+      `わかる〜！基本は保湿と日焼け止めだよね😊 私もまずそこだけは守るようにしてるよ`,
+    () => `ほんとそれ〜！順番をそろえるだけで、使う量も安定する気がするよ😊`,
+  ],
+};
+
+function pickSosekiType(text, state) {
+  let classified;
+  if (!text) classified = "4";
+  else if (/甘え/.test(text)) classified = "5";
+  else if (
+    /[？?]|どう(したら|すれば|思う|思い)|なぜ|なんで|でしょうか|ますか|いつ|どこ/.test(
+      text
+    )
+  )
+    classified = "3";
+  else if (
+    text.length >= 44 ||
+    /私も|私の|自分も|うちも|辞めた|転職した|経験/.test(text)
+  )
+    classified = "2";
+  else if (
+    /ありがとう|ありがたい|参考にな|嬉しい|うれしい|よかった|良かった|素敵|励まされ/.test(
+      text
+    )
+  )
+    classified = "4";
+  else classified = "1";
+  // Self-blame comments always stay on type 5 (only the wording rotates).
+  if (classified === "5") return "5";
+  const prefs = {
+    1: ["1", "2", "4"],
+    2: ["2", "1", "4"],
+    3: ["3", "1", "4"],
+    4: ["4", "1", "2"],
+  };
+  const lastType = state.last && state.last.type;
+  for (const t of prefs[classified]) if (t !== lastType) return t;
+  return classified;
+}
+
+function pickRuriType(text, state, commentId) {
+  let classified;
+  if (!text) classified = "A";
+  else if (/何使って|おすすめ(を)?(教えて|ありますか)|教えて(ください|！|!)/.test(text))
+    classified = "C"; // product-asking: warm question back, never a recommendation
+  else if (/保湿|日焼け止め|順番|洗顔|クレンジング|化粧水|美容液|シャンプー/.test(text))
+    classified = "E";
+  else if (
+    /ありがとう|参考にな|嬉しい|うれしい|助かる|すごい|好き|よかった|良かった/.test(text)
+  )
+    classified = "A";
+  else if (
+    /私も|私の|自分も|うちも|なっちゃう|でした|だった/.test(text) ||
+    text.length >= 30
+  )
+    classified = "B";
+  else if (/[？?]/.test(text)) classified = "C";
+  else classified = "A";
+  // Type E (know-how) is capped at 1 in the last 5 replies.
+  if (classified === "E" && (state.recent_types || []).includes("E")) {
+    classified = "B";
+  }
+  // Type D (a view, occasionally) for opinion-like comments.
+  if (
+    classified === "A" &&
+    text &&
+    /思う|感じる/.test(text) &&
+    !(state.recent_types || []).includes("D") &&
+    hashStr(commentId) % 3 === 0
+  ) {
+    classified = "D";
+  }
+  const prefs = {
+    A: ["A", "B", "C"],
+    B: ["B", "A", "C"],
+    C: ["C", "A", "B"],
+    D: ["D", "A", "B"],
+    E: ["E", "B", "A"],
+  };
+  const lastType = state.last && state.last.type;
+  for (const t of prefs[classified]) if (t !== lastType) return t;
+  return classified;
+}
+
+// Builds one reply text from the pattern set, honouring the rotation
+// rule: the opening (first 6 chars) must differ from the previous
+// reply's opening; the variant choice is deterministic per comment.
+function buildReply(account, type, echo, state, commentId) {
+  const variants =
+    (account === "soseki" ? SOSEKI_TEMPLATES : RURI_TEMPLATES)[type] || [];
+  const cands = variants
+    .map((make) => make(echo))
+    .filter((t) => t && t.length <= 220);
+  const lastOpen = state.last && state.last.opening;
+  let pool = cands.filter((t) => t.slice(0, 6) !== lastOpen);
+  if (!pool.length) pool = cands;
+  const text = pool[hashStr(commentId) % pool.length];
+  return { type, opening: text.slice(0, 6), text };
+}
+
+async function runCommentAccount(env, account, tokenKey, { dry = false } = {}) {
+  const s = {
+    username: null,
+    posts_checked: 0,
+    new_comments: 0,
+    replied: [],
+    holds: [],
+    would_reply: [],
+    errors: [],
+    pending: 0,
+    perm_error: false,
+  };
+
+  const token = await env.STATE.get(tokenKey);
+  if (!token) {
+    s.errors.push(`kv token missing: ${tokenKey}`);
+    return s;
+  }
+
+  const stateKey = `comment-state:${account}`;
+  let state = { seen: {}, last: null, recent_types: [], perm_error: null };
+  try {
+    const raw = await env.STATE.get(stateKey);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (_) {
+    // unreadable state: start fresh rather than fail the lane
+  }
+  if (!state.seen || typeof state.seen !== "object") state.seen = {};
+
+  // Permission stop: once a permission error is recorded, no further
+  // reply attempts are made until the KV token is replaced (a new
+  // token has a different fingerprint and clears the stop by itself).
+  const fp = String(hashStr(token));
+  if (state.perm_error) {
+    if (state.perm_error.fp === fp) {
+      s.perm_error = true;
+      s.errors.push("要対応：権限エラー (comment replies stopped until re-authorization)");
+      return s;
+    }
+    state.perm_error = null;
+  }
+
+  const persist = async () => {
+    if (dry) return;
+    const cutoff = Date.now() - COMMENT_LANE.stateKeepMs;
+    for (const [id, v] of Object.entries(state.seen)) {
+      if (!v || !v.at || Date.parse(v.at) < cutoff) delete state.seen[id];
+    }
+    await env.STATE.put(stateKey, JSON.stringify(state));
+  };
+
+  let me;
+  try {
+    me = await threadsFetch("/me?fields=id,username", token);
+  } catch (e) {
+    if (e instanceof RateLimitError) {
+      s.errors.push("rate_limited");
+      return s;
+    }
+    if (isPermissionError(e)) {
+      state.perm_error = {
+        at: new Date().toISOString(),
+        fp,
+        error: String((e && e.message) || e).slice(0, 200),
+      };
+      s.perm_error = true;
+      s.errors.push("要対応：権限エラー");
+      await persist();
+      return s;
+    }
+    s.errors.push(String((e && e.message) || e).slice(0, 200));
+    return s;
+  }
+  s.username = me.username || null;
+
+  let posts = [];
+  try {
+    const r = await threadsFetch(
+      `/me/threads?fields=id,text,permalink,timestamp&limit=${COMMENT_LANE.postsLimit}`,
+      token
+    );
+    posts = r.data || [];
+  } catch (e) {
+    if (e instanceof RateLimitError) {
+      s.errors.push("rate_limited");
+      return s;
+    }
+    s.errors.push(String((e && e.message) || e).slice(0, 200));
+    return s;
+  }
+
+  const now = Date.now();
+  const inWindow = posts.filter((p) => {
+    const t = Date.parse(p.timestamp || "");
+    if (!Number.isFinite(t)) return false;
+    const age = now - t;
+    if (age <= COMMENT_LANE.windowMs) return true;
+    return (
+      account === "ruri" &&
+      age <= COMMENT_LANE.ruriSolicitWindowMs &&
+      isSolicitPost(p.text)
+    );
+  });
+  s.posts_checked = inWindow.length;
+
+  const candidates = [];
+  for (const post of inWindow) {
+    let reps;
+    try {
+      const r = await threadsFetch(
+        `/${post.id}/replies?fields=id,text,username,timestamp,permalink,media_type`,
+        token
+      );
+      reps = r.data || [];
+    } catch (e) {
+      if (e instanceof RateLimitError) {
+        s.errors.push("rate_limited");
+        break;
+      }
+      s.errors.push(
+        `replies fetch ${post.id}: ${String((e && e.message) || e).slice(0, 150)}`
+      );
+      continue;
+    }
+    for (const c of reps) {
+      if (!c.id || c.username === me.username) continue;
+      const prev = state.seen[c.id];
+      if (prev && prev.s !== "error") continue;
+      if (prev && prev.s === "error" && (prev.attempts || 0) >= 2) continue;
+      candidates.push({ comment: c, post });
+    }
+  }
+  candidates.sort(
+    (a, b) =>
+      Date.parse(a.comment.timestamp || "") - Date.parse(b.comment.timestamp || "")
+  );
+  s.new_comments = candidates.length;
+
+  let repliesDone = 0;
+  let processed = 0;
+  for (const { comment, post } of candidates) {
+    if (processed >= COMMENT_LANE.maxCandidatesPerRun) break;
+    processed++;
+    const text = (comment.text || "").trim();
+
+    const hold = text ? classifyHold(text, account) : null;
+    if (hold) {
+      state.seen[comment.id] = {
+        s: "hold",
+        reason: hold,
+        at: new Date().toISOString(),
+        post_id: post.id,
+      };
+      s.holds.push({
+        comment_id: comment.id,
+        reason: hold,
+        author: comment.username || null,
+      });
+      continue;
+    }
+
+    if (repliesDone >= COMMENT_LANE.maxRepliesPerRun) continue;
+
+    const echo = extractEcho(text);
+    const type =
+      account === "soseki"
+        ? pickSosekiType(text, state)
+        : pickRuriType(text, state, comment.id);
+    const tpl = buildReply(account, type, echo, state, comment.id);
+
+    if (dry) {
+      s.would_reply.push({ comment_id: comment.id, type: tpl.type, text: tpl.text });
+      repliesDone++;
+      continue;
+    }
+
+    try {
+      const { postId, permalink } = await postToThreads(
+        me,
+        token,
+        tpl.text,
+        comment.id
+      );
+      state.seen[comment.id] = {
+        s: "replied",
+        at: new Date().toISOString(),
+        post_id: post.id,
+        reply_id: postId,
+        type: tpl.type,
+      };
+      state.last = { type: tpl.type, opening: tpl.opening };
+      state.recent_types = [...(state.recent_types || []), tpl.type].slice(-5);
+      await env.STATE.put(
+        `reply:${account}:${comment.id}`,
+        JSON.stringify({
+          account,
+          comment_id: comment.id,
+          comment_text: text.slice(0, 300),
+          author: comment.username || null,
+          on_post_id: post.id,
+          on_post_permalink: post.permalink || null,
+          type: tpl.type,
+          reply_text: tpl.text,
+          reply_id: postId,
+          permalink,
+          at: new Date().toISOString(),
+        })
+      );
+      s.replied.push({ comment_id: comment.id, type: tpl.type, permalink });
+      repliesDone++;
+    } catch (e) {
+      if (e instanceof RateLimitError) {
+        s.errors.push("rate_limited");
+        break;
+      }
+      if (isPermissionError(e)) {
+        state.perm_error = {
+          at: new Date().toISOString(),
+          fp,
+          error: String((e && e.message) || e).slice(0, 200),
+        };
+        s.perm_error = true;
+        s.errors.push("要対応：権限エラー");
+        break;
+      }
+      const prev = state.seen[comment.id];
+      state.seen[comment.id] = {
+        s: "error",
+        attempts: ((prev && prev.attempts) || 0) + 1,
+        at: new Date().toISOString(),
+        error: String((e && e.message) || e).slice(0, 200),
+      };
+      s.errors.push({
+        comment_id: comment.id,
+        error: String((e && e.message) || e).slice(0, 200),
+      });
+    }
+  }
+  const errored = s.errors.filter((e) => e && e.comment_id).length;
+  s.pending = Math.max(
+    0,
+    candidates.length - (s.replied.length + s.holds.length + s.would_reply.length + errored)
+  );
+
+  await persist();
+  return s;
+}
+
+async function runCommentLane(env, { dry = false } = {}) {
+  const out = {};
+  for (const { account, tokenKey } of COMMENT_LANE.accounts) {
+    try {
+      out[account] = await runCommentAccount(env, account, tokenKey, { dry });
+    } catch (e) {
+      out[account] = {
+        username: null,
+        posts_checked: 0,
+        new_comments: 0,
+        replied: [],
+        holds: [],
+        would_reply: [],
+        errors: [String((e && e.message) || e).slice(0, 300)],
+        pending: 0,
+        perm_error: false,
+      };
+    }
+  }
+  return out;
+}
+
 async function run(env, { dry = false } = {}) {
   const startedAt = new Date().toISOString();
   const summary = {
@@ -1150,6 +1822,7 @@ async function run(env, { dry = false } = {}) {
     accounts: {},
     errors: [],
     notion: { enabled: !!env.NOTION_TOKEN, fetched: 0, errors: [] },
+    comments: null,
   };
 
   const qResp = await fetch(`${CONFIG.queueUrl}?t=${Date.now()}`, {
@@ -1201,6 +1874,16 @@ async function run(env, { dry = false } = {}) {
         next_item: null,
       };
     }
+  }
+
+  // Comment auto-reply lane (soseki + ruri). Isolated on purpose: a
+  // failure here must never affect the posting lanes above.
+  try {
+    summary.comments = await runCommentLane(env, { dry });
+  } catch (e) {
+    summary.comments = {
+      error: String((e && e.message) || e).slice(0, 300),
+    };
   }
 
   if (!dry) {
