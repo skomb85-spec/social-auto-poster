@@ -86,6 +86,8 @@
 //   /__status   -> last scheduled run summary from KV
 //   /__dryrun   -> per-account token whoami + queue read + due judgement,
 //                  no posting
+//   /__pending  -> comments found by the discovery lane (nagi_trade),
+//                  waiting for the agent to draft replies
 //
 // Notion queue source (added 2026-11-06): when the NOTION_TOKEN secret
 // is set, rows with status "queued" in the Notion database
@@ -1906,6 +1908,177 @@ async function runCommentLane(env, { dry = false } = {}) {
   return out;
 }
 
+// ---- Comment discovery lane (nagi_trade, added 2026-11-18) -------------
+//
+// Detection only, at the user's request: the Worker notices new
+// comments on the account's recent posts and records them in KV under
+// pending-comments:<account>. It never drafts or posts a reply itself.
+// The agent polls /__pending, drafts a reply per comment, and queues
+// it as a normal queue item with item_id "nagi-reply-<comment_id>"
+// and reply_to_post_id = the comment id. Once that item's
+// result:<item_id> shows status "posted", the pending entry is pruned
+// on the next run; entries also age out after 48h. Seen-state reuses
+// comment-state:<account> with { s: "pending" } entries.
+
+const DISCOVERY_LANE = {
+  accounts: [{ account: "nagi_trade", tokenKey: "token:threads:nagi_trade" }],
+  windowMs: 3 * 60 * 60 * 1000,
+  postsLimit: 25,
+  pendingKeepMs: 48 * 60 * 60 * 1000,
+  maxPending: 50,
+  stateKeepMs: 4 * 24 * 60 * 60 * 1000,
+};
+
+async function runDiscoveryAccount(env, account, tokenKey, { dry = false } = {}) {
+  const s = { username: null, posts_checked: 0, new_comments: 0, pending: 0, errors: [] };
+
+  const token = await env.STATE.get(tokenKey);
+  if (!token) {
+    s.errors.push(`kv token missing: ${tokenKey}`);
+    return s;
+  }
+
+  const stateKey = `comment-state:${account}`;
+  let state = { seen: {} };
+  try {
+    const raw = await env.STATE.get(stateKey);
+    if (raw) state = { ...state, ...JSON.parse(raw) };
+  } catch (_) {}
+  if (!state.seen || typeof state.seen !== "object") state.seen = {};
+
+  const pendingKey = `pending-comments:${account}`;
+  let pending = [];
+  try {
+    const raw = await env.STATE.get(pendingKey);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) pending = parsed;
+    }
+  } catch (_) {}
+
+  let me;
+  try {
+    me = await threadsFetch("/me?fields=id,username", token);
+  } catch (e) {
+    if (e instanceof RateLimitError) s.errors.push("rate_limited");
+    else s.errors.push(String((e && e.message) || e).slice(0, 200));
+    return s;
+  }
+  s.username = me.username || null;
+
+  // Prune entries whose drafted reply was posted via the queue, and
+  // entries that aged out.
+  const now = Date.now();
+  const kept = [];
+  for (const entry of pending) {
+    if (!entry || !entry.comment_id) continue;
+    const detected = Date.parse(entry.detected_at || "");
+    if (Number.isFinite(detected) && now - detected > DISCOVERY_LANE.pendingKeepMs) continue;
+    let done = false;
+    try {
+      const raw = await env.STATE.get(`result:nagi-reply-${entry.comment_id}`);
+      if (raw && JSON.parse(raw).status === "posted") done = true;
+    } catch (_) {}
+    if (!done) kept.push(entry);
+  }
+  pending = kept;
+
+  let posts = [];
+  try {
+    const r = await threadsFetch(
+      `/me/threads?fields=id,text,permalink,timestamp&limit=${DISCOVERY_LANE.postsLimit}`,
+      token
+    );
+    posts = r.data || [];
+  } catch (e) {
+    if (e instanceof RateLimitError) s.errors.push("rate_limited");
+    else s.errors.push(String((e && e.message) || e).slice(0, 200));
+    s.pending = pending.length;
+    return s;
+  }
+
+  const inWindow = posts.filter((p) => {
+    const t = Date.parse(p.timestamp || "");
+    return Number.isFinite(t) && now - t <= DISCOVERY_LANE.windowMs;
+  });
+  s.posts_checked = inWindow.length;
+
+  const found = [];
+  for (const post of inWindow) {
+    let reps;
+    try {
+      const r = await threadsFetch(
+        `/${post.id}/replies?fields=id,text,username,timestamp,permalink,media_type`,
+        token
+      );
+      reps = r.data || [];
+    } catch (e) {
+      if (e instanceof RateLimitError) {
+        s.errors.push("rate_limited");
+        break;
+      }
+      s.errors.push(`replies fetch ${post.id}: ${String((e && e.message) || e).slice(0, 150)}`);
+      continue;
+    }
+    for (const c of reps) {
+      if (!c.id || c.username === me.username) continue;
+      if (state.seen[c.id]) continue;
+      found.push({ comment: c, post });
+    }
+  }
+  found.sort(
+    (a, b) => Date.parse(a.comment.timestamp || "") - Date.parse(b.comment.timestamp || "")
+  );
+  s.new_comments = found.length;
+
+  const detectedAt = new Date().toISOString();
+  for (const { comment, post } of found) {
+    state.seen[comment.id] = { s: "pending", at: detectedAt };
+    pending.push({
+      comment_id: comment.id,
+      post_id: post.id,
+      post_permalink: post.permalink || null,
+      username: comment.username || null,
+      text: (comment.text || "").slice(0, 500),
+      timestamp: comment.timestamp || null,
+      permalink: comment.permalink || null,
+      detected_at: detectedAt,
+    });
+  }
+  if (pending.length > DISCOVERY_LANE.maxPending) {
+    pending = pending.slice(pending.length - DISCOVERY_LANE.maxPending);
+  }
+  s.pending = pending.length;
+
+  if (!dry) {
+    const cutoff = Date.now() - DISCOVERY_LANE.stateKeepMs;
+    for (const [id, v] of Object.entries(state.seen)) {
+      if (!v || !v.at || Date.parse(v.at) < cutoff) delete state.seen[id];
+    }
+    await env.STATE.put(stateKey, JSON.stringify(state));
+    await env.STATE.put(pendingKey, JSON.stringify(pending));
+  }
+  return s;
+}
+
+async function runDiscoveryLane(env, { dry = false } = {}) {
+  const out = {};
+  for (const { account, tokenKey } of DISCOVERY_LANE.accounts) {
+    try {
+      out[account] = await runDiscoveryAccount(env, account, tokenKey, { dry });
+    } catch (e) {
+      out[account] = {
+        username: null,
+        posts_checked: 0,
+        new_comments: 0,
+        pending: 0,
+        errors: [String((e && e.message) || e).slice(0, 300)],
+      };
+    }
+  }
+  return out;
+}
+
 async function run(env, { dry = false } = {}) {
   const startedAt = new Date().toISOString();
   const summary = {
@@ -1915,6 +2088,7 @@ async function run(env, { dry = false } = {}) {
     errors: [],
     notion: { enabled: !!env.NOTION_TOKEN, fetched: 0, errors: [] },
     comments: null,
+    discovery: null,
   };
 
   const qResp = await fetch(`${CONFIG.queueUrl}?t=${Date.now()}`, {
@@ -1978,6 +2152,16 @@ async function run(env, { dry = false } = {}) {
     };
   }
 
+  // Comment discovery lane (nagi_trade): detection only, the agent
+  // drafts the replies. Isolated like the comment lane above.
+  try {
+    summary.discovery = await runDiscoveryLane(env, { dry });
+  } catch (e) {
+    summary.discovery = {
+      error: String((e && e.message) || e).slice(0, 300),
+    };
+  }
+
   if (!dry) {
     await env.STATE.put("state:last_run", JSON.stringify(summary));
   }
@@ -2018,6 +2202,21 @@ export default {
         ok: true,
         last_run: last ? JSON.parse(last) : null,
       });
+    }
+    if (url.pathname === "/__pending") {
+      const out = { ok: true, pending: {} };
+      for (const { account } of DISCOVERY_LANE.accounts) {
+        let list = [];
+        try {
+          const raw = await env.STATE.get(`pending-comments:${account}`);
+          if (raw) {
+            const parsed = JSON.parse(raw);
+            if (Array.isArray(parsed)) list = parsed;
+          }
+        } catch (_) {}
+        out.pending[account] = list;
+      }
+      return Response.json(out);
     }
     // Public media hosting for Instagram video_url: bytes live in KV
     // under media:<name>. Meta's fetcher requires a durable public URL.
