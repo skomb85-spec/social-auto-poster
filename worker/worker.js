@@ -30,6 +30,14 @@
 // Tree posts: an item with reply_to_item_id is posted as a reply to the
 // post recorded under result:<reply_to_item_id>. If the parent is not
 // posted yet, the item waits for a later run (no attempt is consumed).
+
+// Image posts (added 2026-11-18, user request): a queue item with a
+// non-empty media list posts to Threads with images — one entry becomes
+// an IMAGE container, two or more a CAROUSEL. Entries are public image
+// URLs, or bare names resolved against this Worker's own /media/<name>
+// hosting. Text-only items are unchanged. A tree reply whose publish_at
+// is set about 60 minutes after its parent posts as a delayed tree;
+// that scheduling is done by the operator at queue time, not here.
 //
 // soseki tree delay (2026-11-14, user request): for account "soseki",
 // tree replies are additionally held until 1 hour after the ROOT post
@@ -206,16 +214,28 @@ async function threadsPostForm(path, token, params) {
   });
 }
 
-async function postToThreads(me, token, text, replyToId) {
-  const params = { media_type: "TEXT", text };
-  if (replyToId) params.reply_to_id = replyToId;
-  const container = await threadsPostForm(`/${me.id}/threads`, token, params);
-  // Text containers are usually ready within seconds; poll briefly.
+// Public base of this Worker, used to resolve bare media names to the
+// KV-backed /media/<name> hosting.
+const WORKER_PUBLIC_BASE = "https://social-auto-poster.soseki-life.workers.dev";
+
+function resolveMediaUrl(entry) {
+  const s = String(entry || "").trim();
+  if (!s) return null;
+  if (/^https?:\/\//i.test(s)) return s;
+  return `${WORKER_PUBLIC_BASE}/media/${encodeURIComponent(s)}`;
+}
+
+// Polls a media container until FINISHED. Throws on ERROR / EXPIRED, and
+// when the poll budget runs out while still IN_PROGRESS (the caller then
+// records a failed attempt and a later run retries with a fresh
+// container). Used for image and carousel containers, which must be
+// FINISHED before they can be published.
+async function waitThreadsContainer(containerId, token, rounds = 15) {
   let status = "IN_PROGRESS";
-  for (let i = 0; i < 5 && status === "IN_PROGRESS"; i++) {
+  for (let i = 0; i < rounds && status === "IN_PROGRESS"; i++) {
     await sleep(4000);
     const s = await threadsFetch(
-      `/${container.id}?fields=status,error_message`,
+      `/${containerId}?fields=status,error_message`,
       token
     );
     status = s.status || "FINISHED";
@@ -224,6 +244,60 @@ async function postToThreads(me, token, text, replyToId) {
     }
   }
   if (status === "EXPIRED") throw new Error("container expired");
+  if (status !== "FINISHED") {
+    throw new Error(`container not finished: ${status}`);
+  }
+  return status;
+}
+
+async function postToThreads(me, token, text, replyToId, media) {
+  const urls = (Array.isArray(media) ? media : [])
+    .map(resolveMediaUrl)
+    .filter(Boolean);
+  let container;
+  if (urls.length === 0) {
+    const params = { media_type: "TEXT", text };
+    if (replyToId) params.reply_to_id = replyToId;
+    container = await threadsPostForm(`/${me.id}/threads`, token, params);
+    // Text containers are usually ready within seconds; poll briefly.
+    let status = "IN_PROGRESS";
+    for (let i = 0; i < 5 && status === "IN_PROGRESS"; i++) {
+      await sleep(4000);
+      const s = await threadsFetch(
+        `/${container.id}?fields=status,error_message`,
+        token
+      );
+      status = s.status || "FINISHED";
+      if (status === "ERROR") {
+        throw new Error(`container error: ${s.error_message || "unknown"}`);
+      }
+    }
+    if (status === "EXPIRED") throw new Error("container expired");
+  } else if (urls.length === 1) {
+    const params = { media_type: "IMAGE", image_url: urls[0], text };
+    if (replyToId) params.reply_to_id = replyToId;
+    container = await threadsPostForm(`/${me.id}/threads`, token, params);
+    await waitThreadsContainer(container.id, token);
+  } else {
+    const childIds = [];
+    for (const u of urls) {
+      const child = await threadsPostForm(`/${me.id}/threads`, token, {
+        media_type: "IMAGE",
+        image_url: u,
+        is_carousel_item: "true",
+      });
+      await waitThreadsContainer(child.id, token);
+      childIds.push(child.id);
+    }
+    const params = {
+      media_type: "CAROUSEL",
+      children: childIds.join(","),
+      text,
+    };
+    if (replyToId) params.reply_to_id = replyToId;
+    container = await threadsPostForm(`/${me.id}/threads`, token, params);
+    await waitThreadsContainer(container.id, token);
+  }
   const published = await threadsPostForm(`/${me.id}/threads_publish`, token, {
     creation_id: container.id,
   });
@@ -236,7 +310,6 @@ async function postToThreads(me, token, text, replyToId) {
   }
   return { postId: published.id, permalink };
 }
-
 async function igFetch(path, token, options = {}) {
   const resp = await fetch(CONFIG.igGraph + path, {
     ...options,
@@ -880,7 +953,8 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
         me,
         token,
         item.text,
-        replyToId
+        replyToId,
+        item.media
       );
       await env.STATE.put(
         key,
