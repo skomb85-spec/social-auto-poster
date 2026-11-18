@@ -258,7 +258,16 @@ async function waitThreadsContainer(containerId, token, rounds = 15) {
   return status;
 }
 
+// Reject malformed Japanese closing punctuation without rewriting the text.
+// Covers 「…」。, 『…』。, （…）。 and (...). followed by Japanese 。.
+function closingPunctuationError(text) {
+  const bad = String(text ?? "").match(/[」』）)]。/u);
+  return bad ? `NG_PUNCTUATION: closing bracket followed by 。 (${bad[0]})` : null;
+}
+
 async function postToThreads(me, token, text, replyToId, media) {
+  const punctuationError = closingPunctuationError(text);
+  if (punctuationError) throw new Error(punctuationError);
   const urls = (Array.isArray(media) ? media : [])
     .map(resolveMediaUrl)
     .filter(Boolean);
@@ -659,6 +668,25 @@ async function runAccount(env, cfg, queue, { dry = false } = {}) {
     }
     if (prev && prev.status === "failed_final") {
       summary.skipped.push({ item_id: item.item_id, why: "failed_final" });
+      continue;
+    }
+    // Recoverable rejection: corrected copy with the same item_id can pass.
+    // No external publishing call or retry budget is consumed.
+    const punctuationError = closingPunctuationError(item.text);
+    if (punctuationError) {
+      if (!dry && (prev?.status !== "invalid_copy" || prev?.error !== punctuationError)) {
+        await env.STATE.put(
+          key,
+          JSON.stringify({
+            status: "invalid_copy",
+            attempts: prev ? prev.attempts || 0 : 0,
+            error: punctuationError,
+            updated_at: new Date().toISOString(),
+            source_cron_id: item.source_cron_id || null,
+          })
+        );
+      }
+      summary.errors.push({ item_id: item.item_id, error: punctuationError });
       continue;
     }
     if (prev && prev.status === "rate_limited") {
@@ -1108,6 +1136,25 @@ async function runInstagramAccount(env, cfg, queue, { dry = false } = {}) {
     }
     if (prev && prev.status === "failed_final") {
       summary.skipped.push({ item_id: item.item_id, why: "failed_final" });
+      continue;
+    }
+    // Recoverable rejection: corrected copy with the same item_id can pass.
+    // No external publishing call or retry budget is consumed.
+    const punctuationError = closingPunctuationError(item.text);
+    if (punctuationError) {
+      if (!dry && (prev?.status !== "invalid_copy" || prev?.error !== punctuationError)) {
+        await env.STATE.put(
+          key,
+          JSON.stringify({
+            status: "invalid_copy",
+            attempts: prev ? prev.attempts || 0 : 0,
+            error: punctuationError,
+            updated_at: new Date().toISOString(),
+            source_cron_id: item.source_cron_id || null,
+          })
+        );
+      }
+      summary.errors.push({ item_id: item.item_id, error: punctuationError });
       continue;
     }
     if (prev && prev.status === "rate_limited") {
