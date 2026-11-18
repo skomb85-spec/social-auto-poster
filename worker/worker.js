@@ -180,6 +180,12 @@ const ACCOUNTS = [
     platform: "threads",
     lane: "japancostlab",
   },
+  {
+    account: "nagi_trade",
+    tokenKey: "token:threads:nagi_trade",
+    platform: "threads",
+    lane: "nagi_trade",
+  },
 ];
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
